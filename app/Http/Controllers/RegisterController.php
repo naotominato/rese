@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -19,12 +20,19 @@ class RegisterController extends Controller
         $name = $request->name;
         $email = $request->email;
         $password = $request->password;
-        User::create([
+        $user = User::create([
             'name' => $name,
             'email' => $email,
             'password' => Hash::make($password)
         ]);
-        return redirect()->route('thanks');
+        event(new Registered($user));
+        return redirect()->route('registered');
+    }
+
+    //ユーザー登録後、表示画面
+    public function registered()
+    {
+        return view('users.auth-verify');
     }
 
     public function thanks()

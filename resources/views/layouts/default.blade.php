@@ -74,6 +74,7 @@
       @yield('login')
       @yield('mypage')
       @yield('reserved')
+      @yield('verify')
     </div>
   </main>
 
