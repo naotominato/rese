@@ -1,0 +1,92 @@
+table {
+  width: 100%;
+}
+
+th {
+  width: 10%;
+}
+
+td {
+  width: 90%;
+}
+
+/*----- 登録画面 -----*/
+
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55vh;
+}
+
+.register__box {
+  width: 400px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px #696969;
+}
+
+.register__title {
+  padding: 20px;
+  background: #0000FF;
+  color: #fff;
+  border-radius: 8px 8px 0 0;
+}
+
+/*----- 登録情報　入力欄 -----*/
+
+.register__form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 0 0 8px 8px;
+}
+
+.register__td--error {
+  font-size: 12px;
+  padding: -10px 0;
+  text-align: right;
+  color: #B1063A;
+}
+
+.register__icon {
+  width: 23px;
+}
+
+.register__td {
+  padding: 10px 0;
+}
+
+.register__input {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #000;
+  font-size: 16px;
+}
+
+.register__input:focus {
+  outline: none;
+  border-bottom: 2px solid #000;
+}
+
+/*----- 登録情報　送信ボタン -----*/
+
+.register__box--bottom {
+  text-align: right;
+}
+
+.register__btn {
+  margin-top: 20px;
+  background: #0000FF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 20%;
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+.register__btn:hover {
+  box-shadow: 0 0 8px #696969;
+}
+

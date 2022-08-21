@@ -1,0 +1,24 @@
+.header-left {
+  width: 20%;
+}
+
+.header-right {
+  width: 80%;
+  height: auto;
+}
+
+.hamburger-trigger {
+  background: #3CB371;
+}
+
+.hamburger-trigger:hover {
+  background: rgb(60, 179, 113, 0.8);
+}
+
+.hedder__title {
+  color: #3CB371;
+}
+
+.menu__item {
+  color: #3CB371;
+}

@@ -1,0 +1,29 @@
+/*---- 予約完了画面 -----*/
+
+.reserved {
+  background: #fff;
+  text-align: center;
+  width: 450px;
+  margin: 0 auto;
+  padding: 100px 0;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px #696969;
+}
+
+.reserved__text {
+  margin-bottom: 50px;
+  font-size: 22px;
+}
+
+.mypage__link {
+  background: #0000FF;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.mypage__link:hover {
+  background: rgb(0, 0, 255, 0.8);
+  box-shadow: 0 0 8px #696969;
+}

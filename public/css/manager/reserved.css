@@ -1,0 +1,59 @@
+.manager__nav {
+  color: rgb(60, 179, 113);
+  ;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 1% 2%;
+  border-radius: 5px;
+}
+
+.manager__nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.manager__nav ul li {
+  font-size: clamp(16px, 1vw, 20px);
+  cursor: pointer;
+}
+
+.manager__nav ul li:not(:last-of-type) {
+  margin-right: 8%;
+}
+
+.manager__nav ul li:hover {
+  opacity: 0.6;
+}
+
+.manager__content {
+  display: flex;
+  gap: 2%;
+}
+
+.shop__title {
+  font-size: 22px;
+}
+
+.shop-manager {
+  color: rgb(60, 179, 113);
+}
+
+.reserved__title {
+  margin: 25px 0 5px;
+  font-size: 20px;
+}
+
+.reserved__table {
+  background: rgb(255, 248, 220);
+}
+
+.reserved__table {
+  width: 100%;
+}
+
+.reserved__table tr th,
+.reserved__table tr td {
+  border: 1px solid rgb(60, 179, 113);
+  padding: 5px 10px;
+}
+

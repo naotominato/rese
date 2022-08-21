@@ -1,0 +1,206 @@
+/*----- 検索ボックス -----*/
+
+.search {
+  width: 98%;
+  height: 100%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px #696969;
+  margin-right: 2%;
+  box-sizing: border-box;
+}
+
+.search__form {
+  height: 100%;
+}
+
+.search__box {
+  display: flex;
+  height: 100%;
+}
+
+.area__search, .genre__search {
+  width: 22.5%;
+  height: 100%;
+}
+
+.area__select, .genre__select {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  border: none;
+  border-right: 1px solid rgb(199, 195, 195);
+  cursor: pointer;
+  text-align: center;
+  font-size: clamp(2px, 1vw, 16px); /*検討中*/
+}
+
+.area__select {
+  border-radius: 8% 0 0 8%;
+}
+
+.shop__search {
+  width: 55%;
+}
+
+.search__input {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 5%;
+}
+
+.area__select:hover,
+.genre__select:hover,
+.search__input:hover {
+  background: rgb(220, 220, 220, 0.4);
+}
+
+.area__select:focus,
+.genre__select:focus,
+.search__input:focus {
+  outline: none;
+  background: rgb(220, 220, 220, 0.2);
+}
+
+.search__btn {
+  width: 9%;
+  height: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  border-left: 1px solid rgb(199, 195, 195);
+  border-radius: 0 8px 8px 0;
+  font-size: clamp(8px, 1vw, 16px);  /*検討中*/
+}
+
+.search__btn:hover {
+  background: rgb(220, 220, 220, 0.4);
+}
+
+.search__btn:active {
+  background: rgb(220, 220, 220);
+}
+
+/*----- 店舗一覧 -----*/
+
+.shop__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 1%;
+  margin-bottom: 50px;
+}
+
+/*----- 各店舗 -----*/
+
+.shop__card {
+  width: 24%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px #696969;
+}
+
+.shop__image {
+  width: 100%;
+  height: 55%;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.shop__desc {
+  margin: 7% 8% 0;
+}
+
+.shop-name {
+  font-size: 20px;
+  margin-bottom: 4%;
+  font-size: clamp(18px, 1vw, 24px);  /*検討中*/
+}
+
+.shop__tag {
+  display: flex;
+  font-size: 14px;
+  margin-bottom: 9%;
+  font-size: clamp(8px, 1vw, 14px); /*検討中*/  
+}
+
+
+.shop-area__tag {
+  margin-right: 0.5em;
+}
+
+.shop__detail {
+  background: #0000FF;
+  padding: 4% 6%;
+  color: #fff;
+  border-radius: 5px;
+  font-size: clamp(10px, 1vw, 16px); /*検討中*/
+}
+
+.shop__detail:hover {
+  background: rgb(0, 0, 255, 0.8);
+  box-shadow: 0 0 8px #696969;
+}
+
+.shop__card--bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+/*----- ログイン時：お気に入り表示 -----*/
+
+.favorite__form {
+  width: 20%;
+}
+
+.favorite__btn {
+  background: none;
+  border: none;
+  width: 20%;
+  font-size: 32px;
+}
+
+.favorite__icon {
+  width: 100%;
+  color: gray;
+}
+
+.pink {
+  color: red;
+}
+
+.favorite__icon:hover {
+  opacity: 0.8;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+/*------------ レスポンシブデザイン ------------*/
+
+@media screen and (max-width:768px) {
+
+  /*----- 店舗一覧 -----*/
+
+  .shop__list {
+    gap: 25px 4%;
+  }
+
+  /*----- 各お気に入り店舗 -----*/
+
+  .shop__card {
+  width: 48%;
+  }
+
+  .shop__detail {
+    padding: 4% 6%;
+    font-size: clamp(6px, 1vw, 16px);
+    /*検討中*/
+  }
+}

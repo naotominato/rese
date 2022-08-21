@@ -1,0 +1,201 @@
+body {
+  background: #F5F5F5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  margin: 0 4%;
+}
+
+/*----- header----- */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 15vh;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.header-right {
+  width: 50%;
+  height: 45%;
+}
+
+/*----- ハンバーガーメニュー -----*/
+
+.hamburger {
+  margin-right: 25px;
+}
+
+.hamburger__checkbox {
+  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.hamburger-trigger,
+.hamburger-trigger span {
+  display: inline-block;
+  transition: all 0.4s;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+}
+
+.hamburger-trigger {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: #0000FF;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #696969;
+  cursor: pointer;
+}
+
+.hamburger-trigger:hover {
+  background: rgb(0, 0, 255, 0.8);
+  box-shadow: 0 0 8px #696969;
+}
+
+.hamburger-trigger span {
+  position: absolute;
+  left: 0;
+  width: 60%;
+  height: 1px;
+  background-color: #fff;
+  margin: 0 20%;
+  border-radius: 4px;
+}
+
+.hamburger-trigger span:nth-of-type(1) {
+  top: 25%;
+  width: 30%;
+}
+
+.hamburger-trigger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-trigger span:nth-of-type(3) {
+  bottom: 25%;
+  width: 15%;
+}
+
+/*----- ハンバーガーのクリック時 -----*/
+
+#checkbox:checked+label span:nth-of-type(1) {
+  width: 60%;
+  transform: translateY(9.5px) rotate(45deg);
+}
+
+#checkbox:checked+label span:nth-of-type(2) {
+  opacity: 0;
+}
+
+#checkbox:checked+label span:nth-of-type(3) {
+  width: 60%;
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/*----- タイトル -----*/
+
+.hedder__title {
+  color: #0000FF;
+  font-size: 28px;
+}
+
+/*----- ドロワーメニュー -----*/
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.menu__position {
+  margin-bottom: 10%;
+}
+
+.menu__item {
+  width: 100%;
+  height: auto;
+  margin: 45% 0;
+  text-align: center;
+  color: #0000FF;
+  box-sizing: border-box;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/*----- ドロワーメニューを閉じる時 -----*/
+
+.menu {
+  transform: translateX(-100vw);
+  transition: all .3s linear;
+}
+
+/*----- ドロワーメニューを開く時 -----*/
+
+.menu.is-active {
+  transform: translateX(0);
+}
+
+/*------------ レスポンシブデザイン ------------*/
+
+@media screen and (max-width:768px) {
+
+  /*----- header----- */
+
+  .header-left {
+    width: 30%;
+  }
+
+  .header-right {
+    width: 70%;
+  }
+
+  /*----- ハンバーガーメニュー -----*/
+
+  .hamburger {
+    margin-right: 10%;
+  }
+
+  .hamburger-trigger {
+    width: 30px;
+    height: 30px;
+  }
+
+  /*----- タイトル -----*/
+
+  .hedder__title {
+    font-size: clamp(20px, 1vw, 28px);
+  }
+
+  /*----- ドロワーメニュー -----*/
+
+  .menu__item {
+    font-size: 22px;
+    padding: 1em;
+  }
+
+}

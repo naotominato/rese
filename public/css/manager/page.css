@@ -1,0 +1,169 @@
+.manager__nav {
+  color: rgb(60, 179, 113);;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 1% 2%;
+  border-radius: 5px;
+}
+
+.manager__nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.manager__nav ul li {
+  font-size: clamp(16px, 1vw, 20px);
+  cursor: pointer;
+}
+
+.manager__nav ul li:not(:last-of-type) {
+  margin-right: 8%;
+}
+
+.manager__nav ul li:hover {
+  opacity: 0.6;
+}
+
+.manager__content {
+  display: flex;
+  gap: 2%;
+}
+
+.shop__title {
+  font-size: 22px;
+}
+
+.shop-manager {
+  color: rgb(60, 179, 113);
+}
+
+.shop__edit,
+.edit__result {
+  width: 49%;
+}
+
+.shop__register {
+  margin: 10px 0;
+  border: 1px solid #3CB371;
+  border-radius: 5px;
+  padding: 15px 0;
+  background: rgb(60, 179, 113, 0.2);
+  text-align: center;
+}
+
+.register__title {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.error__li {
+  color: rgb(220, 20, 60);
+  text-align: left;
+  margin: 0 0 2px 5%;
+}
+
+.shop__select,
+.shop__textarea,
+.shop__input {
+  border-radius: 5px;
+  border: 1px solid #3CB371;
+  padding: 5px 0 5px 0.5em;
+  cursor: pointer;
+}
+
+.shop__select {
+  width: 43%;
+  text-align: center;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.shop__select:first-of-type {
+  margin-right: 4%;
+}
+
+.shop__textarea {
+  resize: none;
+  width: 90%;
+  height: 45vh;
+  font-size: 18px;
+}
+
+.shop__input {
+  width: 90%;
+}
+
+.shop__label {
+  display: block;
+  text-align: left;
+  margin: 0 0 2px 5%;
+}
+
+.shop__detail {
+  margin-bottom: 15px;
+}
+
+.shop__image-url {
+  margin-bottom: 15px;
+}
+
+.register-shop__btn:hover {
+  background: rgb(60, 179, 113, 0.8);
+  box-shadow: 0 0 6px #696969;
+}
+
+.edit__result {
+  margin: 10px 0;
+  border: 1px solid #3CB371;
+  border-radius: 5px;
+  padding: 15px 0;
+  background: rgb(60, 179, 113, 0.2);
+}
+
+.result {
+  text-align: center;
+  font-size: 18px;
+}
+
+.shop__info {
+  width: 90%;
+  margin: 10px auto;
+}
+
+.shop__image {
+  width: 100%;
+}
+
+.shop__name {
+  font-size: 32px;
+  margin-left: 10px;
+}
+
+.shop__image {
+  width: 100%;
+}
+
+.shop__tag {
+  display: flex;
+  margin: 20px 0;
+}
+
+.shop-area__tag {
+  margin-right: 20px;
+}
+
+.shop__detail {
+  width: 100%;
+}
+
+.register-shop__btn {
+  background: #3CB371;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 60px;
+  padding: 5px 0;
+  margin-left: 1%;
+  cursor: pointer;
+}

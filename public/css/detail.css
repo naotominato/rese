@@ -1,0 +1,206 @@
+.detail-page__content {
+  display: flex;
+}
+
+/*----- 店舗詳細 -----*/
+
+.shop__info {
+  width: 50%;
+}
+
+.shop__title {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.page__back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  background: #fff;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #696969;
+}
+
+.page__back:hover {
+  box-shadow: 1px 1px 4px #696969;
+  cursor: pointer;
+}
+
+.shop__name {
+  font-size: 32px;
+  margin-left: 10px;
+}
+
+.shop__image {
+  width: 100%;
+}
+
+.shop__tag {
+  display: flex;
+  margin: 20px 0;
+}
+
+.shop-area__tag {
+  margin-right: 20px;
+}
+
+.shop__detail {
+  width: 100%;
+}
+
+/*----- 予約画面 -----*/
+
+.reserve {
+  width: 50%;
+}
+
+.reserve__box {
+  background: rgba(0, 0, 255, 0.7);
+  height: 115%;
+  width: 85%;
+  margin: -10Vh 0 0 15%;
+  border-radius: 5px;
+  position: relative;
+}
+
+.reserve__body {
+  margin: 0 5%;
+}
+
+.reserve__title {
+  color: #fff;
+  font-size: 28px;
+  padding: 35px 0;
+}
+
+.date__input {
+  position: relative;
+  display: block;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.date__input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+.date__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.date__input::-webkit-clear-button {
+  -webkit-appearance: none;
+}
+
+.reserve__select, .reserve__btn {
+  cursor: pointer;
+  display: block;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.reserve__select {
+  margin-top: 1em;
+  width: 90%;
+}
+
+.reserve__btn {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4em;
+  background: #0000FF;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+}
+
+.reserve__btn:hover {
+  background: rgb(0, 0, 255, 0.6);
+  box-shadow: 0 0 8px #696969;
+  font-size: 17px;
+}
+
+/*----- バリデーション -----*/
+
+.error {
+  color: #fff;
+  margin-top: 5px;
+}
+
+/*----- リアルタイム入力 -----*/
+
+.realtime__check {
+  color: #fff;
+  background: rgb(30, 144, 255, 0.6);
+  width: 80%;
+  padding: 20px 10px;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.realtime__table {
+  border-collapse: separate;
+  border-spacing: 20px 10px;
+}
+
+/*------------ レスポンシブデザイン ------------*/
+
+@media screen and (max-width:768px) {
+
+  .detail-page__content {
+    display: block;
+  }
+
+  /*----- 店舗詳細 -----*/
+
+  .shop__info {
+    width: 100%;
+  }
+
+  .shop__title {
+    margin-bottom: 20px;
+  }
+
+  .page__back {
+    font-size: 20px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .shop__name {
+    font-size: 26px;
+  }
+
+  .shop__image {
+    width: 80%;
+    text-align: center;
+  }
+
+  .shop__tag,
+  .shop__detail {
+    font-size: 14px;
+  }
+
+  /*----- 予約画面 -----*/
+
+  .reserve {
+    width: 100%;
+  }
+
+  .reserve__box {
+    width: 100%;
+    height: 80vh;
+    margin: 30px 0;
+  }
+}

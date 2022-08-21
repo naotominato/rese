@@ -1,0 +1,293 @@
+/*----- ログインユーザー名 -----*/
+
+.user__name {
+  font-size: 30px;
+  margin-left: 45%;
+}
+
+/*----- 予約・お気に入りのコンテンツ -----*/
+
+.mypage__content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.reserve__title,
+.favorite__title {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+/*----- 予約済み情報 ------*/
+
+.reserve__section {
+  width: 40%;
+}
+
+.reserve__result {
+  background: #0000FF;
+  color: #fff;
+  width: 90%;
+  margin: 0 0 3% 0;
+  padding: 20px 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px #696969;
+}
+
+.reserve__heading {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.reserve__heading--left {
+  display: flex;
+  align-items: center;
+}
+
+.reserve__icon {
+  width: 26px;
+}
+
+.reserve__name {
+  margin-left: 30px;
+}
+
+.reserve__cancel {
+  width: 26px;
+}
+
+.reserve__cancel:hover {
+  opacity: 0.8;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.reserve__tables {
+  display: flex;
+  justify-content: space-around;
+}
+
+.reserve__show {
+  border-collapse: separate;
+  border-spacing: 15px 10px;
+  font-size: 14px;
+}
+
+/*----- 予約変更欄 -----*/
+
+.change__form {
+  background: #4169E1;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 1% 5% 0;
+}
+
+.reserve__change {
+  box-sizing: border-box;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+
+.date__input {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.date__input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.date__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.date__input::-webkit-clear-button {
+  -webkit-appearance: none;
+}
+
+.date__input,
+.reserve__select {
+  width: 100%;
+  font-size: 16px;
+  background: #E6E6FA;
+  cursor: pointer;
+}
+
+.change__form--bottom {
+  display: flex;
+  justify-content: end;
+}
+
+.change__btn {
+  background: #E6E6FA;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 3% 0 7%;
+}
+
+.change__btn:hover {
+  background: #dcdcfa;
+  box-shadow: 0 0 10px #000080;
+}
+
+/*----- 予約変更欄　エラーメッセージ -----*/
+
+.error {
+  font-size: 12px;
+}
+
+/*----- お気に入り店舗一覧 -----*/
+
+.favorite__section {
+  width: 55%;
+}
+
+.shop__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 10%;
+}
+
+/*----- 各お気に入り店舗 -----*/
+
+.shop__card {
+  width: 45%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px #696969;
+}
+
+.shop__image {
+  width: 100%;
+  height: 55%;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.shop__desc {
+  margin: 7% 8% 0;
+}
+
+.shop__name {
+  font-size: 20px;
+  margin-bottom: 4%;
+  font-size: clamp(16px, 1vw, 24px);
+    /*検討中*/
+}
+
+.shop__tag {
+  display: flex;
+  font-size: 14px;
+  margin-bottom: 9%;
+  font-size: clamp(8px, 1vw, 14px);
+    /*検討中*/
+}
+
+.shop-area__tag {
+  margin-right: 0.5em;
+}
+
+.shop__detail {
+  background: #0000FF;
+  padding: .7em 1em;
+  color: #fff;
+  border-radius: 5px;
+  font-size: clamp(10px, 1vw, 16px);
+    /*検討中*/
+}
+
+.shop__detail:hover {
+  background: rgb(0, 0, 255, 0.8);
+  box-shadow: 0 0 8px #696969;
+}
+
+.shop__card--bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*----- お気に入り削除ボタン -----*/
+
+.favorite__form {
+  width: 20%;
+}
+
+.favorite__btn {
+  background: none;
+  border: none;
+  width: 20%;
+  font-size: 32px;
+}
+
+.favorite__icon {
+  width: 100%;
+  color: red;
+}
+
+.favorite__icon:hover {
+  opacity: 0.6;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+/*------------ レスポンシブデザイン ------------*/
+
+@media screen and (max-width:768px) {
+
+  /*----- ログインユーザー名 -----*/
+  .user__name {
+    font-size: 24px;
+    margin-left: 0;
+  }
+
+  /*----- 予約・お気に入りのコンテンツ -----*/
+
+  .mypage__content {
+    display: block;
+    margin: 25px 0;
+  }
+
+  .reserve__title,
+  .favorite__title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  /*----- 予約済み情報 ------*/
+
+  .reserve__section {
+    width: 100%;
+  }
+
+  .reserve__result {
+    width: 90%;
+  }
+
+  .favorite__title {
+    margin-top: 35px;
+  }
+
+  .favorite__section {
+    width: 100%;
+  }
+
+  /*----- お気に入り店舗一覧 -----*/
+
+  .shop__list {
+    gap: 20px 4%;
+  }
+
+  .shop__card {
+    width: 48%;
+  }
+}

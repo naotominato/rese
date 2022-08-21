@@ -1,0 +1,90 @@
+.admin__nav {
+  color: #DC143C;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 1% 2%;
+  border-radius: 5px;
+}
+
+.admin__nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.admin__nav ul li {
+  font-size: clamp(16px, 1vw, 20px);
+  cursor: pointer;
+}
+
+.admin__nav ul li:not(:last-of-type) {
+  margin-right: 8%;
+}
+
+.admin__nav ul li:hover {
+  opacity: 0.6;
+}
+
+.create-shop {
+  font-size: clamp(12px, 1vw, 20px);
+  border: 2px solid #DC143C;
+  border-radius: 5px;
+  padding: 20px 0;
+  background: rgb(220, 20, 60, 0.1);
+  margin-bottom: 20px;
+  width: 50%;
+  text-align: center;
+}
+
+.error {
+  color: rgb(220, 20, 60);
+  text-align: right;
+  margin: 2px 10% 0 0;
+}
+
+.create-shop__input {
+  width: 50%;
+  border-radius: 5px;
+  border: 1px solid #DC143C;
+  padding: 5px 0 5px 0.5em;
+  cursor: pointer;
+}
+
+.create-shop__btn {
+  background: #DC143C;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 60px;
+  padding: 5px 0;
+  margin-left: 1%;
+  cursor: pointer;
+}
+
+.create-shop__btn:hover {
+  background: rgb(220, 20, 60, 0.8);
+  box-shadow: 0 0 8px #696969;
+}
+
+.shop__table {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.shop__table tr th,
+.shop__table tr td {
+  border: 1px solid #DC143C;
+  padding: 5px 10px;
+}
+
+.shop__table tr th:first-of-type,
+.shop__table tr td:first-of-type {
+  width: 10%;
+}
+
+.shop-id {
+  text-align: center;
+}
+
+.not-exist {
+  color: rgb(220, 20, 60, 0.6);;
+}
