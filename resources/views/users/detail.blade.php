@@ -6,8 +6,9 @@
 <div class="detail-page__content">
   <div class="shop__info">
     <div class="shop__title">
-      <a href="{{ route('back') }}" class="page__back"> < </a>
-      <h2 class="shop__name">{{ $shop->name }}</h2>
+      <a href="{{ route('back') }}" class="page__back">
+        < </a>
+          <h2 class="shop__name">{{ $shop->name }}</h2>
     </div>
     <img src="{{ $shop->image_url }}" alt="" class="shop__image">
     <div class="shop__tag">
@@ -16,7 +17,7 @@
     </div>
     <p class="shop__detail">{{ $shop->detail }}</p>
   </div>
-  @auth
+  @if(auth()->check() && auth()->user()->hasVerifiedEmail())
   <div class="reserve">
     <div class="reserve__box">
       <form action="{{ route('reserve') }}" method="POST" id="reserve__form">
@@ -33,20 +34,18 @@
           @enderror
           <select name="time" id="reserve__time" class="reserve__select">
             <option hidden>時間を選択</option>
-            @for ($i = 10; $i <= 22; $i++)
-            <option value="{{ $i }}:00">{{ $i }}:00</option>
-            <option value="{{ $i }}:30">{{ $i }}:30</option>
-            @endfor
-            <option value="23:00">23:00</option>
+            @for ($i = 10; $i <= 22; $i++) <option value="{{ $i }}:00">{{ $i }}:00</option>
+              <option value="{{ $i }}:30">{{ $i }}:30</option>
+              @endfor
+              <option value="23:00">23:00</option>
           </select>
           @error('time')
           <p class="error">{{ $message }}</p>
           @enderror
           <select name="number" id="reserve__number" class="reserve__select">
             <option hidden>人数を選択</option>
-            @for ($n = 1; $n <= 20; $n++)
-            <option value="{{ $n }}">{{ $n }}人</option>
-            @endfor
+            @for ($n = 1; $n <= 20; $n++) <option value="{{ $n }}">{{ $n }}人</option>
+              @endfor
           </select>
           @error('number')
           <p class="error">{{ $message }}</p>
@@ -76,7 +75,7 @@
       </form>
     </div>
   </div>
-  @endauth
+  @endif
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

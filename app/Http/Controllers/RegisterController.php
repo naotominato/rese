@@ -32,7 +32,7 @@ class RegisterController extends Controller
     //ユーザー登録後、表示画面
     public function registered()
     {
-        return view('users.auth-verify');
+        return view('emails.registered-send-email');
     }
 
     public function thanks()

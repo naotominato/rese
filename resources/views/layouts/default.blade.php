@@ -34,6 +34,35 @@
         </div>
       </div>
     </div>
+    @if(auth()->check() && auth()->user()->hasVerifiedEmail())
+    <div class="menu">
+      <div class="menu__position">
+        <div class="menu__item">
+          <a href="{{ route('index') }}">Home</a>
+        </div>
+        <div class="menu__item">
+          <a href="{{ route('logout') }}">Logout</a>
+        </div>
+        <div class="menu__item">
+          <a href="{{ route('mypage') }}">Mypage</a>
+        </div>
+      </div>
+    </div>
+    @elseif(auth()->check() && !auth()->user()->hasVerifiedEmail())
+    <div class="menu">
+      <div class="menu__list">
+        <div class="menu__item">
+          <a href="{{ route('index') }}">Home</a>
+        </div>
+        <div class="menu__item">
+          <a href="{{ route('verification.notice') }}">send-email</a>
+        </div>
+        <div class="menu__item">
+          <a href="{{ route('logout') }}">Logout</a>
+        </div>
+      </div>
+    </div>
+    @endif
     @guest
     <div class="menu">
       <div class="menu__list">
@@ -49,21 +78,6 @@
       </div>
     </div>
     @endguest
-    @auth
-    <div class="menu">
-      <div class="menu__position">
-        <div class="menu__item">
-          <a href="{{ route('index') }}">Home</a>
-        </div>
-        <div class="menu__item">
-          <a href="{{ route('logout') }}">Logout</a>
-        </div>
-        <div class="menu__item">
-          <a href="{{ route('mypage') }}">Mypage</a>
-        </div>
-      </div>
-    </div>
-    @endauth
   </header>
   <main>
     <div class="container">
@@ -74,7 +88,9 @@
       @yield('login')
       @yield('mypage')
       @yield('reserved')
-      @yield('verify')
+      <!-- @yield('verify') -->
+      @yield('email')
+      @yield('registered')
     </div>
   </main>
 

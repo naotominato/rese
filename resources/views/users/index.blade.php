@@ -32,11 +32,14 @@
 
 @section('index')
 
-@if(Auth::check())
-<div>ログイン中</div>
-@else
-<div>ログインしていません！</div>
+@if(auth()->check() && auth()->user()->hasVerifiedEmail())
+<div>メール認証済みユーザー【ログイン中】</div>
+@elseif(auth()->check() && !auth()->user()->hasVerifiedEmail())
+<p>【仮登録中】メール認証が必要です。</p>
 @endif
+@guest
+<div>ユーザー登録も、ログインも、していません！</div>
+@endguest
 
 <div class="shop__list">
   @foreach($shops as $shop)
@@ -52,7 +55,7 @@
       </div>
       <div class="shop__card--bottom">
         <a href="{{ route('detail', ['shop_id' => $shop->id]) }}" class="shop__detail">詳しくみる</a>
-        @auth
+        @if(auth()->check() && auth()->user()->hasVerifiedEmail())
         @if(!$shop->isfavoritedBy(Auth::id()))
         <span class="favorite__btn">
           <i class="fa-solid fa-heart favorite__icon" id="favorite__icon" data-favorite-id="{{ $shop->id }}"></i>
@@ -62,7 +65,7 @@
           <i class="fa-solid fa-heart favorite__icon pink" id="favorite__icon" data-favorite-id="{{ $shop->id }}"></i>
         </span>
         @endif
-        @endauth
+        @endif
       </div>
     </div>
   </div>

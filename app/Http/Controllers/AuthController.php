@@ -21,7 +21,7 @@ class AuthController extends Controller
             return redirect()->route('index');
         } else {
             $user_none = "ログイン情報が一致しません。";
-                return view('login', compact('user_none'));
+                return view('users.login', compact('user_none'));
         } 
     }
 

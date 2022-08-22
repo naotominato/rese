@@ -11,15 +11,15 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-    Route::get('register1', [RegisteredUserController::class, 'create'])
-                ->name('register1');
+    // Route::get('register', [RegisteredUserController::class, 'create'])
+//                 ->name('register');
 
-    Route::post('register1', [RegisteredUserController::class, 'store']);
+//     Route::post('register', [RegisteredUserController::class, 'store']);
 
-    Route::get('login1', [AuthenticatedSessionController::class, 'create'])
-                ->name('login1');
+//     Route::get('login', [AuthenticatedSessionController::class, 'create'])
+//                 ->name('login');
 
-    Route::post('login1', [AuthenticatedSessionController::class, 'store']);
+    // Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->name('password.request');
@@ -35,22 +35,22 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
-                ->name('verification.notice');
+    // Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
+    //             ->name('verification.notice');
 
     Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
                 ->middleware(['signed', 'throttle:6,1'])
                 ->name('verification.verify');
 
-    Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-                ->middleware('throttle:6,1')
-                ->name('verification.send');
+    // Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+    //             ->middleware('throttle:6,1')
+    //             ->name('verification.send');
 
     Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
                 ->name('password.confirm');
 
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
 
-    Route::post('logout1', [AuthenticatedSessionController::class, 'destroy'])
-                ->name('logout1');
+    // Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+    //             ->name('logout');
 });
