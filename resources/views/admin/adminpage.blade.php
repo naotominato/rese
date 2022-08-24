@@ -6,8 +6,7 @@
   <ul>
     <li><a href="{{ route('shoppage') }}">店舗作成/一覧</a></li>
     <li><a href="{{ route('manager') }}">店舗代表者Login</a></li>
-    <li><a href="{{ route('auth') }}">ユーザ―Login</a></li>
-    <li><a href="{{ route('index') }}">店舗一覧（ユーザー）</a></li>
+    <li><a href="{{ route('index') }}">お客様用画面</a></li>
   </ul>
 </nav>
 @endsection
@@ -37,7 +36,7 @@
 
     <div class="manager">
       <label for="manager_name">店舗代表者：</label>
-      <input type="text" name="manager_name" id="name" class="manager__input" placeholder="Manager Name" value="{{ old('name') }}">
+      <input type="text" name="manager_name" id="name" class="manager__input" placeholder="Manager Name" value="{{ old('manager_name') }}">
       <label for="email">　メールアドレス：</label>
       <input type="text" name="email" id="email" class="manager__input" placeholder="Email" value="{{ old('email') }}">
       <label for="password">　パスワード：</label>

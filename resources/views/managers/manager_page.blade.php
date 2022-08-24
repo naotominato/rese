@@ -4,8 +4,8 @@
 <nav class="manager__nav">
   <ul>
     <li><a href="{{ route('managerreserved') }}">予約状況確認</a></li>
-    <li><a href="{{ route('auth') }}">ユーザ―Login</a></li>
-    <li><a href="{{ route('index') }}">店舗一覧（ユーザー）</a></li>
+    <li><a href="{{ route('sentmail') }}">お気に入り（メール）</a></li>
+    <li><a href="{{ route('index') }}">お客様用画面</a></li>
   </ul>
 </nav>
 @endsection
@@ -28,23 +28,29 @@
         @csrf
         <input type="hidden" name="shop_id" value="{{ $manager->shop_id }}">
 
-        <select name="area_id" id="" class="shop__select">
-          <option value="" selected>Area 選択</option>
+        <label for="area">Area：</label>
+        <select name="area_id" id="area" class="shop__select">
+          <option hidden>選択してください</option>
           @foreach ($areas as $area)
           <option value="{{ $area->id }}" @if($area->id == $shop->area_id) selected @endif>{{ $area->name }}</option>
           @endforeach
         </select>
 
-        <select name="genre_id" id="" class="shop__select">
-          <option value="" selected>Genre 選択</option>
+        <label for="genre">Genre：</label>
+        <select name="genre_id" id="genre" class="shop__select">
+          <option hidden>選択してください</option>
           @foreach ($genres as $genre)
           <option value="{{ $genre->id }}" @if($genre->id == $shop->genre_id) selected @endif>{{ $genre->name }}</option>
           @endforeach
         </select>
 
         <div class="shop__detail">
-          <label for="detail" class="shop__label">店舗紹介文</label>
+          <label for="detail" class="shop__label">店舗紹介文（500文字以内）</label>
+          @if (!old('detail'))
           <textarea name="detail" id="detail" class="shop__textarea" placeholder="店舗説明文">{{ $shop->detail }}</textarea>
+          @elseif (old('detail'))
+          <textarea name="detail" id="detail" class="shop__textarea">{{ old('detail') }}</textarea>
+          @endif
         </div>
 
         <!-- <div class="shop__image-url">
@@ -52,9 +58,12 @@
           <input type="text" name="image_url" id="imageurl" class="shop__input" placeholder="画像URL" value="{{ $shop->image_url }}">
         </div> -->
 
+        <label for="shop_image">【jpg,jpeg,png,gif/10MBまで】店舗画像：</label>
         <input type="file" name="shop_image">
 
-        <button class="register-shop__btn">登録</button>
+        <div class="shop__btn">
+          <button class="register-shop__btn">登録</button>
+        </div>
       </form>
       <!-- <div class="shop__image">
         <form action="" method="POST" enctype="multipart/form-date">
@@ -65,9 +74,10 @@
       </div> -->
     </div>
   </div>
-
   <div class="edit__result">
-    @if($shop->area && $shop->genre && $shop->detail && $shop->image_url)
+    @if(!$shop->area && !$shop->genre && !$shop->detail && !$shop->image_url)
+    <p class="result">店舗情報は現在、未設定です。</p>
+    @else
     <h4 class="result">現在の店舗情報</h4>
     <div class="shop__info">
       <img src="{{ asset($shop->image_url) }}" alt="" class="shop__image">
@@ -77,8 +87,6 @@
       </div>
       <p class="shop__detail">{{ $shop->detail }}</p>
     </div>
-    @else
-    <p class="result">店舗情報は現在、未設定です。</p>
     @endif
   </div>
 </div>

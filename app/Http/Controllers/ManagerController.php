@@ -10,7 +10,12 @@ use App\Models\Manager;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Reserve;
+use App\Models\Favorite;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+//メール送信用
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class ManagerController extends Controller
 {
@@ -24,7 +29,7 @@ public function managerLogin(AuthRequest $request)
         
         $manager = $request->only(['email', 'password']);
         if (Auth::guard('manager')->attempt($manager)) {
-            return redirect()->route('managerpage');
+            return redirect()->route('managerreserved');
         } else {
             $user_none = "ログイン情報が一致しません。";
             return view('managers.manager_login', compact('user_none'));
@@ -78,17 +83,29 @@ public function managerLogin(AuthRequest $request)
 
     public function shopCreate(ShopRegisterRequest $request) //店舗 新規作成用　バリデーション含めると思う
     {
-        //ファイルをストレージに保存処理
-        $directory = 'shop_image';
-        $file_name = $request->file('shop_image')->getClientOriginalName();
-        $request->file('shop_image')->storeAs('public/' . $directory, $file_name);
-        $image_url = 'storage/' . $directory . '/' . $file_name;
-
         //Authで店舗代表者とshop_idを一致させる
         $shop_id = $request->input('shop_id');
-        
-        //セキュリティ性を上げるため、一度、managerログイン者と照合している。
+
+        //セキュリティ性を上げるため、一度、managerログイン者と照合。&&　else image_urlで使用。
         $manager = Manager::where('id', Auth::id())->where('shop_id', $shop_id)->first();
+
+        // if ($request->file('shop_image')) {
+        //ファイルをストレージに保存処理
+        $directory = 'shop_image';
+        // $file_name = $request->file('shop_image')->getClientOriginalName();
+        $request->file('shop_image')->storeAs('public/' . $directory, $manager->shop->name . $manager->shop->id . '.png');
+        $image_url = 'storage/' . $directory . '/' . $manager->shop->name . $manager->shop->id . '.png';
+        // } else {
+        //     $manager_shop = Shop::where('id', $manager->shop_id)->first();
+        //     $image_url = $manager_shop->image_url;
+        //     //fileがなかったら、Shopモデルから取得
+        // }
+
+        // //もしdetailの値がなかったら、
+        // if ($detail == "") {
+        //     $detail = "店舗紹介文は、未設定です。";
+        // }
+
         Shop::where('id', $manager->shop_id)->update([
             'area_id' => $request->area_id,
             'genre_id' => $request->genre_id,
@@ -143,4 +160,35 @@ public function managerLogin(AuthRequest $request)
         
         return back();
     }
+
+    public function sent()
+    {
+        $manager = Manager::where('id', Auth::id())->first();
+        $favorites = Favorite::where('shop_id', $manager->shop_id)->get();
+
+        return view('managers.sentmail', compact('manager', 'favorites'));
+    }
+
+    public function send(Request $request)
+    {
+        $manager = Manager::where('id', Auth::id())->first();
+        $favorites = Favorite::where('shop_id', $manager->shop_id)->get();
+        
+        foreach ($favorites as $favorite) {
+        $user_name = $favorite->user->name;
+        $email = $favorite->user->email;
+        $shop_name = $favorite->shop->name;
+        $text = $request->input('text');
+        Mail::send(new SendMail($user_name, $email, $shop_name, $text));
+        }
+
+        $send = "送信完了しました！";
+
+        return view('managers.sentmail', compact('manager', 'favorites', 'send'));
+    }
+
+    // public function sent()
+    // {
+    //     view('admin.sent');
+    // }
 }

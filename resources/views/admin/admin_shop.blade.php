@@ -6,8 +6,7 @@
   <ul>
     <li><a href="{{ route('adminpage') }}">店舗代表者作成 / 店舗代表者一覧</a></li>
     <li><a href="{{ route('manager') }}">店舗代表者Login</a></li>
-    <li><a href="{{ route('auth') }}">ユーザ―Login</a></li>
-    <li><a href="{{ route('index') }}">店舗一覧（ユーザー）</a></li>
+    <li><a href="{{ route('index') }}">お客様用画面</a></li>
   </ul>
 </nav>
 @endsection
@@ -20,12 +19,15 @@
   <form action="{{ route('shopCreate') }}" method="POST">
     @csrf
     <label for="shop_name">新規作成　店舗名</label>
-    <input type="text" name="shop_name" class="create-shop__input" placeholder="店舗名" value="{{ old('shop_name') }}">
+    <input type="text" name="shop_name" class="create-shop__input" id="shop_name" placeholder="店舗名" value="{{ old('shop_name') }}">
     <button class="create-shop__btn">登録</button>
   </form>
   @error('shop_name')
   <p class="error">{{ $message }}</p>
   @enderror
+  @if(isset($shop_name))
+  <p class="error">新店舗「{{ $shop_name }}」が追加されました。</p>
+  @endif
 </div>
 
 <div class="shop__list">

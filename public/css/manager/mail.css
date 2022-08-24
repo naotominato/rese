@@ -1,0 +1,48 @@
+.mail {
+  margin: 20px 0;
+  border: 1px solid #3CB371;
+  background: rgb(60, 179, 113, 0.2);
+  border-radius: 5px;
+}
+
+.mail__title {
+  
+}
+
+.result {
+  text-align: center;
+}
+
+.mail__text {
+  text-align: center;
+}
+
+.mail__textarea {
+  resize: none;
+  width: 90%;
+  height: 25vh;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.mail__sent {
+  text-align: center;
+
+}
+
+.mail__btn {
+  background: #3CB371;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+  padding: 5px 0;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.mail__btn:hover {
+  background: rgb(60, 179, 113, 0.8);
+  box-shadow: 0 0 6px #696969;
+}

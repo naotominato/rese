@@ -17,6 +17,7 @@
     <div class="container">
       <div class="header">
         <div class="header-left">
+          @auth
           <div class="hamburger">
             <input id="checkbox" type="checkbox" class="hamburger__checkbox">
             <label class="hamburger-trigger" for="checkbox">
@@ -25,6 +26,7 @@
               <span></span>
             </label>
           </div>
+          @endauth
           <h1 class="hedder__title">Rese</h1>
         </div>
         <div class="header-right">
@@ -33,6 +35,7 @@
         </div>
       </div>
     </div>
+    @auth
     <div class="menu">
       <div class="menu__position">
         <div class="menu__item">
@@ -40,7 +43,7 @@
             <a href="{{ route('managerreserved') }}">予約状況確認</a>
           </div>
           <div class="menu__item">
-          <a href="{{ route('managerpage') }}">店舗情報登録 / 編集画面</a>
+            <a href="{{ route('managerpage') }}">店舗情報登録 / 編集画面</a>
           </div>
           <div class="menu__item">
             <a href="{{ route('managerlogout') }}">Logout</a>
@@ -48,6 +51,7 @@
         </div>
       </div>
     </div>
+    @endauth
   </header>
   <main>
     <div class="container">

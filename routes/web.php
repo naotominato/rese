@@ -29,9 +29,13 @@ Route::get('/email/verify', function () {
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
-    
-    return redirect('/thanks');
+    return redirect('/mailauth');
 })->middleware(['auth', 'signed'])->name('verification.verify');
+// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+//     $request->fulfill();
+    
+//     return redirect()->route('mailauth');//メール認証完了画面にする！
+// })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
@@ -47,8 +51,10 @@ Route::get('/registered', [RegisterController::class, 'registered'])->name('regi
 
 
 //メール送信用
-
-Route::get('/', [ShopController::class, 'index'])->name('index');
+Route::get('/mailauth', [AuthController::class, 'mailAuth'])->name('mailauth');
+//認証前後 共通画面
+Route::get('/', [ShopController::class, 'index'])
+->name('index');
 Route::get('/search', [ShopController::class, 'search'])->name('search');
 Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('detail');
 Route::get('/back', [ShopController::class, 'back'])->name('back');
@@ -67,10 +73,11 @@ Route::get('/manager', [ManagerController::class, 'manager'])->name('manager');
 Route::post('/manager/login', [ManagerController::class, 'managerLogin'])->name('managerlogin');
 
 Route::middleware(['auth:user'])->group(function () {
+    // Route::get('/index', [AuthController::class, 'kari'])->name('kari');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth:user', 'verified'])->group(function () {
     Route::get('/mypage', [MypageController::class, 'mypage'])->name('mypage');
     Route::post('/done', [ReserveController::class, 'reserve'])->name('reserve');
     Route::post('/reserve/update', [ReserveController::class, 'update'])->name('update');
@@ -86,11 +93,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::get('/logout', [AdminController::class, 'adminLogout'])->name('adminlogout');
     Route::post('/shop/create', [AdminController::class, 'shopCreate'])->name('shopCreate');
     Route::post('manager/create', [AdminController::class, 'managerCreate'])->name('adminCreate');
-    // メール送信用
-    Route::get('/mail', [AdminController::class, 'send'])->name('sendmail');
-    //メール送信完了画面
-    // Route::get('/mail/sent', [MailSendController::class, 'sent'])->name('sentmail');
-
 });
 
 //店舗代表者用
@@ -99,6 +101,10 @@ Route::middleware(['auth:manager'])->prefix('manager')->group(function () {
     Route::get('/reserved', [ManagerController::class, 'Reserved'])->name('managerreserved');
     Route::get('/logout', [ManagerController::class, 'managerLogout'])->name('managerlogout');
     Route::post('/create', [ManagerController::class, 'shopCreate'])->name('shopcreate');
+    // お気に入り（メール送信画面）
+    Route::get('/mail/sent', [ManagerController::class, 'sent'])->name('sentmail');
+    // メール送信用
+    Route::get('/mail', [ManagerController::class, 'send'])->name('sendmail');
 });
 
 

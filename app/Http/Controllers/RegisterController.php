@@ -26,14 +26,14 @@ class RegisterController extends Controller
             'password' => Hash::make($password)
         ]);
         event(new Registered($user));
-        return redirect()->route('registered');
+        return redirect()->route('thanks');
     }
 
     //ユーザー登録後、表示画面
-    public function registered()
-    {
-        return view('emails.registered-send-email');
-    }
+    // public function registered()
+    // {
+    //     return view('emails.registered-send-email');
+    // }
 
     public function thanks()
     {

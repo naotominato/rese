@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Manager;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class ManagerSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,23 +16,29 @@ class ManagerSeeder extends Seeder
     public function run()
     {
         //後から追加できるように繰り返し文で記述しております。
-        $managers = [
+        $users = [
             [
-                'name' => '店代 直人',
-                'shop_id' => 1,
+                'name' => '阿曽 直人',
                 'email' => 'na-a.a55d-h@ymail.ne.jp',
+                'email_verified_at' => '2022-08-22 16:03:17',
                 'password' => Hash::make('aaaaaaaa'),
             ],
             [
-                'name' => '店代二 直人',
-                'shop_id' => 2,
+                'name' => 'あそ　なおと',
+                'email_verified_at' => '2022-08-22 16:20:32',
                 'email' => 'na-a.a55d-h@yahoo.ne.jp',
+                'password' => Hash::make('aaaaaaaa'),
+            ],
+            [
+                'name' => 'アソ　ナオト',
+                'email_verified_at' => '2022-08-23 16:20:32',
+                'email' => 'na-a.a55d-h@docomo.ne.jp',
                 'password' => Hash::make('aaaaaaaa'),
             ],
         ];
 
-        foreach ($managers as $manager) {
-            Manager::create($manager);
+        foreach ($users as $user) {
+            User::create($user);
         }
     }
 }

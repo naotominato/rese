@@ -22,7 +22,23 @@ class AuthController extends Controller
         } else {
             $user_none = "ログイン情報が一致しません。";
                 return view('users.login', compact('user_none'));
-        } 
+        }
+    }
+
+    //メール認証後の表示画面を検討中
+    // public function __construct()
+    // {
+    //     $this->middleware('verified')->only('kari');
+    // }
+
+    // public function kari()
+    // {
+    //     return redirect()->route('index');
+    // }
+
+    public function mailAuth()
+    {
+        return view('emails.Auth');
     }
 
     public function logout(Request $request)

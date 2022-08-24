@@ -24,7 +24,6 @@ class ShopNameRegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required|integer',
             'shop_name' => 'required|string|max:191',
         ];
     }
@@ -39,8 +38,6 @@ class ShopNameRegisterRequest extends FormRequest
     public function messages()
     {
         return [
-            'id.required' => '不正な変更が確認されました。',
-            'id.integer' => '不正な変更が確認されました。',
             'shop_name.required' => '登録するには、:attributeを設定してください。',
             'shop_name.string' => '文字入力をしてください。',
             'shop_name.max' => '191文字まで入力が可能です。',

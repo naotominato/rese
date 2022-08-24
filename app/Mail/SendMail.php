@@ -16,10 +16,12 @@ class SendMail extends Mailable
      *
      * @return void
      */
-    public function __construct($name, $email)
+    public function __construct($user_name, $email, $shop_name, $text)
     {
-        $this->name = $name;
+        $this->user_name = $user_name;
         $this->email = $email;
+        $this->shop_name = $shop_name;
+        $this->text = $text;
     }
 
     /**
@@ -31,9 +33,11 @@ class SendMail extends Mailable
     {
         return $this->to($this->email)
             ->subject('お気に入り登録をしてくれている方へ')
-            ->view('admin.mail')
+            ->view('managers.mail')
             ->with([
-                'name' => $this->name,
+                'user_name' => $this->user_name,
+                'shop_name' => $this->shop_name,
+                'text' => $this->text,
             ]);
     }
 }

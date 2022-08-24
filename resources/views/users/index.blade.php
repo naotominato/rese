@@ -35,7 +35,7 @@
 @if(auth()->check() && auth()->user()->hasVerifiedEmail())
 <div>メール認証済みユーザー【ログイン中】</div>
 @elseif(auth()->check() && !auth()->user()->hasVerifiedEmail())
-<p>【仮登録中】メール認証が必要です。</p>
+<p>【仮登録中】初回のみメール認証が必要です。メールをご確認ください。</p>
 @endif
 @guest
 <div>ユーザー登録も、ログインも、していません！</div>
@@ -44,7 +44,7 @@
 <div class="shop__list">
   @foreach($shops as $shop)
   <!-- if文、あとで変更予定 -->
-  @if($shop->area && $shop->genre)
+  @if($shop->area && $shop->genre && $shop->detail && $shop->image_url)
   <div class="shop__card">
     <img src="{{ $shop->image_url }}" alt="準備中" class="shop__image">
     <div class="shop__desc">

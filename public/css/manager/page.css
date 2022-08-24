@@ -72,7 +72,7 @@
 }
 
 .shop__select {
-  width: 43%;
+  width: 30%;
   text-align: center;
   margin-bottom: 10px;
   box-sizing: border-box;
@@ -106,11 +106,6 @@
 
 .shop__image-url {
   margin-bottom: 15px;
-}
-
-.register-shop__btn:hover {
-  background: rgb(60, 179, 113, 0.8);
-  box-shadow: 0 0 6px #696969;
 }
 
 .edit__result {
@@ -166,4 +161,9 @@
   padding: 5px 0;
   margin-left: 1%;
   cursor: pointer;
+}
+
+.register-shop__btn:hover {
+  background: rgb(60, 179, 113, 0.8);
+  box-shadow: 0 0 6px #696969;
 }

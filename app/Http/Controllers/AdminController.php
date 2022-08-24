@@ -11,9 +11,6 @@ use App\Models\Manager;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-//メール送信用
-use Illuminate\Support\Facades\Mail;
-use App\Mail\SendMail;
 
 class AdminController extends Controller
 {
@@ -48,7 +45,7 @@ class AdminController extends Controller
         Shop::create([
             'name' => $shop_name,
         ]);
-        return redirect()->route('shoppage');
+        return redirect()->route('shoppage')->with(compact('shop_name'));//登録店舗を表示させたい
     }
 
     public function adminPage()
@@ -91,19 +88,4 @@ class AdminController extends Controller
         ]);
         return redirect()->route('adminpage');
     }
-
-    public function send()
-    {
-        $name = 'テスト ユーザー';
-        $email = 'test@example.com';
-
-        Mail::send(new SendMail($name, $email));
-
-        return view('admin.sentmail');
-    }
-
-    // public function sent()
-    // {
-    //     view('admin.sent');
-    // }
 }

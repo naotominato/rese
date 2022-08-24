@@ -17,6 +17,7 @@
     <div class="container">
       <div class="header">
         <div class="header-left">
+          @auth
           <div class="hamburger">
             <input id="checkbox" type="checkbox" class="hamburger__checkbox">
             <label class="hamburger-trigger" for="checkbox">
@@ -25,14 +26,16 @@
               <span></span>
             </label>
           </div>
+          @endauth
           <h1 class="hedder__title">Rese</h1>
         </div>
         <div class="header-right">
-        @yield('adminnav')
-        @yield('createnav')
+          @yield('adminnav')
+          @yield('createnav')
         </div>
       </div>
     </div>
+    @auth
     <div class="menu">
       <div class="menu__position">
         <div class="menu__item">
@@ -46,6 +49,7 @@
         </div>
       </div>
     </div>
+    @endauth
   </header>
   <main>
     <div class="container">

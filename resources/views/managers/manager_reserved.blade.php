@@ -4,8 +4,8 @@
 <nav class="manager__nav">
   <ul>
     <li><a href="{{ route('managerpage') }}">店舗情報登録 / 更新</a></li>
-    <li><a href="{{ route('auth') }}">ユーザ―Login</a></li>
-    <li><a href="{{ route('index') }}">店舗一覧（ユーザー）</a></li>
+    <li><a href="{{ route('sentmail') }}">お気に入り（メール）</a></li>
+    <li><a href="{{ route('index') }}">お客様用画面</a></li>
   </ul>
 </nav>
 @endsection

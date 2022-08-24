@@ -91,6 +91,7 @@
       <!-- @yield('verify') -->
       @yield('email')
       @yield('registered')
+      @yield('mailauth')
     </div>
   </main>
 

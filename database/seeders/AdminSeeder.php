@@ -18,9 +18,9 @@ class AdminSeeder extends Seeder
         //後から追加できるように繰り返し文で記述しております。
         $admins = [
             [
-                'name' => '阿曽 直人',
+                'name' => '管理 直人',
                 'email' => 'na-a.a55d-h@ymail.ne.jp',
-                'password' => Hash::make('05050505'),
+                'password' => Hash::make('aaaaaaaa'),
             ],
         ];
 
