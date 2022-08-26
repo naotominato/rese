@@ -55,6 +55,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasmany('App\Models\Reserve');
     }
 
+    public function review()
+    {
+        return $this->hasmany('App\Models\Review');
+    }
+
     /**
      *  認証メールを日本語化
      */

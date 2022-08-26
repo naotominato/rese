@@ -92,6 +92,7 @@
       @yield('email')
       @yield('registered')
       @yield('mailauth')
+      @yield('qrcode')
     </div>
   </main>
 

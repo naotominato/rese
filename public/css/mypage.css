@@ -19,7 +19,7 @@
   margin-bottom: 25px;
 }
 
-/*----- 予約済み情報 ------*/
+/*------- 予約済み情報 --------*/
 
 .reserve__section {
   width: 40%;
@@ -28,7 +28,7 @@
 .reserve__result {
   background: #0000FF;
   color: #fff;
-  width: 90%;
+  width: 100%;
   margin: 0 0 3% 0;
   padding: 20px 15px;
   border-radius: 8px;
@@ -145,7 +145,132 @@
   font-size: 12px;
 }
 
-/*----- お気に入り店舗一覧 -----*/
+/*----- 過去の予約 -----*/
+.reserved__content {
+  display: flex;
+}
+
+.reserved__show {
+  border-collapse: separate;
+  border-spacing: 15px 10px;
+  font-size: 14px;
+}
+
+.reviewed {
+  margin: 0 auto;
+}
+
+/*----- レビュー入力済み -----*/
+
+.star__p {
+  display: inline-block;
+}
+
+.reviewed__star {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.reviewed__star input[type=radio] {
+  display: none;
+}
+
+.reviewed__star label {
+  position: relative;
+  padding: 0 5px;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.reviewed__star input[type=radio]:checked~label {
+  color: #ffcc00;
+}
+
+.comment__pp {
+  display: inline-block;
+}
+
+.comment__div {
+  display: block;
+  border: 1px solid #fff;
+  width: 100%;
+  height: 5em;
+  border-radius: 3px;
+}
+
+.comment__end {
+  margin-top: 5px;
+  text-align: end;
+}
+
+/*----- レビュー未入力時 -----*/
+
+.review__form {
+  width: 100%;
+}
+
+.star {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.star input[type=radio] {
+  display: none;
+}
+
+.star label {
+  position: relative;
+  padding: 0 5px;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.star label:hover,
+.star label:hover ~ label,
+.star input[type=radio]:checked ~ label {
+  color: #ffcc00;
+}
+
+.comment {
+  width: 100%;
+}
+
+.comment__textarea {
+  resize: none;
+  width: 100%;
+  height: 5em;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-size: 16px;
+  background: #E6E6FA;
+}
+
+.review__button {
+  display: flex;
+  justify-content: end;
+  margin: 0 0 -1em;
+}
+
+.review__btn {
+  background: #E6E6FA;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 3% 0 7%;
+  }
+  
+.review__btn:hover {
+  background: #dcdcfa;
+  box-shadow: 0 0 10px #000080;
+}
+
+/*------- お気に入り店舗一覧 -------*/
 
 .favorite__section {
   width: 55%;

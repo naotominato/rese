@@ -17,7 +17,7 @@
 
 
 <div class="shop-reserved">
-  <h3 class="reserved__title">お客様　予約リスト</h3>
+  <h3 class="reserved__title">お客様　予約リスト（日時順）</h3>
   <div class="reserved__list">
     <table class="reserved__table">
       <tr>

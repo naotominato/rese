@@ -29,4 +29,15 @@ class Reserve extends Model
     {
         return $this->belongsTo('App\Models\Shop');
     }
+    
+    public function review()
+    {
+        return $this->hasone('App\Models\Review');
+    }
+
+    public function reviewed()
+    {
+        return Review::where('reserve_id', $this->id)->first();
+    }
+
 }

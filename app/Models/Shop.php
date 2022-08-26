@@ -42,6 +42,11 @@ class Shop extends Model
         return $this->hasmany('App\Models\Reserve');
     }
 
+    public function review()
+    {
+        return $this->hasmany('App\Models\Review');
+    }
+
     public function manager()
     {
         return $this->hasmany('App\Models\Manager');

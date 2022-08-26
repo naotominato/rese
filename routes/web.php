@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\managerController;
 
@@ -84,6 +85,9 @@ Route::middleware(['auth:user', 'verified'])->group(function () {
     Route::get('/reserve/cancel/{reserve_id}', [ReserveController::class, 'cancel'])->name('cancel');
     Route::post('/favorite/change', [FavoriteController::class, 'change'])->name('change');
     Route::post('/favorite/delete', [FavoriteController::class, 'delete'])->name('delete');
+    // //QRコードページへのリンク先
+    // Route::get('reserve/qr/{reserved_id}', [MypageController::class, 'qrcode'])->name('qrcode');
+    Route::post('/mypage/review', [ReviewController::class, 'review'])->name('review');
 });
 
 //管理者用

@@ -29,7 +29,7 @@ class ReserveController extends Controller
         return view('users.reserved');
     }
 
-                        //idにもかかる新たなバリデーション
+                    //idにもかかる新たなバリデーション
     public function update(ReserveUpdateRequest $request) //更新用
     {
         $reserve_id = $request->input('reserve_id');
