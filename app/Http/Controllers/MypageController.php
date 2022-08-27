@@ -17,7 +17,7 @@ class MypageController extends Controller
         $reserves = Reserve::where('user_id', Auth::id())->get();
         $favorites = Favorite::where('user_id', Auth::id())->get();
 
-        $now = new Carbon();
+        // $now = new Carbon();
         $now = Carbon::now();
 
         // foreach ($reserves as $reserve) {
@@ -31,15 +31,14 @@ class MypageController extends Controller
         return view('users.mypage', compact('user', 'reserves', 'now', 'favorites'));
     }
 
-    // public function qrcode($id)
-    // {
-    //     $reserved =
-    //     Reserve::where('id', $id)->where('user_id', Auth::id())->first();
+    public function qrcode($id)
+    {
+        $reserved =
+        Reserve::where('id', $id)->where('user_id', Auth::id())->first();
 
-    //     return view('users.qrcode', compact('reserved'));
-    // }
+        return view('users.qrcode', compact('reserved'));
+    }
 
     //QRコード　mypage.blade.php用
     //<a href="{{ route('qrcode', ['reserved_id' => $reserve->id]) }}">QRcode</a>
-
 }

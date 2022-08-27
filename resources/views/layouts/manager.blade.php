@@ -58,6 +58,7 @@
       @yield('managerlogin')
       @yield('managerpage')
       @yield('managerreserved')
+      @yield('managerreservedqr')
     </div>
   </main>
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\managerController;
+use App\Http\Controllers\StripePaymentsController;
 
 //メール認証用
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -86,7 +87,7 @@ Route::middleware(['auth:user', 'verified'])->group(function () {
     Route::post('/favorite/change', [FavoriteController::class, 'change'])->name('change');
     Route::post('/favorite/delete', [FavoriteController::class, 'delete'])->name('delete');
     // //QRコードページへのリンク先
-    // Route::get('reserve/qr/{reserved_id}', [MypageController::class, 'qrcode'])->name('qrcode');
+    Route::get('reserve/qr/{reserved_id}', [MypageController::class, 'qrcode'])->name('qrcode');
     Route::post('/mypage/review', [ReviewController::class, 'review'])->name('review');
 });
 
@@ -109,7 +110,13 @@ Route::middleware(['auth:manager'])->prefix('manager')->group(function () {
     Route::get('/mail/sent', [ManagerController::class, 'sent'])->name('sentmail');
     // メール送信用
     Route::get('/mail', [ManagerController::class, 'send'])->name('sendmail');
+
+    Route::get('/reserved/{reserved}/{user}/{shop}', [ManagerController::class, 'reservedQr'])->name('managerreservedqr');
 });
+
+
+//決済テスト
+Route::post('/stripe', [StripePaymentsController::class, 'stripe'])->name('stripe');
 
 
 //削除予定

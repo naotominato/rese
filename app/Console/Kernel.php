@@ -4,6 +4,8 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Models\Reserve;
+use Carbon\Carbon;
 
 class Kernel extends ConsoleKernel
 {
@@ -15,8 +17,18 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // $today = new Carbon();
+        // $today = Carbon::today();
+        // $dates = Reserve::whereDate('start', $today)->get();
+
+        // foreach ($dates as $date) {
+            $schedule->call(function () {
+            $today = Carbon::today();
+            Reserve::whereDate('start', $today)->get();
+            })->dailyAt('09:00');
+        // }
     }
+
 
     /**
      * Register the commands for the application.

@@ -191,4 +191,10 @@ public function managerLogin(AuthRequest $request)
     // {
     //     view('admin.sent');
     // }
+
+    public function reservedQr($reserved, $user, $shop)
+    {
+        $reserved = Reserve::where('id', $reserved)->where('user_id', $user)->where('shop_id', $shop)->first();
+        return view('managers.qr', compact('reserved'));
+    }
 }

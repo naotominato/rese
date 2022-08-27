@@ -18,6 +18,7 @@
             <h4 class="reserve__name">予約</h4>
           </div>
           <div class="reserve__heading--right">
+            <a href="{{ route('qrcode', ['reserved_id' => $reserve->id]) }}">QRcode</a>
             <a href="{{ route('cancel', ['reserve_id' => $reserve->id]) }}" id="cancel__btn" class="cancel__btn">
               <img src=" {{ asset('img/cancel.png') }}" alt="" class="reserve__cancel">
             </a>

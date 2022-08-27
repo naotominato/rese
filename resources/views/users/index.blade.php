@@ -41,6 +41,21 @@
 <div>ユーザー登録も、ログインも、していません！</div>
 @endguest
 
+<!-- stripe -->
+<form action="{{ route('stripe') }}" method="POST">
+  @csrf
+  <label for="pay">支払い金額入力：</label>
+  <input type="number" name="pay" id="pay">
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ env('STRIPE_KEY') }}" data-amount="1000" data-name="Stripe決済デモ" data-label="決済をする" data-description="これはデモ決済です" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="JPY">
+  </script>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+  
+</script>
+<!-- stripe -->
+
 <div class="shop__list">
   @foreach($shops as $shop)
   <!-- if文、あとで変更予定 -->
