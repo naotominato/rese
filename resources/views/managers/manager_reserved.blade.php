@@ -40,4 +40,28 @@
   </div>
 </div>
 
+<div class="shop-reserved">
+  <h3 class="reserved__title">過去の予約リスト（直近の日時順）</h3>
+  <div class="reserved__list">
+    <table class="reserved__table">
+      <tr>
+        <th>日付</th>
+        <th>時間</th>
+        <th>人数</th>
+        <th>お名前</th>
+        <th>ご連絡先</th>
+      </tr>
+      @foreach($pasts as $past)
+      <tr>
+        <td>{{ $past->start->format('Y年m月d日') }}</td>
+        <td>{{ $past->start->format('H:i') }}</td>
+        <td>{{ $past->number }}</td>
+        <td>{{ $past->user->name }}</td>
+        <td>{{ $past->user->email }}</td>
+      </tr>
+      @endforeach
+    </table>
+  </div>
+</div>
+
 @endsection

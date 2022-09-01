@@ -27,7 +27,7 @@
               <span></span>
             </label>
           </div>
-          <h1 class="hedder__title">Rese</h1>
+          <h1 class="header__title">Rese</h1>
         </div>
         <div class="header-right">
           @yield('search')
@@ -55,7 +55,7 @@
           <a href="{{ route('index') }}">Home</a>
         </div>
         <div class="menu__item">
-          <a href="{{ route('verification.notice') }}">send-email</a>
+          <a href="{{ route('verification.notice') }}">resend-email</a>
         </div>
         <div class="menu__item">
           <a href="{{ route('logout') }}">Logout</a>
@@ -90,6 +90,7 @@
       @yield('reserved')
       <!-- @yield('verify') -->
       @yield('email')
+      @yield('resend')
       @yield('registered')
       @yield('mailauth')
       @yield('qrcode')

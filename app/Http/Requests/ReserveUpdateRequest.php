@@ -24,7 +24,7 @@ class ReserveUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'reuired|integer',
+            'reserve_id' => 'required|integer',
             'shop_id' => 'required|integer',
             'date' => 'required|date_format:Y-m-d|after_or_equal:tomorrow|',
             'time' => 'required|date_format:H:i',
@@ -44,12 +44,12 @@ class ReserveUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'id.required' => '不正な変更が確認されました。',
-            'id.interger' => '不正な変更が確認されました。',
+            'reserve_id.required' => '不正な変更が確認されました。',
+            'reserve_id.interger' => '不正な変更が確認されました。',
             'shop.required' => '不正な変更が確認されました。',
             'shop.integer' => '不正な変更が確認されました。',
             'date.required' => ':attributeを選択してください。',
-            'date.after_or_equal' => '明日以降の予約が可能です。',
+            'date.after_or_equal' => '変更は明日以降で可能です。',
             'time.required' => ':attributeを選択してください。',
             'time.date_format' => '指定の項目から選択してください。',
             'number.required' => ':attributeを選択してください。',

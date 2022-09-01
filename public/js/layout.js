@@ -6,5 +6,12 @@ $(function () {
   });
 }());
 
+//----- フォームボタン連打不可 -----//
 
+// $(function() {
+//     $('button').click(function() {
+//       $(this).prop('disabled', true);
+//       $(this).closest('form').submit();
 
+//     });
+// });

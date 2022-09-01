@@ -1,12 +1,12 @@
 @extends('layouts.default')
 
-@section('email')
+@section('resend')
 <link rel="stylesheet" href="{{ asset('css/email/resend.css') }}">
 
 <div class="resend">
-  <h2 class="resend__title">現在、仮登録中です！</h2>
-  <p class="resend__text--top">ご登録いただいたメールアドレス宛に確認メールを送信しております。<br>メールのリンクからログインされますと、本登録が完了いたします。</p>
-  <p class="resend__text--top">確認メールを再送する場合は、下記再送ボタンを押してください。</p>
+  <h2 class="resend__title">確認メールが再送されました。<br>現在、仮登録中です！</h2>
+  <p class="resend__text--top">ご登録いただいたメールアドレス宛に確認メールを再送信しております。<br>メールのリンクからログインされますと、本登録が完了いたします。</p>
+  <p class="resend__text--top">再び確認メールを再送する場合は、下記再送ボタンを押してください。</p>
 
   @if (session('status') == 'verification-link-sent')
   <div class="mb-4 font-medium text-sm text-green-600">
@@ -26,5 +26,5 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="{{ asset('js/emails/resend.js') }}"></script>
+<script src="{{ asset('js/email/resend.js') }}"></script>
 @endsection

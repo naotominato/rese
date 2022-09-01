@@ -58,11 +58,16 @@
           <input type="text" name="image_url" id="imageurl" class="shop__input" placeholder="画像URL" value="{{ $shop->image_url }}">
         </div> -->
 
-        <label for="shop_image">【jpg,jpeg,png,gif/10MBまで】店舗画像：</label>
-        <input type="file" name="shop_image">
+        <div class="file__image">
+          <p class="file__title">店舗画像【 jpg, jpeg, png, gif / 10MBまで 】</p>
+          <label class="file__label">
+            <input type="file" name="shop_image" class="file__input" id="file__input">アップロード
+          </label>
+          <p class="file__data" id="file__data">【 <span class="file__name" id="file__name">ファイルをアップロードしてください</span> 】</p>
+        </div>
 
         <div class="shop__btn">
-          <button class="register-shop__btn">登録</button>
+          <button class="register-shop__btn" id="register-shop__btn">登録</button>
         </div>
       </form>
       <!-- <div class="shop__image">
@@ -77,6 +82,16 @@
   <div class="edit__result">
     @if(!$shop->area && !$shop->genre && !$shop->detail && !$shop->image_url)
     <p class="result">店舗情報は現在、未設定です。</p>
+    @elseif(!$shop->image_url)
+    <h4 class="result">現在の店舗情報</h4>
+    <div class="shop__info">
+      <p class="shop__image">店舗画像が設定されておりません<br>店舗画像を登録しないと、ユーザーには表示されません。</p>
+      <div class="shop__tag">
+        <p class="shop-area__tag">#{{ $shop->area->name }}</p>
+        <p class="shop-genre__tag">#{{ $shop->genre->name }}</p>
+      </div>
+      <p class="shop__detail">{{ $shop->detail }}</p>
+    </div>
     @else
     <h4 class="result">現在の店舗情報</h4>
     <div class="shop__info">
@@ -90,6 +105,17 @@
     @endif
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="{{ asset('js/manager/create.js') }}"></script>
+<!-- <script>
+  $('#file__input').on('change', function() {
+    let file = $(this).prop('files')[0];
+    $('#file__name').text(file.name);
+  });
+</script> -->
+
+<!-- <script src="{{ asset('js/manager/create.js') }}"></script> -->
 
 <!-- 必要なければ、削除する -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

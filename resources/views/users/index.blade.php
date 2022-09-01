@@ -33,26 +33,32 @@
 @section('index')
 
 @if(auth()->check() && auth()->user()->hasVerifiedEmail())
-<div>メール認証済みユーザー【ログイン中】</div>
+<p class="login-status">【ログイン中】<span class="user">{{ auth()->user()->name }}</span>様　(メール認証済み）</p>
 @elseif(auth()->check() && !auth()->user()->hasVerifiedEmail())
-<p>【仮登録中】初回のみメール認証が必要です。メールをご確認ください。</p>
+<div class="temporary-login">
+  <p class="temporary">【仮登録中】初回のみメール認証が必要です。届いたメールをご確認ください。</p>
+  <p class="resend">※万が一、ログイン前にメール認証を行なった場合は、もう一度、メール認証を行なってください。<br>あなたの情報を正しく判別するために、ログイン後のメール認証への流れが必要になります。</p>
+  <p class="resend">※もう一度メールを受け取りたい場合は、下記ボタンを押して、届いたメールをご確認ください。<br>　届かない場合は、恐れ入りますが、もう一度、メールアドレスをご確認の上、再度、ご登録ください。</p>
+  <form method="POST" action="{{ route('verification.send') }}">
+    @csrf
+    <div>
+      <button class="resend__btn">確認メールを再送する</button>
+    </div>
+  </form>
+</div>
 @endif
 @guest
-<div>ユーザー登録も、ログインも、していません！</div>
+<p class="login-status">【ゲスト様】ログインしておりません</p>
 @endguest
 
 <!-- stripe -->
 <form action="{{ route('stripe') }}" method="POST">
   @csrf
   <label for="pay">支払い金額入力：</label>
-  <input type="number" name="pay" id="pay">
+  <input type="number" name="pay" id="pay">円
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ env('STRIPE_KEY') }}" data-amount="1000" data-name="Stripe決済デモ" data-label="決済をする" data-description="これはデモ決済です" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="JPY">
   </script>
 </form>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script>
-  
 </script>
 <!-- stripe -->
 

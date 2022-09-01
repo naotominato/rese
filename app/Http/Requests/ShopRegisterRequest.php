@@ -28,7 +28,7 @@ class ShopRegisterRequest extends FormRequest
             'area_id' => 'required|integer',
             'genre_id' => 'required|integer',
             'detail' => 'required|string|max:1000',
-            'shop_image' => 'required|max:10240|mimes:jpg,jpeg,png,gif',//制限を指定
+            'shop_image' => 'max:10240|mimes:jpg,jpeg,png,gif',//制限を指定
             //image_urlはあとアップロード仕様に変更予定
         ];
     }
@@ -55,10 +55,8 @@ class ShopRegisterRequest extends FormRequest
             'detail.required' => ':attributeは入力必須です。',
             'detail.string' => '文字でご入力をしてください。',
             'detail.max' => '500文字以内でご入力してください。',
-            'shop_image.required' => ':attributeをアップロードしてください。',
             'shop_image.max' => ':attributeの容量は「10MB」まで可能です。',
             'shop_image.mimes' => ':attributeは「jpb,jpeg,png,gif」のみ可能です。',
-            
         ];
     }
 }

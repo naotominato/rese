@@ -15,7 +15,7 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('reserve_id')->constrained();
+            $table->foreignId('reserve_id')->constrained()->unique();
             $table->unsignedTinyInteger('evaluation');
             $table->text('comment');
             $table->timestamps();

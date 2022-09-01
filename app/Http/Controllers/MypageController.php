@@ -14,11 +14,18 @@ class MypageController extends Controller
     public function mypage()
     {
         $user = Auth::user();
-        $reserves = Reserve::where('user_id', Auth::id())->get();
+
+        $now = Carbon::now();
+        //予約済み　直近の日付順
+        $reserves = Reserve::where('user_id', Auth::id())->where('start', '>=', $now)->orderBy('start', 'asc')->get();
+
+        //過去の予約　直近の日付順
+        $pasts =
+        Reserve::where('user_id', Auth::id())->where('start', '<', $now)->orderBy('start', 'desc')->get();
+
         $favorites = Favorite::where('user_id', Auth::id())->get();
 
         // $now = new Carbon();
-        $now = Carbon::now();
 
         // foreach ($reserves as $reserve) {
         //     if ($reserve->start->format('Y-m-d') < $now) {
@@ -28,9 +35,10 @@ class MypageController extends Controller
         //     }
         // }
 
-        return view('users.mypage', compact('user', 'reserves', 'now', 'favorites'));
+        return view('users.mypage', compact('user', 'reserves', 'now', 'pasts', 'favorites'));
     }
 
+    //QRcontroller作成　検討中
     public function qrcode($id)
     {
         $reserved =

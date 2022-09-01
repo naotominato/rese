@@ -20,10 +20,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\MailSendController;
 
 //メール認証用
-Route::get('/dashboard', function () {
-    return view('dashboard');
-    // })->middleware(['auth'])->name('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/email/verify', function () {
     return view('emails.email-send');
@@ -42,7 +38,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
 
-    return back()->with('message', 'Verification link sent!');
+    return view('emails.resend');
 })->middleware('auth', 'throttle:6,1')->name('verification.send');
 
 //ユーザー登録後、表示画面
@@ -109,9 +105,12 @@ Route::middleware(['auth:manager'])->prefix('manager')->group(function () {
     // お気に入り（メール送信画面）
     Route::get('/mail/sent', [ManagerController::class, 'sent'])->name('sentmail');
     // メール送信用
-    Route::get('/mail', [ManagerController::class, 'send'])->name('sendmail');
+    Route::post('/mail/send', [ManagerController::class, 'send'])->name('sendmail');
 
-    Route::get('/reserved/{reserved}/{user}/{shop}', [ManagerController::class, 'reservedQr'])->name('managerreservedqr');
+    Route::get('/mail/completion', [ManagerController::class, 'completion'])->name('completion');
+
+    //QRコード照合＋登録用
+    Route::get('/reserved/{reserved_id}/{user_id}/{shop_id}', [ManagerController::class, 'reservedQr'])->name('managerreservedqr');
 });
 
 

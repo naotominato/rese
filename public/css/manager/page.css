@@ -100,13 +100,66 @@
   margin: 0 0 2px 5%;
 }
 
-.shop__detail {
-  margin-bottom: 15px;
+/*----- 画像アップロード -----*/
+
+.file__image {
+  width: 400px;
+  margin: 0px auto;
+  padding: 5px;
+  line-height: 1.5;
+  border-radius: 5px;
 }
 
-.shop__image-url {
-  margin-bottom: 15px;
+.file__title {
+  margin-bottom: 10px;
 }
+
+.file__label {
+  padding: 4px 20px;
+  color: #ffffff;
+  background: rgb(60, 179, 113);
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.file__label:hover {
+  background: rgb(60, 179, 113, 0.8);
+  box-shadow: 0 0 6px #696969;
+}
+
+.file__input {
+  display: none;
+}
+
+.file__data {
+  margin-top: 5px;
+}
+
+/*----- 登録ボタン -----*/
+
+.file__name {
+  color: rgb(46, 139, 87);
+}
+
+.register-shop__btn {
+  background: #3CB371;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100px;
+  padding: 5px 0;
+  margin-left: 1%;
+  cursor: pointer;
+}
+
+.register-shop__btn:hover {
+  background: rgb(60, 179, 113, 0.8);
+  box-shadow: 0 0 6px #696969;
+}
+
+/*---- 登録中の店舗情報 -----*/
 
 .edit__result {
   margin: 10px 0;
@@ -150,20 +203,4 @@
 
 .shop__detail {
   width: 100%;
-}
-
-.register-shop__btn {
-  background: #3CB371;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  width: 60px;
-  padding: 5px 0;
-  margin-left: 1%;
-  cursor: pointer;
-}
-
-.register-shop__btn:hover {
-  background: rgb(60, 179, 113, 0.8);
-  box-shadow: 0 0 6px #696969;
 }

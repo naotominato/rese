@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\Customer;
 use Stripe\Charge;
+use Illuminate\Support\Facades\Auth;
 
 class StripePaymentsController extends Controller
 {
@@ -13,7 +14,7 @@ class StripePaymentsController extends Controller
     {
         Stripe::setApiKey(env('STRIPE_SECRET')); //シークレットキー
 
-        $charge = Charge::create([
+        Charge::create([
             'amount' => $request->pay,//支払い金額
             'currency' => 'jpy',
             'source' => request()->stripeToken,
@@ -26,19 +27,19 @@ class StripePaymentsController extends Controller
     //     return view('index');
     // }
 
-    // public function payment(Request $request)
+    // public function stripe(Request $request)
     // {
     //     try {
     //         Stripe::setApiKey(env('STRIPE_SECRET'));
 
     //         $customer = Customer::create(array(
-    //             'email' => $request->stripeEmail,
+    //             'email' => Auth::user()->email,
     //             'source' => $request->stripeToken
     //         ));
 
     //         $charge = Charge::create(array(
     //             'customer' => $customer->id,
-    //             'amount' => 2000,
+    //             'amount' => $request->pay,
     //             'currency' => 'jpy'
     //         ));
 

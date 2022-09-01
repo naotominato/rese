@@ -150,6 +150,11 @@
   display: flex;
 }
 
+/* 縮小でレイアウトが崩れる */
+.reserved__tables {
+
+}
+
 .reserved__show {
   border-collapse: separate;
   border-spacing: 15px 10px;
@@ -158,6 +163,7 @@
 
 .reviewed {
   margin: 0 auto;
+  width: 55%;
 }
 
 /*----- レビュー入力済み -----*/
@@ -189,15 +195,15 @@
   color: #ffcc00;
 }
 
-.comment__pp {
+.comment__p {
   display: inline-block;
 }
 
-.comment__div {
+.comment__box {
   display: block;
   border: 1px solid #fff;
   width: 100%;
-  height: 5em;
+  padding: 3px;
   border-radius: 3px;
 }
 

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 //メール送信用
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
+use Carbon\Carbon;
 
 class ManagerController extends Controller
 {
@@ -139,10 +140,16 @@ public function managerLogin(AuthRequest $request)
     public function reserved()
     {
         $manager = Manager::where('id', Auth::id())->first();
-        $shop = Shop::where('id', $manager->shop_id)->first();
-        $reserves = Reserve::where('shop_id', $shop->id)->orderBy('start', 'asc')->get();
 
-        return view('managers.manager_reserved', compact('manager', 'reserves'));
+        $shop = Shop::where('id', $manager->shop_id)->first();
+        $now = Carbon::now();
+
+        $reserves = Reserve::where('shop_id', $shop->id)->where('start', '>=', $now)->orderBy('start', 'asc')->get();
+
+        $pasts =
+        Reserve::where('shop_id', $shop->id)->where('start', '<', $now)->orderBy('start', 'desc')->get();
+
+        return view('managers.manager_reserved', compact('manager', 'reserves', 'pasts'));
     }
 
     //file用バリデーション作成予定
@@ -161,6 +168,7 @@ public function managerLogin(AuthRequest $request)
         return back();
     }
 
+    //メール送信機能（お気に入り済みの方へ）
     public function sent()
     {
         $manager = Manager::where('id', Auth::id())->first();
@@ -181,20 +189,29 @@ public function managerLogin(AuthRequest $request)
         $text = $request->input('text');
         Mail::send(new SendMail($user_name, $email, $shop_name, $text));
         }
-
-        $send = "送信完了しました！";
-
-        return view('managers.sentmail', compact('manager', 'favorites', 'send'));
+        // $send = "送信完了しました！";
+        return redirect()->route('completion');
     }
 
-    // public function sent()
-    // {
-    //     view('admin.sent');
-    // }
-
-    public function reservedQr($reserved, $user, $shop)
+    public function completion()
     {
-        $reserved = Reserve::where('id', $reserved)->where('user_id', $user)->where('shop_id', $shop)->first();
-        return view('managers.qr', compact('reserved'));
+        return view('managers.completion');
+    }
+
+    //QRcontroller作成　検討中
+    //予約idだけでも照合できるが、より照合性を高めた！
+    public function reservedQr($reserved_id, $user_id, $shop_id)
+    {
+        //自店舗との照合
+        $manager = Manager::where('shop_id', $shop_id)->first();
+        //予約情報の有無を照合
+        $reserved = Reserve::where('id', $reserved_id)->where('user_id', $user_id)->where('shop_id', $shop_id)->first();
+        if ($manager && $reserved) {
+            return view('managers.qr', compact('reserved'));
+        } else {
+            $different = "当店の予約情報と一致しません。";
+            return view('managers.qr', compact('different'));
+        }
+
     }
 }

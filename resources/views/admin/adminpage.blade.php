@@ -5,7 +5,6 @@
 <nav class="admin__nav">
   <ul>
     <li><a href="{{ route('shoppage') }}">店舗作成/一覧</a></li>
-    <li><a href="{{ route('manager') }}">店舗代表者Login</a></li>
     <li><a href="{{ route('index') }}">お客様用画面</a></li>
   </ul>
 </nav>
@@ -41,7 +40,7 @@
       <input type="text" name="email" id="email" class="manager__input" placeholder="Email" value="{{ old('email') }}">
       <label for="password">　パスワード：</label>
       <input type="password" name="password" id="password" class="manager__input" placeholder="Password">
-      <button class="register-manager__btn">登録</button>
+      <button class="register-manager__btn" id="register-manager__btn">登録</button>
     </div>
   </form>
 </div>
@@ -66,4 +65,6 @@
   </table>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="{{ asset('js/admin/manager.js') }}"></script>
 @endsection

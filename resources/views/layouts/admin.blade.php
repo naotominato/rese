@@ -27,7 +27,7 @@
             </label>
           </div>
           @endauth
-          <h1 class="hedder__title">Rese</h1>
+          <h1 class="header__title">Rese</h1>
         </div>
         <div class="header-right">
           @yield('adminnav')

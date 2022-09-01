@@ -23,11 +23,17 @@
   <p class="result">{{ $send }}</p>
   @endif
 
-  <form action="{{ route('sendmail') }}" method="GET">
+  <p class="send"></p>
+
+
+  <form action="{{ route('sendmail') }}" method="POST" id="manager-mail__form">
+    @csrf
     <div class="mail__text">
-      <textarea name="text" id="" class="mail__textarea" cols="30" rows="10" placeholder="メール本文"></textarea></div>
+      <textarea name="text" id="" class="mail__textarea" placeholder="メール本文"></textarea>
+    </div>
     <div class="mail__sent">
-      <button class="mail__btn">送信する</button></div>
+      <input type="submit" class="mail__btn" id="manager-mail__btn" onClick="return Check()" value="送信する">
+    </div>
   </form>
 </div>
 
@@ -49,4 +55,6 @@
   </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="{{ asset('js/manager/mail.js') }}"></script>
 @endsection

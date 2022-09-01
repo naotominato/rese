@@ -87,6 +87,47 @@
   background: rgb(220, 220, 220);
 }
 
+/*----- login -----*/
+.login-status {
+  font-size: clamp(14px, 1vw, 20px);
+}
+
+.user {
+  color: #0000FF;
+  font-size: clamp(20px, 1vw, 26px);
+}
+
+.temporary-login {
+  background: #0000FF;
+  box-shadow: 2px 2px 5px #696969;
+  border-radius: 5px;
+  color: #fff;
+  padding: 60px 0 60px;
+  margin: 10px 0 50px;
+  text-align: center;
+}
+
+.temporary {
+  font-size: clamp(18px, 2vw, 24px);
+}
+
+.resend {
+  margin: 50px 0 30px;
+}
+
+.resend__btn {
+  background: #4169E1;
+  padding: 1% 2%;
+  color: #fff;
+  border-radius: 5px;
+  font-size: clamp(10px, 1vw, 16px);
+  cursor: pointer;
+}
+
+.resend__btn:hover {
+  background: #6495ED;
+  box-shadow: 0 0 8px #696969;
+}
 /*----- 店舗一覧 -----*/
 
 .shop__list {

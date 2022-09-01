@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
   <link rel="stylesheet" href="{{ asset('css/manager/layout.css') }}">
-</head>
 <title>Rese（店舗代表者）</title>
 </head>
 
@@ -27,7 +26,7 @@
             </label>
           </div>
           @endauth
-          <h1 class="hedder__title">Rese</h1>
+          <h1 class="header__title">Rese</h1>
         </div>
         <div class="header-right">
           @yield('managerpagenav')
@@ -59,6 +58,7 @@
       @yield('managerpage')
       @yield('managerreserved')
       @yield('managerreservedqr')
+      @yield('managercompletion')
     </div>
   </main>
 

@@ -5,7 +5,6 @@
 <nav class="admin__nav">
   <ul>
     <li><a href="{{ route('adminpage') }}">店舗代表者作成 / 店舗代表者一覧</a></li>
-    <li><a href="{{ route('manager') }}">店舗代表者Login</a></li>
     <li><a href="{{ route('index') }}">お客様用画面</a></li>
   </ul>
 </nav>
@@ -20,7 +19,7 @@
     @csrf
     <label for="shop_name">新規作成　店舗名</label>
     <input type="text" name="shop_name" class="create-shop__input" id="shop_name" placeholder="店舗名" value="{{ old('shop_name') }}">
-    <button class="create-shop__btn">登録</button>
+    <button class="create-shop__btn" id="create-shop__btn">登録</button>
   </form>
   @error('shop_name')
   <p class="error">{{ $message }}</p>
@@ -61,4 +60,6 @@
   </table>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="{{ asset('js/admin/shop.js') }}"></script>
 @endsection

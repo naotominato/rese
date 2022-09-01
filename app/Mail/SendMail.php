@@ -32,8 +32,8 @@ class SendMail extends Mailable
     public function build()
     {
         return $this->to($this->email)
-            ->subject('お気に入り登録をしてくださっている方へ')
-            ->view('managers.mail')
+            ->subject('【' . $this->shop_name . '】　お気に入り登録済みの方へ')
+            ->view('managers.mail-content')
             ->with([
                 'user_name' => $this->user_name,
                 'shop_name' => $this->shop_name,

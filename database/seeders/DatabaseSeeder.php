@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             GenreSeeder::class,
             ShopSeeder::class,
             ReserveSeeder::class,
+            ReviewSeeder::class,
             FavoriteSeeder::class,
             AdminSeeder::class,
             ManagerSeeder::class,
