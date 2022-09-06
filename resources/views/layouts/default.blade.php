@@ -87,6 +87,9 @@
       @yield('created')
       @yield('login')
       @yield('mypage')
+      @yield('today')
+      @yield('past')
+      @yield('paid')
       @yield('reserved')
       <!-- @yield('verify') -->
       @yield('email')

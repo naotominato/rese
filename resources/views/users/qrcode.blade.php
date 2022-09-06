@@ -8,19 +8,14 @@
     <h2 class="reserved__title">ご予約内容</h2>
     <div class="reserved__info">
       <h3 class="reserved__username">{{ $reserved->user->name }}様</h2>
-      <p class="reserved__detail">店舗：{{ $reserved->shop->name }}</p>
-      <p class="reserved__detail">ご来店日時：{{ $reserved->start->format('Y年m月d日 H時i分') }}</p>
-      <p class="reserved__detail">人数：{{ $reserved->number }}名</p>
-      <p class="reserved__text">※ご予約内容をご確認の上、店舗スタッフへご提示ください。</p>
+        <p class="reserved__detail">店舗：{{ $reserved->shop->name }}</p>
+        <p class="reserved__detail">ご来店日時：{{ $reserved->start->format('Y年m月d日 H時i分') }}</p>
+        <p class="reserved__detail">人数：{{ $reserved->number }}名</p>
+        <p class="reserved__text">※ご予約内容をご確認の上、店舗スタッフへご提示ください。</p>
     </div>
     <div class="qrcode">
       {!! QrCode::size(150)->generate(route('managerreservedqr', ['reserved_id' => $reserved->id, 'user_id' => $reserved->user->id, 'shop_id' => $reserved->shop->id])) !!}
     </div>
   </div>
 </div>
-
-<!-- <div class="qr">
-  {!! QrCode::size(200)->generate('$reserved->id.$reserved->user->id.$reserved->shop->id') !!}
-</div> -->
-
 @endsection

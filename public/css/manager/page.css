@@ -12,7 +12,7 @@
 }
 
 .manager__nav ul li {
-  font-size: clamp(16px, 1vw, 20px);
+  font-size: clamp(14px, 1vw, 20px);
   cursor: pointer;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .shop__title {
-  font-size: 22px;
+  font-size: clamp(16px, 2vw, 22px);
 }
 
 .shop-manager {
@@ -68,7 +68,6 @@
   border-radius: 5px;
   border: 1px solid #3CB371;
   padding: 5px 0 5px 0.5em;
-  cursor: pointer;
 }
 
 .shop__select {
@@ -77,6 +76,7 @@
   margin-bottom: 10px;
   box-sizing: border-box;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .shop__select:first-of-type {
@@ -120,6 +120,7 @@
   background: rgb(60, 179, 113);
   border-radius: 5px;
   font-size: 14px;
+  cursor: pointer;
   cursor: pointer;
 }
 
@@ -188,6 +189,14 @@
   margin-left: 10px;
 }
 
+.shop__image--none {
+  background: rgb(60, 179, 113);
+  padding: 25% 0;
+  text-align: center;
+  color: #fff;
+  line-height: 1.5em;
+}
+
 .shop__image {
   width: 100%;
 }
@@ -203,4 +212,19 @@
 
 .shop__detail {
   width: 100%;
+}
+
+
+/*------------ レスポンシブデザイン ------------*/
+
+@media screen and (max-width:768px) {
+
+  .manager__nav ul li {
+    font-size: clamp(10px, 1vw, 14px);
+  }
+
+  .manager__nav ul li:not(:last-of-type) {
+    margin-right: 5%;
+  }
+
 }

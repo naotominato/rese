@@ -11,7 +11,7 @@
 @endsection
 
 @section('page')
-<h2 class="register__title">店舗代表者作成</h2>
+<h2 class="admin__title">店舗代表者作成</h2>
 
 <div class="register-manager">
   <ul class="error__ul">
@@ -19,10 +19,10 @@
     <li class="error__li">{{$error}}</li>
     @endforeach
   </ul>
-  <form action="{{ route('adminCreate') }}" method="POST">
+  <form action="{{ route('adminCreate') }}" method="POST" class="manager__form">
     @csrf
     <div class="shop">
-      <label for="shop_id">店舗選択　：</label>
+      <label for="shop_id" class="manager__label">店舗選択　：</label>
       <select name="shop_id" id="" class="shop__select">
         <option hidden>Shop 選択</option>
         @foreach ($shops as $shop)
@@ -34,19 +34,25 @@
     </div>
 
     <div class="manager">
-      <label for="manager_name">店舗代表者：</label>
-      <input type="text" name="manager_name" id="name" class="manager__input" placeholder="Manager Name" value="{{ old('manager_name') }}">
-      <label for="email">　メールアドレス：</label>
-      <input type="text" name="email" id="email" class="manager__input" placeholder="Email" value="{{ old('email') }}">
-      <label for="password">　パスワード：</label>
-      <input type="password" name="password" id="password" class="manager__input" placeholder="Password">
-      <button class="register-manager__btn" id="register-manager__btn">登録</button>
+      <div class="responsive__input">
+        <label for="manager_name" class="manager__label">店舗代表者：</label>
+        <input type="text" name="manager_name" id="name" class="manager__input" placeholder="Manager Name" value="{{ old('manager_name') }}">
+      </div>
+      <div class="responsive__input" class="manager__label">
+        <label for="email">メールアドレス：</label>
+        <input type="text" name="email" id="email" class="manager__input" placeholder="Email" value="{{ old('email') }}">
+      </div>
+      <div class="responsive__input">
+        <label for="password" class="manager__label">パスワード：</label>
+        <input type="password" name="password" id="password" class="manager__input" placeholder="Password">
+      </div>
+      <div class="responsive__btn"><button class="register-manager__btn" id="register-manager__btn">登録</button></div>
     </div>
   </form>
 </div>
 
 <div class="manager__list">
-  <h3 class="list__title">店舗代表者 登録済み店舗　一覧</h3>
+  <h3 class="admin__title">店舗代表者 登録済み店舗　一覧</h3>
   <table class="manager__table">
     <tr>
       <th>登録ID</th>

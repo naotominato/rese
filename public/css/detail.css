@@ -1,5 +1,6 @@
 .detail-page__content {
   display: flex;
+  margin-bottom: 50px;
 }
 
 /*----- 店舗詳細 -----*/

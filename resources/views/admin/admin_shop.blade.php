@@ -12,7 +12,7 @@
 
 @section('create')
 
-<h2>管理者ログイン中です！</h2>
+<h2 class="admin__title">新規店舗名　作成</h2>
 
 <div class="create-shop">
   <form action="{{ route('shopCreate') }}" method="POST">
@@ -30,7 +30,7 @@
 </div>
 
 <div class="shop__list">
-  <h3>既存店舗　一覧表</h3>
+  <h3 class="admin__title">既存店舗　一覧表</h3>
   <table class="shop__table">
     <tr>
       <th>店舗ID</th>

@@ -5,6 +5,10 @@
   border-radius: 5px;
 }
 
+.mail__title {
+  text-align: center;
+}
+
 .result {
   text-align: center;
 }
@@ -18,7 +22,7 @@
   width: 90%;
   height: 25vh;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: clamp(12px, 1vw, 20px);
   padding: 5px;
 }
 
@@ -41,4 +45,21 @@
 .mail__btn:hover {
   background: rgb(60, 179, 113, 0.8);
   box-shadow: 0 0 6px #696969;
+}
+
+.reserved__table tr th, 
+.reserved__table tr td {
+  width: 50%;
+}
+
+/* reserved.cssを受け継いでしまっている。あとで訂正する */
+.reserved__table tr th:last-of-type,
+.reserved__table tr td:last-of-type {
+  width: 50%;
+  text-align: center;
+}
+/* あとで訂正する */
+.reserved__table tr th:first-of-type,
+.reserved__table tr td:first-of-type {
+  width: 50%;
 }

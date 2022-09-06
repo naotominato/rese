@@ -10,7 +10,7 @@ $('.cancel__btn').click(function() {
 
 //----- 予約変更前　確認アラート -----//
 
-$('#change__btn').click(function() {
+$('.change__btn').click(function() {
   if (confirm('選択された内容で予約を変更してよろしいでしょうか')) {
     return true;
   } else {

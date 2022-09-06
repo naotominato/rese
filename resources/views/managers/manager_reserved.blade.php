@@ -15,9 +15,32 @@
 
 <h2 class="shop__title">店舗名：<span class="shop-manager">{{ $manager->shop->name }}</span>　店舗代表者：<span class="shop-manager">{{ $manager->name }}</span>さん</h2>
 
+<div class="shop-reserved">
+  <h3 class="reserved__title">【本日】予約リスト（時間順）</h3>
+  <div class="reserved__list">
+    <table class="reserved__table">
+      <tr>
+        <th>日付</th>
+        <th>時間</th>
+        <th>人数</th>
+        <th>お名前</th>
+        <th>ご連絡先</th>
+      </tr>
+      @foreach($todays as $today)
+      <tr>
+        <td>{{ $today->start->format('Y年m月d日') }}</td>
+        <td>{{ $today->start->format('H:i') }}</td>
+        <td>{{ $today->number }}</td>
+        <td>{{ $today->user->name }}</td>
+        <td>{{ $today->user->email }}</td>
+      </tr>
+      @endforeach
+    </table>
+  </div>
+</div>
 
 <div class="shop-reserved">
-  <h3 class="reserved__title">お客様　予約リスト（日時順）</h3>
+  <h3 class="reserved__title">【今後】の予約リスト（日時順）</h3>
   <div class="reserved__list">
     <table class="reserved__table">
       <tr>
@@ -41,7 +64,7 @@
 </div>
 
 <div class="shop-reserved">
-  <h3 class="reserved__title">過去の予約リスト（直近の日時順）</h3>
+  <h3 class="reserved__title">【過去】予約リスト（直近の日時順）</h3>
   <div class="reserved__list">
     <table class="reserved__table">
       <tr>

@@ -1,0 +1,207 @@
+/*----- ログインユーザー名 -----*/
+
+.user__name {
+  font-size: 30px;
+  font-size: clamp(22px, 2vw, 30px);
+  margin: 10px 0 0 50%;
+}
+
+/*----- 共通部分 -----*/
+.mypage__content {
+  display: block;
+}
+
+.reserve__section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reserve__heading {
+  height: 1.5em;
+}
+
+.reserved__content {
+  display: flex;
+  align-items: center;
+  padding: 0 ;
+}
+
+.reserved__tables {
+  width: 46%;
+  display: flex;
+  justify-content: center;
+}
+
+.reserved__show {
+  border-collapse: separate;
+  border-spacing: 10px 10px;
+  font-size: clamp(12px, 1vw, 18px);
+}
+
+.reviewed {
+  margin: 0 auto;
+  width: 54%;
+  font-size: clamp(12px, 1vw, 18px);
+}
+
+/*----- レビュー未入力側 -----*/
+
+.reserve__section--left {
+  width: 46%;
+}
+
+.star {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.star input[type=radio] {
+  display: none;
+}
+
+.star label {
+  position: relative;
+  padding: 0 2%;
+  color: #ccc;
+  cursor: pointer;
+  font-size: clamp(8px, 2.5vw, 30px);
+}
+
+.star label:hover,
+.star label:hover~label,
+.star input[type=radio]:checked~label {
+  color: #ffcc00;
+}
+
+.comment {
+  width: 100%;
+}
+
+.comment__textarea {
+  resize: none;
+  width: 100%;
+  height: 5em;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-size: clamp(12px, 1vw, 18px);
+  background: #E6E6FA;
+}
+
+.review__button {
+  display: flex;
+  justify-content: end;
+  margin: 0 0 -1em;
+}
+
+.review__btn {
+  background: #E6E6FA;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 3% 0 7%;
+  font-size: clamp(12px, 1vw, 16px);
+}
+
+.review__btn:hover {
+  background: #dcdcfa;
+  box-shadow: 0 0 10px #000080;
+}
+
+/*----- レビュー入力済み側 -----*/
+
+.reserve__section--right {
+  width: 46%;
+  margin-right: 2%;
+}
+
+.reviewed__result {
+  background: rgb(0, 0, 255, 0.7);
+}
+
+.star__p {
+  display: inline-block;
+}
+
+.reviewed__star {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.reviewed__star input[type=radio] {
+  display: none;
+}
+
+.reviewed__star label {
+  position: relative;
+  padding: 0 2%;
+  color: #ccc;
+  cursor: pointer;
+  font-size: clamp(8px, 2.5vw, 30px);
+}
+
+.reviewed__star input[type=radio]:checked~label {
+  color: #ffcc00;
+}
+
+.comment__p {
+  display: inline-block;
+}
+
+.comment__box {
+  display: block;
+  border: 1px solid #fff;
+  width: 100%;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.comment__end {
+  margin-top: 5px;
+  text-align: end;
+}
+
+/*------------ レスポンシブデザイン ------------*/
+
+@media screen and (max-width:768px) {
+
+  .reserve__section {
+    width: 100%;
+    display: block;
+  }
+
+  .reserved__content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+  }
+
+  .reserve__section--left,
+  .reserve__section--right {
+    width: 100%;
+  }
+
+  .reserved__show {
+    border-collapse: separate;
+    border-spacing: 10px 10px;
+    font-size: clamp(14px, 1vw, 18px);
+  }
+
+  .reviewed {
+    margin: 0 auto;
+    width: 54%;
+    font-size: clamp(14px, 1vw, 18px);
+  }
+
+  .star label {
+    font-size: clamp(26px, 3vw, 30px);
+  }
+
+  .reviewed__star label {
+    font-size: clamp(26px, 3vw, 30px);
+  }
+}

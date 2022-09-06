@@ -2,7 +2,8 @@
 
 .user__name {
   font-size: 30px;
-  margin-left: 45%;
+  font-size: clamp(22px, 2vw, 30px);
+  margin: 10px 0 0 45%;
 }
 
 /*----- 予約・お気に入りのコンテンツ -----*/
@@ -15,15 +16,40 @@
 
 .reserve__title,
 .favorite__title {
-  font-size: 24px;
-  margin-bottom: 25px;
+  font-size: clamp(14px, 1.5vw, 24px);
+  height: 1.5em;
+  margin-bottom: 4%;
 }
 
-/*------- 予約済み情報 --------*/
+/*------- 全予約情報 --------*/
 
 .reserve__section {
   width: 40%;
 }
+
+.reserve__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reserve__title--right {
+  background: rgb(65, 105, 225);
+  color: #fff;
+  text-align: center;
+  padding: 5px 8px;
+  border-radius: 10px;
+  font-size: clamp(10px, 1vw, 16px);
+  box-shadow: 0 0 5px #696969;
+  cursor: pointer;
+}
+
+.reserve__title--right:hover {
+  background: rgb(65, 105, 225, 0.9);
+  box-shadow: 0 0 10px #696969;
+}
+
+/*----- １件ごとの予約情報 -----*/
 
 .reserve__result {
   background: #0000FF;
@@ -41,9 +67,15 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
+  font-size: clamp(12px, 1vw, 18px);
 }
 
 .reserve__heading--left {
+  display: flex;
+  align-items: center;
+}
+
+.reserve__heading--right {
   display: flex;
   align-items: center;
 }
@@ -56,6 +88,25 @@
   margin-left: 30px;
 }
 
+/*----- QRコード表示 -----*/
+
+.qr__button {
+  display: inline-block;
+  font-weight: bold;
+  background: rgb(65, 105, 225);
+  border-radius: 5px;
+  color: #fff;
+  box-shadow: 0 0 5px #696969;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.qr__button:hover {
+  background: rgb(65, 105, 225, 0.8);
+}
+
+/*----- 予約キャンセル -----*/
+
 .reserve__cancel {
   width: 26px;
 }
@@ -66,6 +117,8 @@
   cursor: pointer;
 }
 
+/*----- 予約情報　表示欄 -----*/
+
 .reserve__tables {
   display: flex;
   justify-content: space-around;
@@ -74,7 +127,7 @@
 .reserve__show {
   border-collapse: separate;
   border-spacing: 15px 10px;
-  font-size: 14px;
+  font-size: clamp(8px, 1vw, 14px);
 }
 
 /*----- 予約変更欄 -----*/
@@ -84,6 +137,7 @@
   border: 1px solid #fff;
   border-radius: 5px;
   padding: 1% 5% 0;
+  font-size: clamp(10px, 1vw, 16px);
 }
 
 .reserve__change {
@@ -117,6 +171,7 @@
 .reserve__select {
   width: 100%;
   font-size: 16px;
+  font-size: clamp(10px, 1vw, 16px);
   background: #E6E6FA;
   cursor: pointer;
 }
@@ -132,6 +187,7 @@
   border-radius: 5px;
   cursor: pointer;
   margin: 3% 0 7%;
+  font-size: clamp(10px, 1vw, 16px);
 }
 
 .change__btn:hover {
@@ -143,137 +199,6 @@
 
 .error {
   font-size: 12px;
-}
-
-/*----- 過去の予約 -----*/
-.reserved__content {
-  display: flex;
-}
-
-/* 縮小でレイアウトが崩れる */
-.reserved__tables {
-
-}
-
-.reserved__show {
-  border-collapse: separate;
-  border-spacing: 15px 10px;
-  font-size: 14px;
-}
-
-.reviewed {
-  margin: 0 auto;
-  width: 55%;
-}
-
-/*----- レビュー入力済み -----*/
-
-.star__p {
-  display: inline-block;
-}
-
-.reviewed__star {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.reviewed__star input[type=radio] {
-  display: none;
-}
-
-.reviewed__star label {
-  position: relative;
-  padding: 0 5px;
-  color: #ccc;
-  cursor: pointer;
-  font-size: 30px;
-}
-
-.reviewed__star input[type=radio]:checked~label {
-  color: #ffcc00;
-}
-
-.comment__p {
-  display: inline-block;
-}
-
-.comment__box {
-  display: block;
-  border: 1px solid #fff;
-  width: 100%;
-  padding: 3px;
-  border-radius: 3px;
-}
-
-.comment__end {
-  margin-top: 5px;
-  text-align: end;
-}
-
-/*----- レビュー未入力時 -----*/
-
-.review__form {
-  width: 100%;
-}
-
-.star {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.star input[type=radio] {
-  display: none;
-}
-
-.star label {
-  position: relative;
-  padding: 0 5px;
-  color: #ccc;
-  cursor: pointer;
-  font-size: 30px;
-}
-
-.star label:hover,
-.star label:hover ~ label,
-.star input[type=radio]:checked ~ label {
-  color: #ffcc00;
-}
-
-.comment {
-  width: 100%;
-}
-
-.comment__textarea {
-  resize: none;
-  width: 100%;
-  height: 5em;
-  box-sizing: border-box;
-  border-radius: 3px;
-  font-size: 16px;
-  background: #E6E6FA;
-}
-
-.review__button {
-  display: flex;
-  justify-content: end;
-  margin: 0 0 -1em;
-}
-
-.review__btn {
-  background: #E6E6FA;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 3% 0 7%;
-  }
-  
-.review__btn:hover {
-  background: #dcdcfa;
-  box-shadow: 0 0 10px #000080;
 }
 
 /*------- お気に入り店舗一覧 -------*/
@@ -381,6 +306,16 @@
     margin-left: 0;
   }
 
+  .reserve__title {
+    
+  }
+
+  /*----- リンクボタン -----*/
+
+  .reserve__title--right {
+    font-size: clamp(12px, 1vw, 18px);
+  }
+
   /*----- 予約・お気に入りのコンテンツ -----*/
 
   .mypage__content {
@@ -390,8 +325,9 @@
 
   .reserve__title,
   .favorite__title {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: clamp(18px, 2vw, 24px);
+    height: 1.5em;
+    margin-bottom: 4%;
   }
 
   /*----- 予約済み情報 ------*/
@@ -401,8 +337,39 @@
   }
 
   .reserve__result {
-    width: 90%;
+    width: 96%;
   }
+
+  .reserve__heading {
+    font-size: clamp(14px, 1vw, 20px);
+  }
+
+  .reserve__show {
+    border-collapse: separate;
+    border-spacing: 15px 10px;
+    font-size: clamp(14px, 1vw, 18px);
+  }
+
+  .reserve__icon {
+    width: 20px;
+  }
+
+  /*----- 予約更新 -----*/
+
+  .change__form {
+    font-size: clamp(14px, 1vw, 18px);
+  }
+
+  .date__input,
+  .reserve__select {
+    font-size: clamp(14px, 1vw, 18px);
+  }
+
+  .change__btn {
+    font-size: clamp(14px, 1vw, 18px);
+  }
+
+  /*----- お気に入り店舗一覧 -----*/
 
   .favorite__title {
     margin-top: 35px;
@@ -411,8 +378,6 @@
   .favorite__section {
     width: 100%;
   }
-
-  /*----- お気に入り店舗一覧 -----*/
 
   .shop__list {
     gap: 20px 4%;

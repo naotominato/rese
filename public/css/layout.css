@@ -114,6 +114,7 @@ a {
 .header__title {
   color: #0000FF;
   font-size: 28px;
+  font-size: clamp(20px, 2vw, 28px)
 }
 
 /*----- ドロワーメニュー -----*/

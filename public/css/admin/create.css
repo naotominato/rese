@@ -12,7 +12,7 @@
 }
 
 .admin__nav ul li {
-  font-size: clamp(16px, 1vw, 20px);
+  font-size: clamp(12px, 1.5vw, 16px);
   cursor: pointer;
 }
 
@@ -24,13 +24,13 @@
   opacity: 0.6;
 }
 
-.register__title {
-  font-size: 24px;
-  margin: 5px;
+.admin__title {
+  font-size: clamp(10px, 2vw, 18px);
+  margin-bottom: 5px;
 }
 
 .register-manager {
-  font-size: clamp(12px, 1vw, 20px);
+  font-size: clamp(10px, 1vw, 20px);
   border: 2px solid #DC143C;
   border-radius: 5px;
   padding: 20px;
@@ -45,17 +45,32 @@
   margin-bottom: 10px;
 }
 
-.shop__select,
-.manager__input {
-  width: 18%;
-  border-radius: 5px;
-  border: 1px solid #DC143C;
-  padding: 5px 0 5px 0.5em;
+.shop__select {
+  margin-bottom: 8px;
   cursor: pointer;
 }
 
-.shop__select {
-  margin-bottom: 8px;
+.shop__select,
+.manager__input {
+  width: 20%;
+  border-radius: 5px;
+  border: 1px solid #DC143C;
+  padding: 7px 0 7px 0.5em;
+  font-size: clamp(10px, 1vw, 16px);
+}
+
+.responsive__input:not(:last-of-type) {
+  margin-right: 1em;
+}
+
+.responsive__input {
+  display: inline;
+  width: 30%;
+}
+
+.responsive__btn {
+  text-align: center;
+  margin-top: 2em;
 }
 
 .register-manager__btn {
@@ -63,20 +78,15 @@
   color: #fff;
   border: none;
   border-radius: 5px;
-  width: 60px;
+  width: 10%;
   padding: 5px 0;
-  margin-left: 1%;
   cursor: pointer;
+  font-size: clamp(10px, 1.5vw, 14px);
 }
 
 .register-manager__btn:hover {
   background: rgb(220, 20, 60, 0.8);
   box-shadow: 0 0 8px #696969;
-}
-
-.list__title {
-  font-size: 20px;
-  margin-bottom: 5px;
 }
 
 .manager__table {
@@ -88,8 +98,60 @@
 .manager__table tr td {
   border: 1px solid #DC143C;
   padding: 5px 10px;
+  font-size: clamp(12px, 1.5vw, 18px);
 }
 
 .manager-id {
   text-align: center;
 } 
+
+/*------------ レスポンシブデザイン ------------*/
+
+@media screen and (max-width:768px) {
+
+  .register-manager {
+    padding: 20px 0;
+  }
+
+  .shop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.3em;
+  }
+
+  .manager__label {
+    width: 15%;
+    text-align: right;
+    font-size: clamp(10px, 1.5vw, 14px);
+  }
+
+  .shop__select,
+  .manager__input {
+    width: 55%;
+    border-radius: 5px;
+    padding: 7px 0 7px 0.5em;
+    font-size: clamp(12px, 1vw, 16px);
+    margin-left: 5px;
+  }
+  
+  .responsive__input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+    width: 100%;
+  }
+
+  .responsive__btn {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .register-manager__btn {
+    width: 20%;
+  }
+  
+
+
+}

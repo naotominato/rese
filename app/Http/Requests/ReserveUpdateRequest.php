@@ -3,9 +3,24 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator; //追加
+use Illuminate\Http\Exceptions\HttpResponseException; //追加
 
 class ReserveUpdateRequest extends FormRequest
 {
+    // //追加
+    protected function failedValidation(Validator $validator)
+    {
+        if (request()->expectsJson()) {
+            $response['error']  = $validator->errors()->toArray();
+
+            throw new HttpResponseException(
+                response()->json($response, 422)
+            );
+        }
+    }
+    // //ここまで追加
+
     /**
      * Determine if the user is authorized to make this request.
      *

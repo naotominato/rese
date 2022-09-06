@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendMail extends Mailable
+class ReservedUserMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,12 +16,12 @@ class SendMail extends Mailable
      *
      * @return void
      */
-    public function __construct($user_name, $email, $shop_name, $text)
+    public function __construct($user_name, $email,$shop_name, $start)
     {
         $this->user_name = $user_name;
         $this->email = $email;
         $this->shop_name = $shop_name;
-        $this->text = $text;
+        $this->start = $start;
     }
 
     /**
@@ -32,12 +32,14 @@ class SendMail extends Mailable
     public function build()
     {
         return $this->to($this->email)
-            ->subject('【' . $this->shop_name . '】　お気に入り登録済みの方へ')
-            ->view('managers.mail-content')
-            ->with([
-                'user_name' => $this->user_name,
-                'shop_name' => $this->shop_name,
-                'text' => $this->text,
-            ]);
+        ->subject('【'.$this->shop_name.'】本日ご予約をいただいております。')
+        ->view('emails.reserved-user')
+        ->with([
+            'user_name' => $this->user_name,
+            'email' => $this->email,
+            'shop_name' => $this->shop_name,
+            'start' => $this->start,
+            // 'reserves' => $this->reserves,
+        ]);
     }
 }

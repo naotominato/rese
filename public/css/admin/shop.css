@@ -12,7 +12,7 @@
 }
 
 .admin__nav ul li {
-  font-size: clamp(16px, 1vw, 20px);
+  font-size: clamp(12px, 1.5vw, 16px);
   cursor: pointer;
 }
 
@@ -24,6 +24,11 @@
   opacity: 0.6;
 }
 
+.admin__title {
+  font-size: clamp(10px, 2vw, 18px);
+  margin-bottom: 5px;
+}
+
 .create-shop {
   font-size: clamp(12px, 1vw, 20px);
   border: 2px solid #DC143C;
@@ -31,8 +36,9 @@
   padding: 20px 0;
   background: rgb(220, 20, 60, 0.1);
   margin-bottom: 20px;
-  width: 50%;
+  width: 60%;
   text-align: center;
+  font-size: clamp(10px, 2vw, 16px);
 }
 
 .error {
@@ -46,7 +52,7 @@
   border-radius: 5px;
   border: 1px solid #DC143C;
   padding: 5px 0 5px 0.5em;
-  cursor: pointer;
+  font-size: clamp(10px, 2vw, 16px);
 }
 
 .create-shop__btn {
@@ -54,10 +60,11 @@
   color: #fff;
   border: none;
   border-radius: 5px;
-  width: 60px;
+  width: 8%;
   padding: 5px 0;
   margin-left: 1%;
   cursor: pointer;
+  font-size: clamp(10px, 2vw, 14px);
 }
 
 .create-shop__btn:hover {
@@ -74,6 +81,7 @@
 .shop__table tr td {
   border: 1px solid #DC143C;
   padding: 5px 10px;
+  font-size: clamp(12px, 1.5vw, 18px);
 }
 
 .shop__table tr th:first-of-type,
@@ -87,4 +95,18 @@
 
 .not-exist {
   color: rgb(220, 20, 60, 0.6);;
+}
+
+/*------------ レスポンシブデザイン ------------*/
+
+@media screen and (max-width:768px) {
+
+  .create-shop {
+    width: 100%;
+  }
+
+  .admin__nav ul li:not(:last-of-type) {
+    margin-right: 4%;
+  }
+
 }

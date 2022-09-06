@@ -15,7 +15,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 //メール送信用
 use Illuminate\Support\Facades\Mail;
-use App\Mail\SendMail;
+use App\Mail\ManagerMail;
 use Carbon\Carbon;
 
 class ManagerController extends Controller
@@ -65,23 +65,6 @@ public function managerLogin(AuthRequest $request)
         return redirect()->route('manager');
     }
 
-    // public function shopCreate(ShopRegisterRequest $request) //店舗 新規作成用　バリデーション含めると思う
-    // {
-    //     $shop_id = $request->input('shop_id');
-    //     //Authで店舗代表者とshop_idを一致させる
-    //     $shop = $request->only([
-    //         'area_id',
-    //         'genre_id',
-    //         'detail',
-    //         'image_url',
-    //     ]);
-
-    //     //セキュリティ性を上げるため、一度、managerログイン者と照合している。
-    //     $manager = Manager::where('id', Auth::id())->where('shop_id', $shop_id)->first();
-    //     Shop::where('id', $manager->shop_id)->update($shop);
-    //     return redirect()->route('managerpage');
-    // }
-
     public function shopCreate(ShopRegisterRequest $request) //店舗 新規作成用　バリデーション含めると思う
     {
         //Authで店舗代表者とshop_idを一致させる
@@ -90,22 +73,17 @@ public function managerLogin(AuthRequest $request)
         //セキュリティ性を上げるため、一度、managerログイン者と照合。&&　else image_urlで使用。
         $manager = Manager::where('id', Auth::id())->where('shop_id', $shop_id)->first();
 
-        // if ($request->file('shop_image')) {
+        if ($request->file('shop_image')) {
         //ファイルをストレージに保存処理
         $directory = 'shop_image';
         // $file_name = $request->file('shop_image')->getClientOriginalName();
         $request->file('shop_image')->storeAs('public/' . $directory, $manager->shop->name . $manager->shop->id . '.png');
         $image_url = 'storage/' . $directory . '/' . $manager->shop->name . $manager->shop->id . '.png';
-        // } else {
-        //     $manager_shop = Shop::where('id', $manager->shop_id)->first();
-        //     $image_url = $manager_shop->image_url;
+        } else {
+            $manager_shop = Shop::where('id', $manager->shop_id)->first();
+            $image_url = $manager_shop->image_url;
         //     //fileがなかったら、Shopモデルから取得
-        // }
-
-        // //もしdetailの値がなかったら、
-        // if ($detail == "") {
-        //     $detail = "店舗紹介文は、未設定です。";
-        // }
+        }
 
         Shop::where('id', $manager->shop_id)->update([
             'area_id' => $request->area_id,
@@ -116,40 +94,22 @@ public function managerLogin(AuthRequest $request)
         return redirect()->route('managerpage');
     }
 
-    // public function shopUpdata(ShopUpdateRequest $request) //店舗情報 更新用　バリデーション含めると思う
-    // {
-    //     $id = $request->input('id');
-    //     $name = $request->input('name');
-    //     $area = $request->input('area_id');
-    //     $genre = $request->input('genre_id');
-    //     $detail = $request->input('detail');
-    //     $image_url = $request->input('image_url');
-
-    //     Shop::where('id', $id)->update([
-    //         'id' => $id,
-    //         'name' => $name,
-    //         'area' => $area,
-    //         'genre' => $genre,
-    //         'detail' => $detail,
-    //         'image_url' => $image_url
-    //     ]);
-    //     return redirect()->route('managerpage');
-    // }
-
     //自分の店舗の予約確認一覧　日時順
     public function reserved()
     {
         $manager = Manager::where('id', Auth::id())->first();
-
         $shop = Shop::where('id', $manager->shop_id)->first();
-        $now = Carbon::now();
 
+        $today = Carbon::today();
+        $todays = Reserve::where('shop_id', $shop->id)->whereDate('start', '=', $today)->orderBy('start', 'asc')->get();
+
+        $now = Carbon::now();
         $reserves = Reserve::where('shop_id', $shop->id)->where('start', '>=', $now)->orderBy('start', 'asc')->get();
 
         $pasts =
         Reserve::where('shop_id', $shop->id)->where('start', '<', $now)->orderBy('start', 'desc')->get();
 
-        return view('managers.manager_reserved', compact('manager', 'reserves', 'pasts'));
+        return view('managers.manager_reserved', compact('manager', 'todays', 'reserves', 'pasts'));
     }
 
     //file用バリデーション作成予定
@@ -183,11 +143,11 @@ public function managerLogin(AuthRequest $request)
         $favorites = Favorite::where('shop_id', $manager->shop_id)->get();
         
         foreach ($favorites as $favorite) {
-        $user_name = $favorite->user->name;
-        $email = $favorite->user->email;
-        $shop_name = $favorite->shop->name;
-        $text = $request->input('text');
-        Mail::send(new SendMail($user_name, $email, $shop_name, $text));
+            $user_name = $favorite->user->name;
+            $email = $favorite->user->email;
+            $shop_name = $favorite->shop->name;
+            $text = $request->input('text');
+            Mail::send(new ManagerMail($user_name, $email, $shop_name, $text));
         }
         // $send = "送信完了しました！";
         return redirect()->route('completion');

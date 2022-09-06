@@ -51,16 +51,7 @@
 <p class="login-status">【ゲスト様】ログインしておりません</p>
 @endguest
 
-<!-- stripe -->
-<form action="{{ route('stripe') }}" method="POST">
-  @csrf
-  <label for="pay">支払い金額入力：</label>
-  <input type="number" name="pay" id="pay">円
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ env('STRIPE_KEY') }}" data-amount="1000" data-name="Stripe決済デモ" data-label="決済をする" data-description="これはデモ決済です" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="JPY">
-  </script>
-</form>
-</script>
-<!-- stripe -->
+
 
 <div class="shop__list">
   @foreach($shops as $shop)
@@ -125,10 +116,10 @@
           },
         })
         .done(function(data) {
-          $this.toggleClass('pink');
+          $this.toggleClass('red');
         })
         .fail(function() {
-          alert('error');
+          alert('反映することができませんでした。');
         });
     }));
   });

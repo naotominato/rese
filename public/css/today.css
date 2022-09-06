@@ -1,0 +1,13 @@
+.reserve__info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.reserve__info--right {
+  text-align: center;
+}
+
+.qr {
+  margin-bottom: 25px;
+}
+

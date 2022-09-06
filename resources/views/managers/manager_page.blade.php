@@ -81,11 +81,11 @@
   </div>
   <div class="edit__result">
     @if(!$shop->area && !$shop->genre && !$shop->detail && !$shop->image_url)
-    <p class="result">店舗情報は現在、未設定です。</p>
+    <p class="result">店舗情報は現在、未設定です。<br>【 Area, Genre, 店舗説明文, 店舗画像 】<br>すべてを一度でご登録ください。</p>
     @elseif(!$shop->image_url)
     <h4 class="result">現在の店舗情報</h4>
     <div class="shop__info">
-      <p class="shop__image">店舗画像が設定されておりません<br>店舗画像を登録しないと、ユーザーには表示されません。</p>
+      <p class="shop__image--none">店舗画像が設定されておりません<br>店舗画像を登録しないと、ユーザーには表示されません。</p>
       <div class="shop__tag">
         <p class="shop-area__tag">#{{ $shop->area->name }}</p>
         <p class="shop-genre__tag">#{{ $shop->genre->name }}</p>
