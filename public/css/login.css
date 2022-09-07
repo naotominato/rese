@@ -95,3 +95,25 @@ td {
 .login__btn:hover {
   box-shadow: 0 0 8px #696969;
 }
+
+@media screen and (max-width:768px) {
+
+  .login__title {
+    font-size: clamp(14px, 1vw, 20px);
+  }
+
+  .login__td--error {
+    font-size: 12px;
+    font-size: clamp(8px, 1vw, 16px);
+  }
+
+  .login__input {
+    font-size: 16px;
+    font-size: clamp(14px, 1vw, 16px);
+  }
+
+  .login__btn {
+    width: 40%;
+    font-size: clamp(12px, 1vw, 14px);
+  }
+}

@@ -47,11 +47,11 @@
               <td class="reserved-number" id="reserved-number">{{ $reserve->number }}</td>
             </tr>
           </table>
-          <form id="change__form" class="change__form butt red">
+          <form action="{{ route('update') }}" method="POST" id="change__form" class="change__form butt red">
             @csrf
             <input type="hidden" name="reserve_id" value="{{ $reserve->id }}" class="reserve__id" id="reserve__id" data-reserve-id="{{ $reserve->id }}">
             @error('reserve_id')
-            <p class="error">{{ $message }}</p>
+            <p class="error" id="">{{ $message }}</p>
             @enderror
             <input type="hidden" name="shop_id" value="{{ $reserve->shop_id }}" class="shop__id" id="shop__id" data-shop-id="{{ $reserve->shop_id }}">
             @error('shop_id')
@@ -281,138 +281,138 @@
   // //   }));
   // // });
 
-  let idName = [
-    'reserve__result',
-    'reserve__show',
-    'reserved-shop',
-    'reserved-date',
-    'reserved-time',
-    'reserved-number',
-    'change__form',
-    'reserve__id',
-    'shop__id',
-    'date__input',
-    'time__select',
-    'number__select',
-    'change__btn'
-  ];
-  // $.each(idName, function(index,value) {
+  // let idName = [
+  //   'reserve__result',
+  //   'reserve__show',
+  //   'reserved-shop',
+  //   'reserved-date',
+  //   'reserved-time',
+  //   'reserved-number',
+  //   'change__form',
+  //   'reserve__id',
+  //   'shop__id',
+  //   'date__input',
+  //   'time__select',
+  //   'number__select',
+  //   'change__btn'
+  // ];
+  // // $.each(idName, function(index,value) {
+  // //     $('.' + result).each(function(i) {
+  // //       $(this).attr('id', result + (i + 1));
+  // //     });
+  // //   });
+  // idName.forEach(function(result) {
+  //   $(function() {
   //     $('.' + result).each(function(i) {
   //       $(this).attr('id', result + (i + 1));
   //     });
   //   });
-  idName.forEach(function(result) {
-    $(function() {
-      $('.' + result).each(function(i) {
-        $(this).attr('id', result + (i + 1));
-      });
-    });
-  });
-
-  // $(function() {
-  //   $('.change__form').each(function(i) {
-  //     $(this).attr('id', 'change__form' + (i + 1));
-  //   });
-  // });
-  // $(function() {
-  //   $('.change__btn').each(function(i) {
-  //     $(this).attr('id', 'change__btn' + (i + 1));
-  //   });
   // });
 
-  // let $form = $('.change__form').attr('id');
-  // let $btn = $('.change__btn').attr('id');
+  // // $(function() {
+  // //   $('.change__form').each(function(i) {
+  // //     $(this).attr('id', 'change__form' + (i + 1));
+  // //   });
+  // // });
+  // // $(function() {
+  // //   $('.change__btn').each(function(i) {
+  // //     $(this).attr('id', 'change__btn' + (i + 1));
+  // //   });
+  // // });
 
-  $(function() {
-    $('.change__form').on('click', (function() {
-      let $form = $(this).attr('id');
-      console.log($form);
-    }));
-  });
-  $(function() {
-    $('.change__form').submit('click', (function(e, $form) {
-      e.preventDefault();
-      let $this = $(this);
-      let formData = $this.serialize();
-      console.log(formData);
-      // let $reserveId = $('.reserve__id').attr('id');
-      // let $shopId = $('.shop__id').attr('id');
-      // let $dateInput = $('.date__input').attr('id');
-      // let $timeSelect = $('.time__select').attr('id');
-      // let $numberSelect = $('.number__select').attr('id');
-      // console.log($reserveId, $shopId, $dateInput, $timeSelect, $numberSelect);
-      // let formData = $(form).serialize();
-      // let $formData = $form.serialize();
-      // let $this = $(this);
-      // let reserveId = $('.reserve__id').val();
-      // let shopId = $('.shop__id').val();
-      // let dateInput = $('.date__input').val();
-      // let timeSelect = $('.time__select').val();
-      // let numberSelect = $('.number__select').val();
-      // let reserveId = $this.data('reserve-id');
-      // let shopId = $this.data('shop-id');
-      // let dateInput = $this.data('date-id');
-      // let timeSelect = $this.data('time-id');
-      // let numberSelect = $this.data('number-id');
-      // console.log(reserveId, shopId, dateInput, timeSelect, numberSelect);
+  // // let $form = $('.change__form').attr('id');
+  // // let $btn = $('.change__btn').attr('id');
 
-      // let reserveId = $this.$('.reserve__id').data('reserve-id');
-      // let shopId = $this.$('.shop__id').data('shop-id');
-      // let dateInput = $this.$('.date__input').data('date-id');
-      // let timeSelect = $this.$('.time__option').data('time-id');
-      // let numberSelect = $this.$('.number__option').data('number-id');
-      // console.log(reserveId, shopId, dateInput, timeSelect, numberSelect);
-      $.ajax({
-          headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
-          url: "{{ route('update')}}",
-          method: 'POST',
-          data: formData,
-          // {
-          //   // 'form': formData
-          //   // 'form': formData
-          //   'reserve_id': reserveId,
-          //   'shop_id': shopId,
-          //   'date': dateInput,
-          //   'time': timeSelect,
-          //   'number': numberSelect,
-          // },
-        })
-        .done(function(data) {
-          // $this.toggleClass('red');
-          alert('成功');
-          // let $date = $('.reserved-date');
-          // let $time = $('.reserved-time');
-          // let $number = $('.reserved-number');
-          // console.log($date, $time, $number)
+  // $(function() {
+  //   $('.change__form').on('click', (function() {
+  //     let $form = $(this).attr('id');
+  //     console.log($form);
+  //   }));
+  // });
+  // $(function() {
+  //   $('.change__form').submit('click', (function(e, $form) {
+  //     e.preventDefault();
+  //     let $this = $(this);
+  //     let formData = $this.serialize();
+  //     console.log(formData);
+  //     // let $reserveId = $('.reserve__id').attr('id');
+  //     // let $shopId = $('.shop__id').attr('id');
+  //     // let $dateInput = $('.date__input').attr('id');
+  //     // let $timeSelect = $('.time__select').attr('id');
+  //     // let $numberSelect = $('.number__select').attr('id');
+  //     // console.log($reserveId, $shopId, $dateInput, $timeSelect, $numberSelect);
+  //     // let formData = $(form).serialize();
+  //     // let $formData = $form.serialize();
+  //     // let $this = $(this);
+  //     // let reserveId = $('.reserve__id').val();
+  //     // let shopId = $('.shop__id').val();
+  //     // let dateInput = $('.date__input').val();
+  //     // let timeSelect = $('.time__select').val();
+  //     // let numberSelect = $('.number__select').val();
+  //     // let reserveId = $this.data('reserve-id');
+  //     // let shopId = $this.data('shop-id');
+  //     // let dateInput = $this.data('date-id');
+  //     // let timeSelect = $this.data('time-id');
+  //     // let numberSelect = $this.data('number-id');
+  //     // console.log(reserveId, shopId, dateInput, timeSelect, numberSelect);
 
-          console.log(data);
+  //     // let reserveId = $this.$('.reserve__id').data('reserve-id');
+  //     // let shopId = $this.$('.shop__id').data('shop-id');
+  //     // let dateInput = $this.$('.date__input').data('date-id');
+  //     // let timeSelect = $this.$('.time__option').data('time-id');
+  //     // let numberSelect = $this.$('.number__option').data('number-id');
+  //     // console.log(reserveId, shopId, dateInput, timeSelect, numberSelect);
+  //     $.ajax({
+  //         headers: {
+  //           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  //         },
+  //         url: "{{ route('update')}}",
+  //         method: 'POST',
+  //         data: formData,
+  //         // {
+  //         //   // 'form': formData
+  //         //   // 'form': formData
+  //         //   'reserve_id': reserveId,
+  //         //   'shop_id': shopId,
+  //         //   'date': dateInput,
+  //         //   'time': timeSelect,
+  //         //   'number': numberSelect,
+  //         // },
+  //       })
+  //       .done(function(data) {
+  //         // $this.toggleClass('red');
+  //         alert('成功');
+  //         // let $date = $('.reserved-date');
+  //         // let $time = $('.reserved-time');
+  //         // let $number = $('.reserved-number');
+  //         // console.log($date, $time, $number)
 
-          let date = data.date;
-          let time = data.time;
-          let number = data.number;
-          console.log(date, time, number);
+  //         console.log(data);
 
-          // let htme = '';
-          // html = `
+  //         let date = data.date;
+  //         let time = data.time;
+  //         let number = data.number;
+  //         console.log(date, time, number);
 
-          //         `
-          // })
-          $('#' + $form , '.reserved-date').html(date);
-          $('#' + $form , '.reserved-time').html(time);
-          $('#' + $form , '.reserved-number').html(number);
+  //         // let htme = '';
+  //         // html = `
 
-          // $('#reserved-shop1').html(shop);
-          // $('#reserved-date1').html($date);
-          // $('#reserved-time1').html(time);
-          // $('#reserved-number1').html(number);
-        })
-        .fail(function() {
-          alert('error');
-        });
-    }));
-  });
+  //         //         `
+  //         // })
+  //         $('#' + $form , '.reserved-date').html(date);
+  //         $('#' + $form , '.reserved-time').html(time);
+  //         $('#' + $form , '.reserved-number').html(number);
+
+  //         // $('#reserved-shop1').html(shop);
+  //         // $('#reserved-date1').html($date);
+  //         // $('#reserved-time1').html(time);
+  //         // $('#reserved-number1').html(number);
+  //       })
+  //       .fail(function() {
+  //         alert('error');
+  //       });
+  //   }));
+  // });
 
   // １つ前（予約変更）
   // $(function() {

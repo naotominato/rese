@@ -1,4 +1,5 @@
 @extends('layouts.manager')
+<link rel="stylesheet" href="{{ asset('css/manager/reserved.css') }}">
 
 @section('managerreservednav')
 <nav class="manager__nav">
@@ -11,7 +12,6 @@
 @endsection
 
 @section('managerreserved')
-<link rel="stylesheet" href="{{ asset('css/manager/reserved.css') }}">
 
 <h2 class="shop__title">店舗名：<span class="shop-manager">{{ $manager->shop->name }}</span>　店舗代表者：<span class="shop-manager">{{ $manager->name }}</span>さん</h2>
 

@@ -15,17 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $today = new Carbon();
-        // $today = Carbon::today();
-        // $dates = Reserve::whereDate('start', $today)->get();
-
-        // foreach ($dates as $date) {
-            // $schedule->call(function () {
-            // $today = Carbon::today();
-            // Reserve::whereDate('start', $today)->get();
-            // })->dailyAt('09:00');
-        // }
-        $schedule->command('email:reserveduser')->dailyAt('09:00');
+        $schedule->command('email:reserveduser')->everyMinute();
+        // dailyAt('09:00');
     }
 
 

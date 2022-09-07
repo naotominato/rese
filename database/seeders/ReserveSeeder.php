@@ -30,7 +30,13 @@ class ReserveSeeder extends Seeder
             [
                 'user_id' => 1,
                 'shop_id' => 2,
-                'start' => '2022-08-28 13:00:00',
+                'start' => '2022-09-07 13:00:00',
+                'number' => 3,
+            ],
+            [
+                'user_id' => 1,
+                'shop_id' => 1,
+                'start' => '2022-09-07 19:00:00',
                 'number' => 3,
             ],
             [
@@ -54,13 +60,38 @@ class ReserveSeeder extends Seeder
             [
                 'user_id' => 2,
                 'shop_id' => 1,
-                'start' => '2022-08-30 15:00:00',
+                'start' => '2022-09-07 11:00:00',
                 'number' => 10,
-            ], [
+            ],
+            [
+                'user_id' => 2,
+                'shop_id' => 5,
+                'start' => '2022-09-07 16:00:00',
+                'number' => 10,
+            ],
+            [
+                'user_id' => 2,
+                'shop_id' => 1,
+                'start' => '2022-09-23 15:00:00',
+                'number' => 8,
+            ], 
+            [
+                'user_id' => 3,
+                'shop_id' => 4,
+                'start' => '2022-09-07 12:00:00',
+                'number' => 5,
+            ],
+            [
                 'user_id' => 3,
                 'shop_id' => 1,
-                'start' => '2022-09-23 12:00:00',
+                'start' => '2022-09-18 12:00:00',
                 'number' => 5,
+            ],
+            [
+                'user_id' => 3,
+                'shop_id' => 1,
+                'start' => '2022-09-01 12:00:00',
+                'number' => 7,
             ],
         ];
 

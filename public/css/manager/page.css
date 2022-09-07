@@ -1,5 +1,5 @@
 .manager__nav {
-  color: rgb(60, 179, 113);;
+  color: rgb(60, 179, 113);
   font-size: 18px;
   font-weight: bold;
   padding: 1% 2%;
@@ -52,7 +52,7 @@
 }
 
 .register__title {
-  font-size: 20px;
+  font-size: clamp(14px, 2vw, 20px);
   margin-bottom: 15px;
 }
 
@@ -60,6 +60,10 @@
   color: rgb(220, 20, 60);
   text-align: left;
   margin: 0 0 2px 5%;
+}
+
+.create__form {
+  font-size: clamp(12px, 1vw, 20px);
 }
 
 .shop__select,
@@ -75,7 +79,7 @@
   text-align: center;
   margin-bottom: 10px;
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: clamp(12px, 1vw, 18px);
   cursor: pointer;
 }
 
@@ -87,7 +91,7 @@
   resize: none;
   width: 90%;
   height: 45vh;
-  font-size: 18px;
+  font-size: clamp(14px, 1.5vw, 18px);
 }
 
 .shop__input {
@@ -103,11 +107,10 @@
 /*----- 画像アップロード -----*/
 
 .file__image {
-  width: 400px;
-  margin: 0px auto;
   padding: 5px;
   line-height: 1.5;
   border-radius: 5px;
+  font-size: clamp(10px, 1vw, 16px);
 }
 
 .file__title {
@@ -120,7 +123,7 @@
   background: rgb(60, 179, 113);
   border-radius: 5px;
   font-size: 14px;
-  cursor: pointer;
+  font-size: clamp(10px, 1vw, 16px);
   cursor: pointer;
 }
 
@@ -148,7 +151,7 @@
   color: #fff;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: clamp(12px, 1vw, 20px);
   width: 100px;
   padding: 5px 0;
   margin-left: 1%;
@@ -172,12 +175,13 @@
 
 .result {
   text-align: center;
-  font-size: 18px;
+  font-size: clamp(14px, 2vw, 20px);
 }
 
 .shop__info {
   width: 90%;
   margin: 10px auto;
+  font-size: clamp(12px, 1vw, 18px);
 }
 
 .shop__image {
@@ -225,6 +229,19 @@
 
   .manager__nav ul li:not(:last-of-type) {
     margin-right: 5%;
+  }
+
+  .manager__content {
+    display: block;
+  }
+
+  .shop__edit,
+  .edit__result {
+    width: 100%;
+  }
+
+  .register-shop__btn {
+    padding: 3px 0;
   }
 
 }

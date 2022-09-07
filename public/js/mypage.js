@@ -11,7 +11,7 @@ $('.cancel__btn').click(function() {
 //----- 予約変更前　確認アラート -----//
 
 $('.change__btn').click(function() {
-  if (confirm('選択された内容で予約を変更してよろしいでしょうか')) {
+  if (confirm('選択された内容で予約を変更してよろしいでしょうか。')) {
     return true;
   } else {
     return false;
@@ -30,32 +30,65 @@ $('.review__btn').click(function() {
 
 
 
-//----- 予約変更画面の表示 -----//
+// let idName = [
+//     'reserve__result',
+//     'reserve__show',
+//     'reserved-shop',
+//     'reserved-date',
+//     'reserved-time',
+//     'reserved-number',
+//     'change__form',
+//     'reserve__id',
+//     'shop__id',
+//     'date__input',
+//     'time__select',
+//     'number__select',
+//     'change__btn'
+// ];
 
-// $(function(){
-//     $('.change__button').each(function(i){
-//         $(this).attr('id','butt' + (i+1));
+// idName.forEach(function(result) {
+//   $(function() {
+//     $('.' + result).each(function(i) {
+//       $(this).attr('id', result + (i + 1));
 //     });
-// });
-
-// $(function(){
-//     $('.change__form').each(function(i){
-//         $(this).attr('class','butt' + (i+1));
-//     });
-// });
-
-// $(function(){
-//   $('.change__form').hide();
-
-//   $('.change__button').on('click',function(){
-//     // クリックした要素の ID と違うクラス名のセクションを非表示
-//     $('.change__form').not($('.'+$(this).attr('id'))).hide();
-//     // クリックした要素の ID と同じクラスのセクションを表示
-//     $('.'+$(this).attr('id')).show();
-
-//     // toggle にすると、同じボタンを 2 回押すと非表示になる
-//     // $('.'+$(this).attr('id')).toggle();
 //   });
 // });
 
+// $(function() {
+//   $('.change__form').on('click', (function() {
+//     let $form = $(this).attr('id');
+//     console.log($form);
+//   }));
+// });
+// $(function() {
+//   $('.change__form').submit('click', (function(e, $form) {
+//     e.preventDefault();
+//     let $this = $(this);
+//     let formData = $this.serialize();
+//     console.log(formData);
+//     $.ajax({
+//           headers: {
+//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//           },
+//           url: "{{ route('update')}}",
+//           method: 'POST',
+//           data: formData,
+//           })
+//       .done(function (data) {
+//         alert('成功');
+//         console.log(data);
 
+//         let date = data.date;
+//         let time = data.time;
+//         let number = data.number;
+//         console.log(date, time, number);
+
+//         $('#' + $form , '.reserved-date').html(date);
+//         $('#' + $form , '.reserved-time').html(time);
+//         $('#' + $form, '.reserved-number').html(number);
+//         })
+//         .fail(function() {
+//           alert('error');
+//         });
+//     }));
+//   });

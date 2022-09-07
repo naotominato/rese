@@ -28,3 +28,13 @@ $(function() {
 //      history.back(); //前のページを受け取る
 //    });
 //});
+
+//----- 予約前　確認アラート -----//
+
+$('#reserve__btn').click(function() {
+  if (confirm('予約を確定します。選択された内容でお間違いないでしょうか。')) {
+    return true;
+  } else {
+    return false;
+  }
+});

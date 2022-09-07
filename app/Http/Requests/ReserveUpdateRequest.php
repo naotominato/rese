@@ -9,16 +9,16 @@ use Illuminate\Http\Exceptions\HttpResponseException; //追加
 class ReserveUpdateRequest extends FormRequest
 {
     // //追加
-    protected function failedValidation(Validator $validator)
-    {
-        if (request()->expectsJson()) {
-            $response['error']  = $validator->errors()->toArray();
+    // protected function failedValidation(Validator $validator)
+    // {
+    //     if (request()->expectsJson()) {
+    //         $response['error']  = $validator->errors()->toArray();
 
-            throw new HttpResponseException(
-                response()->json($response, 422)
-            );
-        }
-    }
+    //         throw new HttpResponseException(
+    //             response()->json($response, 422)
+    //         );
+    //     }
+    // }
     // //ここまで追加
 
     /**

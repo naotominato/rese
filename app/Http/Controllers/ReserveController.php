@@ -31,37 +31,37 @@ class ReserveController extends Controller
 
     //１つ前
     //idにもかかる新たなバリデーション
-    public function update(ReserveUpdateRequest $request) //更新用
-    {
-        $reserve_id = $request->reserve_id;
-        $shop_id = $request->shop_id;
-        $number = $request->number;
+    // public function update(ReserveUpdateRequest $request) //更新用
+    // {
+    //     $reserve_id = $request->reserve_id;
+    //     $shop_id = $request->shop_id;
+    //     $number = $request->number;
 
-        $date = $request->date;
-        $time = $request->time;
-        $datetime = $date . ' ' . $time;
+    //     $date = $request->date;
+    //     $time = $request->time;
+    //     $datetime = $date . ' ' . $time;
 
-        //不正を防ぐために条件を多めに設定
-        Reserve::where('id', $reserve_id)->where('user_id', Auth::id())->where('shop_id', $shop_id)->update([
-            'start' => $datetime,
-            'number' => $number,
-        ]);
+    //     //不正を防ぐために条件を多めに設定
+    //     Reserve::where('id', $reserve_id)->where('user_id', Auth::id())->where('shop_id', $shop_id)->update([
+    //         'start' => $datetime,
+    //         'number' => $number,
+    //     ]);
 
-        $reserved = Reserve::where('id', $reserve_id)->where('user_id', Auth::id())->where('shop_id', $shop_id)->first();
-        $shop = $reserved->shop->name;
-        $date = $reserved->start->format('Y年m月d日');
-        $time = $reserved->start->format('H:i');
-        $number = $reserved->number;
+    //     $reserved = Reserve::where('id', $reserve_id)->where('user_id', Auth::id())->where('shop_id', $shop_id)->first();
+    //     $shop = $reserved->shop->name;
+    //     $date = $reserved->start->format('Y年m月d日');
+    //     $time = $reserved->start->format('H:i');
+    //     $number = $reserved->number;
 
-        return response()->json([
-            // 'shop' => $shop,
-            'date' => $date,
-            'time' => $time,
-            'number' => $number,
-            ]);
-    }
+    //     return response()->json([
+    //         // 'shop' => $shop,
+    //         'date' => $date,
+    //         'time' => $time,
+    //         'number' => $number,
+    //         ]);
+    // }
 
-    //idにもかかる新たなバリデーション
+    // idにもかかる新たなバリデーション
     // public function update(ReserveUpdateRequest $request) //更新用
     // {
     //     $form = $request->form;
@@ -83,25 +83,25 @@ class ReserveController extends Controller
     // }
 
     // オリジナル
-                 //idにもかかる新たなバリデーション
-    // public function update(ReserveUpdateRequest $request) //更新用
-    // {
-    //     $reserve_id = $request->input('reserve_id');
-    //     $shop_id = $request->input('shop_id');
-    //     $number = $request->input('number');
+    //              idにもかかる新たなバリデーション
+    public function update(ReserveUpdateRequest $request) //更新用
+    {
+        $reserve_id = $request->input('reserve_id');
+        $shop_id = $request->input('shop_id');
+        $number = $request->input('number');
 
-    //     $date = $request->input('date');
-    //     $time = $request->input('time');
-    //     $datetime = $date . ' ' . $time;
+        $date = $request->input('date');
+        $time = $request->input('time');
+        $datetime = $date . ' ' . $time;
 
-    //     //不正を防ぐために条件を多めに設定
-    //     Reserve::where('id', $reserve_id)->where('user_id', Auth::id())->where('shop_id', $shop_id)->update([
-    //         'start' => $datetime,
-    //         'number' => $number,
-    //     ]);
+        //不正を防ぐために条件を多めに設定
+        Reserve::where('id', $reserve_id)->where('user_id', Auth::id())->where('shop_id', $shop_id)->update([
+            'start' => $datetime,
+            'number' => $number,
+        ]);
 
-    //     return back();
-    // }
+        return back();
+    }
     
 
     public function cancel($id) 
