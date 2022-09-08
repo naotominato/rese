@@ -1,6 +1,6 @@
-/*---- 仮登録完了画面 -----*/
+/*---- 決済完了画面 -----*/
 
-.created {
+.paid {
   background: #fff;
   text-align: center;
   width: 450px;
@@ -10,13 +10,13 @@
   box-shadow: 2px 2px 5px #696969;
 }
 
-.created__text {
+.paid__text {
   margin-bottom: 50px;
   font-size: 22px;
   font-size: clamp(16px, 2vw, 22px);
 }
 
-.login__link {
+.mypage__link {
   background: #0000FF;
   color: #fff;
   border-radius: 5px;
@@ -25,14 +25,14 @@
   font-size: clamp(12px, 1vw, 18px);
 }
 
-.login__link:hover {
+.mypage__link:hover {
   background: rgb(0, 0, 255, 0.8);
   box-shadow: 0 0 8px #696969;
 }
 
 @media screen and (max-width:768px) {
 
-  .created {
+  .paid {
     width: 98%;
   }
 }

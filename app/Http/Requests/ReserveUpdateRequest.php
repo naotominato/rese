@@ -8,19 +8,6 @@ use Illuminate\Http\Exceptions\HttpResponseException; //追加
 
 class ReserveUpdateRequest extends FormRequest
 {
-    // //追加
-    // protected function failedValidation(Validator $validator)
-    // {
-    //     if (request()->expectsJson()) {
-    //         $response['error']  = $validator->errors()->toArray();
-
-    //         throw new HttpResponseException(
-    //             response()->json($response, 422)
-    //         );
-    //     }
-    // }
-    // //ここまで追加
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -64,7 +51,7 @@ class ReserveUpdateRequest extends FormRequest
             'shop.required' => '不正な変更が確認されました。',
             'shop.integer' => '不正な変更が確認されました。',
             'date.required' => ':attributeを選択してください。',
-            'date.after_or_equal' => '変更は明日以降で可能です。',
+            'date.after_or_equal' => '予約変更は明日以降で可能です。',
             'time.required' => ':attributeを選択してください。',
             'time.date_format' => '指定の項目から選択してください。',
             'number.required' => ':attributeを選択してください。',

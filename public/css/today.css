@@ -1,3 +1,5 @@
+/*----- １件ずつの予約情報 -----*/
+
 .reserve__info {
   display: flex;
   justify-content: space-around;
@@ -7,7 +9,23 @@
   text-align: center;
 }
 
+/*----- QRコード表示 -----*/
+
 .qr {
   margin-bottom: 25px;
 }
 
+.qr__button {
+  display: inline-block;
+  font-weight: bold;
+  background: rgb(65, 105, 225);
+  border-radius: 5px;
+  color: #fff;
+  box-shadow: 0 0 5px #696969;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.qr__button:hover {
+  background: rgb(65, 105, 225, 0.8);
+}

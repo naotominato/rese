@@ -14,7 +14,7 @@
         <p class="reserved__text">※ご予約内容をご確認の上、店舗スタッフへご提示ください。</p>
     </div>
     <div class="qrcode">
-      {!! QrCode::size(150)->generate(route('managerreservedqr', ['reserved_id' => $reserved->id, 'user_id' => $reserved->user->id, 'shop_id' => $reserved->shop->id])) !!}
+      {!! QrCode::size(120)->generate(route('manager.qr', ['reserved_id' => $reserved->id, 'user_id' => $reserved->user->id, 'shop_id' => $reserved->shop->id])) !!}
     </div>
   </div>
 </div>

@@ -1,12 +1,16 @@
 @extends('layouts.default')
 
 @section('paid')
-<link rel="stylesheet" href="{{ asset('css/created.css') }}">
+<link rel="stylesheet" href="{{ asset('css/paid.css') }}">
 
-<div class="created">
-  <h2 class="created__text">【お支払いが完了しました】</h2>
-  <p class="created__text">ご利用ありがとうございます。<br>またのご利用をお待ちしております。</p>
-  <a href="{{ route('today') }}" class="login__link">本日の予約へ戻る</a>
+<div class="paid">
+  @if(session('message'))
+  <h2 class="paid__text">【お支払い結果】</h2>
+  <p class="paid__text">{{ session('message') }}</p>
+  @else
+  <h2 class="paid__text">【こちらからお戻りください】</h2>
+  @endif
+  <a href="{{ route('today') }}" class="mypage__link">本日の予約へ戻る</a>
 </div>
 
 @endsection

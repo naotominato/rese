@@ -6,13 +6,15 @@
   margin: 10px 0 0 45%;
 }
 
-/*----- 予約・お気に入りのコンテンツ -----*/
+/*----- mypage全体 -----*/
 
 .mypage__content {
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
 }
+
+/*----- タイトル（予約・お気に入り） -----*/
 
 .reserve__title,
 .favorite__title {
@@ -21,17 +23,21 @@
   margin-bottom: 4%;
 }
 
-/*------- 全予約情報 --------*/
+/*------- 予約情報（全体） --------*/
 
 .reserve__section {
   width: 40%;
 }
+
+/*------- タイトル　（予約） --------*/
 
 .reserve__title {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+/*----- リンクボタン（本日・過去の予約確認） -----*/
 
 .reserve__title--right {
   background: rgb(65, 105, 225);
@@ -88,23 +94,6 @@
   margin-left: 30px;
 }
 
-/*----- QRコード表示 -----*/
-
-.qr__button {
-  display: inline-block;
-  font-weight: bold;
-  background: rgb(65, 105, 225);
-  border-radius: 5px;
-  color: #fff;
-  box-shadow: 0 0 5px #696969;
-  padding: 8px 15px;
-  cursor: pointer;
-}
-
-.qr__button:hover {
-  background: rgb(65, 105, 225, 0.8);
-}
-
 /*----- 予約キャンセル -----*/
 
 .reserve__cancel {
@@ -117,7 +106,7 @@
   cursor: pointer;
 }
 
-/*----- 予約情報　表示欄 -----*/
+/*----- 予約情報　詳細欄 -----*/
 
 .reserve__tables {
   display: flex;
@@ -198,7 +187,14 @@
 /*----- 予約変更欄　エラーメッセージ -----*/
 
 .error {
-  font-size: 12px;
+  font-size: clamp(10px, 1vw, 16px);
+  background: #CD5C5C;
+  list-style-type: none;
+  color: #fff;
+  padding: 1em 0;
+  text-align: center;
+  margin-bottom: 1em;
+  border-radius: 5px;
 }
 
 /*------- お気に入り店舗一覧 -------*/
@@ -258,7 +254,6 @@
   color: #fff;
   border-radius: 5px;
   font-size: clamp(10px, 1vw, 16px);
-    /*検討中*/
 }
 
 .shop__detail:hover {
@@ -306,11 +301,7 @@
     margin-left: 0;
   }
 
-  .reserve__title {
-    
-  }
-
-  /*----- リンクボタン -----*/
+  /*----- リンクボタン（本日・過去の予約情報） -----*/
 
   .reserve__title--right {
     font-size: clamp(12px, 1vw, 18px);
@@ -330,7 +321,7 @@
     margin-bottom: 4%;
   }
 
-  /*----- 予約済み情報 ------*/
+  /*----- 予約情報（詳細） ------*/
 
   .reserve__section {
     width: 100%;
@@ -354,7 +345,7 @@
     width: 20px;
   }
 
-  /*----- 予約更新 -----*/
+  /*----- 予約変更欄 -----*/
 
   .change__form {
     font-size: clamp(14px, 1vw, 18px);

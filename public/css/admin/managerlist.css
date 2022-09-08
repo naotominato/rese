@@ -1,3 +1,5 @@
+/*----- nav -----*/
+
 .admin__nav {
   color: #DC143C;
   font-size: 18px;
@@ -24,10 +26,14 @@
   opacity: 0.6;
 }
 
+/*----- 作成欄タイトル -----*/
+
 .admin__title {
   font-size: clamp(10px, 2vw, 18px);
   margin-bottom: 5px;
 }
+
+/*----- 店舗代表者　作成欄 -----*/
 
 .register-manager {
   font-size: clamp(10px, 1vw, 20px);
@@ -35,7 +41,7 @@
   border-radius: 5px;
   padding: 20px;
   background: rgb(220, 20, 60, 0.1);
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .error__ul {
@@ -89,6 +95,23 @@
   box-shadow: 0 0 8px #696969;
 }
 
+/*----- 登録時 メッセージ -----*/
+
+.message {
+  background: #CD5C5C;
+  padding: 10px 0;
+  border-radius: 3px;
+  color: #fff;
+  font-size: clamp(12px, 1.5vw, 18px);
+  text-align: center;
+}
+
+/*-----　登録済み 店舗代表者リスト -----*/
+
+.manager__list {
+  margin-top: 20px;
+}
+
 .manager__table {
   width: 100%;
   margin-bottom: 50px;
@@ -98,7 +121,7 @@
 .manager__table tr td {
   border: 1px solid #DC143C;
   padding: 5px 10px;
-  font-size: clamp(12px, 1.5vw, 18px);
+  font-size: clamp(10px, 1vw, 18px);
 }
 
 .manager-id {
@@ -108,6 +131,8 @@
 /*------------ レスポンシブデザイン ------------*/
 
 @media screen and (max-width:768px) {
+
+  /*----- 店舗代表者　作成欄 -----*/
 
   .register-manager {
     padding: 20px 0;
@@ -151,7 +176,4 @@
   .register-manager__btn {
     width: 20%;
   }
-  
-
-
 }

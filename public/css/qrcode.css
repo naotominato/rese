@@ -1,3 +1,5 @@
+/*----- 予約情報の確認表示 -----*/
+
 .reserved__content {
   text-align: center;
 }
@@ -26,8 +28,10 @@
 }
 
 .reserved__text {
-  margin-bottom: 10px;
+  margin-bottom: 3%;
 }
+
+/*----- QRコード表示 -----*/
 
 .qrcode {
   display: inline-block;
@@ -36,3 +40,27 @@
   border-radius: 40px;
   box-shadow: 0 0 2px #696969;
 }
+
+/*------------ レスポンシブデザイン ------------*/
+
+@media screen and (max-width:768px) {
+
+  /*----- 予約情報の確認表示 -----*/
+
+  .reserved__title {
+    font-size: clamp(18px, 1vw, 22px);
+  }
+
+  .reserved__username {
+    font-size: clamp(16px, 1vw, 20px);
+  }
+
+  .reserved__detail {
+    font-size: clamp(12px, 1vw, 18px);
+  }
+
+  .reserved__text {
+    font-size: clamp(12px, 1vw, 18px);
+  }
+}
+

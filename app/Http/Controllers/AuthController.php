@@ -10,7 +10,6 @@ class AuthController extends Controller
 {
     public function auth()
     {
-
         return view('users.login');
     }
 
@@ -25,22 +24,6 @@ class AuthController extends Controller
         }
     }
 
-    //メール認証後の表示画面を検討中
-    // public function __construct()
-    // {
-    //     $this->middleware('verified')->only('kari');
-    // }
-
-    // public function kari()
-    // {
-    //     return redirect()->route('index');
-    // }
-
-    public function mailAuth()
-    {
-        return view('emails.Auth');
-    }
-
     public function logout(Request $request)
     {
         Auth::logout();
@@ -51,6 +34,11 @@ class AuthController extends Controller
         // 二重送信対策
 
         return redirect()->route('index');
+    }
+
+    public function mailAuth()
+    {
+        return view('emails.Auth');
     }
 }
 

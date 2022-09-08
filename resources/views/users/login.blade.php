@@ -1,7 +1,6 @@
 @extends('layouts.default')
 
 @section('login')
-
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
 <div class="login">
@@ -10,7 +9,7 @@
     <div class="login__form">
       <form action="{{ route('login') }}" method="POST" id="login__form">
         @csrf
-        <table>
+        <table class="login__table">
           @error('email')
           <tr>
             <th></th>
@@ -55,4 +54,5 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/login.js') }}"></script>
+
 @endsection

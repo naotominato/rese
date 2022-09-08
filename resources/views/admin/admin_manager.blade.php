@@ -1,10 +1,10 @@
 @extends('layouts.admin')
-<link rel="stylesheet" href="{{ asset('css/admin/create.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin/managerlist.css') }}">
 
 @section('adminnav')
 <nav class="admin__nav">
   <ul>
-    <li><a href="{{ route('shoppage') }}">店舗作成/一覧</a></li>
+    <li><a href="{{ route('shop.list') }}">店舗作成/一覧</a></li>
     <li><a href="{{ route('index') }}">お客様用画面</a></li>
   </ul>
 </nav>
@@ -19,7 +19,7 @@
     <li class="error__li">{{$error}}</li>
     @endforeach
   </ul>
-  <form action="{{ route('adminCreate') }}" method="POST" class="manager__form">
+  <form action="{{ route('manager.create') }}" method="POST" class="manager__form">
     @csrf
     <div class="shop">
       <label for="shop_id" class="manager__label">店舗選択　：</label>
@@ -50,7 +50,9 @@
     </div>
   </form>
 </div>
-
+@if(session('message'))
+<p class="message">{{ session('message') }}</p>
+@endif
 <div class="manager__list">
   <h3 class="admin__title">店舗代表者 登録済み店舗　一覧</h3>
   <table class="manager__table">
@@ -73,4 +75,5 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/admin/manager.js') }}"></script>
+
 @endsection

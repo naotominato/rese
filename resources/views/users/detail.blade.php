@@ -10,8 +10,8 @@
         < </a>
           <h2 class="shop__name">{{ $shop->name }}</h2>
     </div>
-    <img src="{{ $shop->image_url }}" alt="" class="shop__image">
-    <!-- <img src="{{ asset('storage/shop_image/' . $shop->name . $shop->id . '.png') }}" alt="" class="shop__image"> -->
+    <img src="{{ asset($shop->image_url) }}" alt="準備中" class="shop__image">
+    
     <div class="shop__tag">
       <p class="shop-area__tag">#{{ $shop->area->name }}</p>
       <p class="shop-genre__tag">#{{ $shop->genre->name }}</p>

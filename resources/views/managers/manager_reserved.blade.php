@@ -4,8 +4,8 @@
 @section('managerreservednav')
 <nav class="manager__nav">
   <ul>
-    <li><a href="{{ route('managerpage') }}">店舗情報登録 / 更新</a></li>
-    <li><a href="{{ route('sentmail') }}">お気に入り（メール）</a></li>
+    <li><a href="{{ route('manager.shop') }}">店舗情報登録 / 更新</a></li>
+    <li><a href="{{ route('manager.mail') }}">メール送信</a></li>
     <li><a href="{{ route('index') }}">お客様用画面</a></li>
   </ul>
 </nav>
@@ -40,7 +40,7 @@
 </div>
 
 <div class="shop-reserved">
-  <h3 class="reserved__title">【今後】の予約リスト（日時順）</h3>
+  <h3 class="reserved__title">【今後】予約リスト（日時順）</h3>
   <div class="reserved__list">
     <table class="reserved__table">
       <tr>

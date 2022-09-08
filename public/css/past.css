@@ -6,7 +6,7 @@
   margin: 10px 0 0 50%;
 }
 
-/*----- 共通部分 -----*/
+/*----- 過去の予約（共通部分） -----*/
 .mypage__content {
   display: block;
 }
@@ -169,6 +169,8 @@
 
 @media screen and (max-width:768px) {
 
+  /*----- 過去の予約（共通部分） -----*/
+
   .reserve__section {
     width: 100%;
     display: block;
@@ -190,6 +192,8 @@
     border-spacing: 10px 10px;
     font-size: clamp(14px, 1vw, 18px);
   }
+
+  /*----- レビュー入力済み側 -----*/
 
   .reviewed {
     margin: 0 auto;

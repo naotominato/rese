@@ -19,15 +19,8 @@ $(function() {
     $('#reserve__btn').click(function() {
       $(this).prop('disabled', true);
       $(this).closest('#reserve__form').submit();
-
     });
 });
-
-//$(function() {
-//    $('.page__back').click(function() {
-//      history.back(); //前のページを受け取る
-//    });
-//});
 
 //----- 予約前　確認アラート -----//
 

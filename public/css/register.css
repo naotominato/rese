@@ -1,15 +1,3 @@
-table {
-  width: 100%;
-}
-
-th {
-  width: 10%;
-}
-
-td {
-  width: 90%;
-}
-
 /*----- 登録画面 -----*/
 
 .register {
@@ -39,6 +27,18 @@ td {
   background: #fff;
   padding: 20px;
   border-radius: 0 0 8px 8px;
+}
+
+.register__table {
+  width: 100%;
+}
+
+.register__table th {
+  width: 10%;
+}
+
+.register__table td {
+  width: 90%;
 }
 
 .register__td--error {
@@ -90,3 +90,24 @@ td {
   box-shadow: 0 0 8px #696969;
 }
 
+@media screen and (max-width:768px) {
+
+  .register__title {
+    font-size: clamp(14px, 1vw, 20px);
+  }
+
+  .register__td--error {
+    font-size: 12px;
+    font-size: clamp(8px, 1vw, 16px);
+  }
+
+  .register__input {
+    font-size: 16px;
+    font-size: clamp(14px, 1vw, 16px);
+  }
+
+  .register__btn {
+    width: 40%;
+    font-size: clamp(12px, 1vw, 14px);
+  }
+}

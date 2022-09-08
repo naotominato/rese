@@ -1,3 +1,5 @@
+/*----- nav -----*/
+
 .manager__nav {
   color: rgb(60, 179, 113);
   font-size: 18px;
@@ -24,10 +26,7 @@
   opacity: 0.6;
 }
 
-.manager__content {
-  display: flex;
-  gap: 2%;
-}
+/*----- ログイン中　店舗名/店舗代表者名 -----*/
 
 .shop__title {
   font-size: clamp(16px, 2vw, 22px);
@@ -36,6 +35,8 @@
 .shop-manager {
   color: rgb(60, 179, 113);
 }
+
+/*----- 各予約リスト -----*/
 
 .reserved__title {
   margin: 25px 0 5px;
@@ -48,7 +49,6 @@
 
 .reserved__table {
   width: 100%;
-
 }
 
 .reserved__table tr th,
@@ -78,6 +78,8 @@
 
 @media screen and (max-width:768px) {
 
+  /*----- nav -----*/
+
   .manager__nav ul li {
       font-size: clamp(10px, 1vw, 14px);
     }
@@ -85,5 +87,4 @@
   .manager__nav ul li:not(:last-of-type) {
     margin-right: 5%;
   }
-
 }

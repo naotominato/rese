@@ -1,3 +1,5 @@
+/*----- ヘッダー配置変更 -----*/
+
 .header-left {
   width: 20%;
 }
@@ -6,6 +8,8 @@
   width: 80%;
   height: auto;
 }
+
+/*----- レイアウト　配色変更 -----*/
 
 .hamburger-trigger {
   background: #3CB371;
@@ -21,4 +25,10 @@
 
 .menu__item {
   color: #3CB371;
+}
+
+/*----- ドロワーメニュー 幅変更 -----*/
+
+.menu__item {
+  margin: 25% 0;
 }

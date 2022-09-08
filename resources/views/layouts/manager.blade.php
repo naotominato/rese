@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
   <link rel="stylesheet" href="{{ asset('css/manager/layout.css') }}">
-<title>Rese（店舗代表者）</title>
+  <title>Rese（店舗代表者）</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
           <h1 class="header__title">Rese</h1>
         </div>
         <div class="header-right">
-          @yield('managerpagenav')
+          @yield('managershopnav')
           @yield('managerreservednav')
         </div>
       </div>
@@ -39,25 +39,28 @@
       <div class="menu__position">
         <div class="menu__item">
           <div class="menu__item">
-            <a href="{{ route('managerreserved') }}">予約状況確認</a>
+            <a href="{{ route('manager.reserved') }}">予約状況確認</a>
           </div>
           <div class="menu__item">
-            <a href="{{ route('managerpage') }}">店舗情報登録 / 編集画面</a>
+            <a href="{{ route('manager.shop') }}">店舗情報登録 / 編集画面</a>
           </div>
           <div class="menu__item">
-            <a href="{{ route('managerlogout') }}">Logout</a>
+            <a href="{{ route('manager.mail') }}">メール送信</a>
+          </div>
+          <div class="menu__item">
+            <a href="{{ route('manager.logout') }}">Logout</a>
           </div>
         </div>
       </div>
     </div>
     @endauth
   </header>
+  
   <main>
     <div class="container">
       @yield('managerlogin')
-      @yield('managerpage')
+      @yield('managershop')
       @yield('managerreserved')
-      @yield('managerreservedqr')
       @yield('managercompletion')
     </div>
   </main>

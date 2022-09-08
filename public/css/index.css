@@ -86,7 +86,7 @@
   background: rgb(220, 220, 220);
 }
 
-/*----- login -----*/
+/*----- メール認証後の上部表示 -----*/
 .login-status {
   font-size: clamp(14px, 1vw, 20px);
 }
@@ -95,6 +95,8 @@
   color: #0000FF;
   font-size: clamp(20px, 1vw, 26px);
 }
+
+/*----- メール認証前の上部表示 -----*/
 
 .temporary-login {
   background: #0000FF;
@@ -194,7 +196,7 @@
   
 }
 
-/*----- ログイン時：お気に入り表示 -----*/
+/*----- メール認証後：お気に入り表示 -----*/
 
 .favorite__form {
   width: 20%;
@@ -232,7 +234,7 @@
     gap: 25px 4%;
   }
 
-  /*----- 各お気に入り店舗 -----*/
+  /*----- 各店舗　横2店舗ずつ -----*/
 
   .shop__card {
   width: 48%;
@@ -241,6 +243,5 @@
   .shop__detail {
     padding: 4% 6%;
     font-size: clamp(6px, 1vw, 16px);
-    /*検討中*/
   }
 }

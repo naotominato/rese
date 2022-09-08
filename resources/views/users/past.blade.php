@@ -15,6 +15,11 @@
         <a href="{{ route('mypage') }}" class="reserve__title--right">Mypageへ戻る</a>
         <a href="{{ route('today') }}" class="reserve__title--right">本日の予約<br>【QR / 決済】</a>
       </div>
+      <ul class="error__ul">
+        @foreach ($errors->all() as $error)
+        <li class="error">{{$error}}</li>
+        @endforeach
+      </ul>
       @foreach ($pasts as $past)
       @if(!$past->reviewed())
       <div class="reserve__result">
@@ -22,13 +27,6 @@
           <div class="reserve__heading--left">
             <img src=" {{ asset('img/clock.png') }}" alt="" class="reserve__icon">
             <h4 class="reserve__name">過去の予約</h4>
-          </div>
-          <div class="reserve__heading--right">
-            <ul class="error__ul">
-              @foreach ($errors->all() as $error)
-              <li class="error__li">{{$error}}</li>
-              @endforeach
-            </ul>
           </div>
         </div>
         <div class="reserved__content">
@@ -142,4 +140,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/mypage.js') }}"></script>
+
 @endsection

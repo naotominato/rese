@@ -1,3 +1,4 @@
+/*----- 認証前後　共通 -----*/
 .detail-page__content {
   display: flex;
   margin-bottom: 50px;
@@ -54,7 +55,7 @@
   width: 100%;
 }
 
-/*----- 予約画面 -----*/
+/*----- 予約画面（メール認証後） -----*/
 
 .reserve {
   width: 50%;
@@ -62,7 +63,7 @@
 
 .reserve__box {
   background: rgba(0, 0, 255, 0.7);
-  height: 115%;
+  height: 90vh;
   width: 85%;
   margin: -10Vh 0 0 15%;
   border-radius: 5px;
@@ -132,7 +133,7 @@
   font-size: 17px;
 }
 
-/*----- バリデーション -----*/
+/*----- バリデーション（エラーメッセージ） -----*/
 
 .error {
   color: #fff;
@@ -193,7 +194,7 @@
     font-size: 14px;
   }
 
-  /*----- 予約画面 -----*/
+  /*----- 予約画面（メール認証後） -----*/
 
   .reserve {
     width: 100%;

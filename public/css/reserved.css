@@ -12,18 +12,34 @@
 
 .reserved__text {
   margin-bottom: 50px;
-  font-size: 22px;
+  font-size: clamp(18px, 1.5vw, 24px);
 }
 
 .mypage__link {
   background: #0000FF;
   color: #fff;
   border-radius: 5px;
-  padding: 5px 15px;
+  padding: 6px 18px;
   cursor: pointer;
+  font-size: clamp(12px, 1vw, 20px);
 }
 
 .mypage__link:hover {
   background: rgb(0, 0, 255, 0.8);
   box-shadow: 0 0 8px #696969;
+}
+
+/*------------ レスポンシブデザイン ------------*/
+
+@media screen and (max-width:768px) {
+
+  .reserved {
+    width: 60%;
+    padding: 50px 0;
+  }
+
+  .reserved__text {
+    margin-bottom: 50px;
+    font-size: clamp(14px, 1vw, 18px);
+  }
 }

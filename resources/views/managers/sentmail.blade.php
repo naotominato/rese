@@ -5,8 +5,8 @@
 @section('managerreservednav')
 <nav class="manager__nav">
   <ul>
-    <li><a href="{{ route('managerreserved') }}">予約状況確認</a></li>
-    <li><a href="{{ route('managerpage') }}">店舗情報登録 / 更新</a></li>
+    <li><a href="{{ route('manager.reserved') }}">予約状況確認</a></li>
+    <li><a href="{{ route('manager.shop') }}">店舗情報登録 / 更新</a></li>
     <li><a href="{{ route('index') }}">お客様用画面</a></li>
   </ul>
 </nav>
@@ -26,7 +26,7 @@
   <p class="send"></p>
 
 
-  <form action="{{ route('sendmail') }}" method="POST" id="manager-mail__form">
+  <form action="{{ route('mail.sent') }}" method="POST" id="manager-mail__form">
     @csrf
     <div class="mail__text">
       <textarea name="text" id="" class="mail__textarea" placeholder="メール本文"></textarea>

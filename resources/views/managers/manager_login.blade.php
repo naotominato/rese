@@ -1,7 +1,6 @@
 @extends('layouts.manager')
 
 @section('managerlogin')
-
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <link rel="stylesheet" href="{{ asset('css/manager/login.css') }}">
 
@@ -12,9 +11,9 @@
       <h3 class="login__title--right">店舗代表者画面</h3>
     </div>
     <div class="login__form">
-      <form action="{{ route('managerlogin') }}" method="POST" id="login__form">
+      <form action="{{ route('manager.login') }}" method="POST" id="login__form">
         @csrf
-        <table>
+        <table class="login__table">
           @error('email')
           <tr>
             <th></th>
@@ -59,4 +58,5 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/login.js') }}"></script>
+
 @endsection

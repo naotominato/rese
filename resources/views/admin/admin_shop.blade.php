@@ -1,10 +1,10 @@
 @extends('layouts.admin')
-<link rel="stylesheet" href="{{ asset('css/admin/shop.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin/shoplist.css') }}">
 
 @section('createnav')
 <nav class="admin__nav">
   <ul>
-    <li><a href="{{ route('adminpage') }}">店舗代表者作成 / 店舗代表者一覧</a></li>
+    <li><a href="{{ route('manager.list') }}">店舗代表者作成 / 店舗代表者一覧</a></li>
     <li><a href="{{ route('index') }}">お客様用画面</a></li>
   </ul>
 </nav>
@@ -15,7 +15,7 @@
 <h2 class="admin__title">新規店舗名　作成</h2>
 
 <div class="create-shop">
-  <form action="{{ route('shopCreate') }}" method="POST">
+  <form action="{{ route('shopname.create') }}" method="POST">
     @csrf
     <label for="shop_name">新規作成　店舗名</label>
     <input type="text" name="shop_name" class="create-shop__input" id="shop_name" placeholder="店舗名" value="{{ old('shop_name') }}">
@@ -24,11 +24,10 @@
   @error('shop_name')
   <p class="error">{{ $message }}</p>
   @enderror
-  @if(isset($shop_name))
-  <p class="error">新店舗「{{ $shop_name }}」が追加されました。</p>
-  @endif
 </div>
-
+@if(session('message'))
+<p class="message">{{ session('message') }}</p>
+@endif
 <div class="shop__list">
   <h3 class="admin__title">既存店舗　一覧表</h3>
   <table class="shop__table">

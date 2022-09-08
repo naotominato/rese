@@ -11,46 +11,10 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\managerController;
 use App\Http\Controllers\StripeController;
-
-//メール認証用
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 
-//メール送信用
-use App\Http\Controllers\MailSendController;
-
-//メール認証用
-
-Route::get('/email/verify', function () {
-    return view('emails.email-send');
-})->middleware('auth')->name('verification.notice');
-
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-    return redirect('/mailauth');
-})->middleware(['auth', 'signed'])->name('verification.verify');
-// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-//     $request->fulfill();
-    
-//     return redirect()->route('mailauth');//メール認証完了画面にする！
-// })->middleware(['auth', 'signed'])->name('verification.verify');
-
-Route::post('/email/verification-notification', function (Request $request) {
-    $request->user()->sendEmailVerificationNotification();
-
-    return view('emails.resend');
-})->middleware('auth', 'throttle:6,1')->name('verification.send');
-
-//ユーザー登録後、表示画面
-// Route::get('/registered/email', [RegisterController::class, 'registered'])->name('registered');
-
-//ユーザー登録後、表示画面
-Route::get('/registered', [RegisterController::class, 'registered'])->name('registered');
-
-
-//メール送信用
-Route::get('/mailauth', [AuthController::class, 'mailAuth'])->name('mailauth');
-//認証前後 共通画面
+//ユーザー共通画面（認証前 / 認証後）
 Route::get('/', [ShopController::class, 'index'])
 ->name('index');
 Route::get('/search', [ShopController::class, 'search'])->name('search');
@@ -62,20 +26,29 @@ Route::get('/thanks', [RegisterController::class, 'thanks'])->name('thanks');
 Route::get('/login', [AuthController::class, 'auth'])->name('auth');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-//管理者ログインページ
-Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
-Route::post('/admin/login', [AdminController::class, 'adminLogin'])->name('adminlogin');
-
-//店舗代表者用ログインページ
-Route::get('/manager', [ManagerController::class, 'manager'])->name('manager');
-Route::post('/manager/login', [ManagerController::class, 'managerLogin'])->name('managerlogin');
-
+//仮登録中ユーザー（メール認証前）
 Route::middleware(['auth:user'])->group(function () {
-    // Route::get('/index', [AuthController::class, 'kari'])->name('kari');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/email/verify', function () {
+        return view('emails.email-send');
+    })->name('verification.notice');
 });
 
+//認証メール再送
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return view('emails.resend');
+})->middleware('auth', 'throttle:6,1')->name('verification.send');
+
+//認証メール リンク先
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect('/mailauth');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+//メール認証済みユーザー
 Route::middleware(['auth:user', 'verified'])->group(function () {
+    Route::get('/mailauth', [AuthController::class, 'mailAuth'])->name('mailauth');
     Route::get('/mypage', [MypageController::class, 'mypage'])->name('mypage');
     Route::get('/mypage/past', [MypageController::class, 'past'])->name('past');
     Route::get('/mypage/today', [MypageController::class, 'today'])->name('today');
@@ -86,43 +59,37 @@ Route::middleware(['auth:user', 'verified'])->group(function () {
     Route::post('/favorite/delete', [FavoriteController::class, 'delete'])->name('delete');
     Route::post('mypage/qr', [MypageController::class, 'qrcode'])->name('qrcode');
     Route::post('/mypage/review', [ReviewController::class, 'review'])->name('review');
+    Route::post('/stripe', [StripeController::class, 'stripe'])->name('stripe');
+    Route::get('/paid', [StripeController::class, 'paid'])->name('paid');
 });
 
-//管理者用
+//管理者（認証前）
+Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
+Route::post('/admin/login', [AdminController::class, 'adminLogin'])->name('adminlogin');
+
+//管理者（認証後）
 Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
-    Route::get('/shop', [AdminController::class, 'shop'])->name('shoppage');
-    Route::get('/page', [AdminController::class, 'adminPage'])->name('adminpage');
-    Route::get('/logout', [AdminController::class, 'adminLogout'])->name('adminlogout');
-    Route::post('/shop/create', [AdminController::class, 'shopCreate'])->name('shopCreate');
-    Route::post('manager/create', [AdminController::class, 'managerCreate'])->name('adminCreate');
+    Route::get('/shoplist', [AdminController::class, 'shopList'])->name('shop.list');
+    Route::get('/managerlist', [AdminController::class, 'managerList'])->name('manager.list');
+    Route::get('/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
+    Route::post('/shop/create', [AdminController::class, 'shopCreate'])->name('shopname.create');
+    Route::post('manager/create', [AdminController::class, 'managerCreate'])->name('manager.create');
 });
 
-//店舗代表者用
+//店舗代表者（認証前）
+Route::get('/manager', [ManagerController::class, 'manager'])->name('manager');
+Route::post('/manager/login', [ManagerController::class, 'managerLogin'])->name('manager.login');
+
+//店舗代表者（認証後）
 Route::middleware(['auth:manager'])->prefix('manager')->group(function () {
-    Route::get('/page', [ManagerController::class, 'managerPage'])->name('managerpage');
-    Route::get('/reserved', [ManagerController::class, 'Reserved'])->name('managerreserved');
-    Route::get('/logout', [ManagerController::class, 'managerLogout'])->name('managerlogout');
-    Route::post('/create', [ManagerController::class, 'shopCreate'])->name('shopcreate');
-    // お気に入り（メール送信画面）
-    Route::get('/mail/sent', [ManagerController::class, 'sent'])->name('sentmail');
-    // メール送信用
-    Route::post('/mail/send', [ManagerController::class, 'send'])->name('sendmail');
-
+    Route::get('/shop', [ManagerController::class, 'managerShop'])->name('manager.shop');
+    Route::get('/reserved', [ManagerController::class, 'Reserved'])->name('manager.reserved');
+    Route::get('/logout', [ManagerController::class, 'managerLogout'])->name('manager.logout');
+    Route::post('/shop/create', [ManagerController::class, 'shopCreate'])->name('shop.create');
+    Route::get('/mail', [ManagerController::class, 'managerMail'])->name('manager.mail');
+    Route::post('/mail/sent', [ManagerController::class, 'mailSent'])->name('mail.sent');
     Route::get('/mail/completion', [ManagerController::class, 'completion'])->name('completion');
-
-    //QRコード照合＋登録用
-    Route::get('/reserved/{reserved_id}/{user_id}/{shop_id}', [ManagerController::class, 'reservedQr'])->name('managerreservedqr');
+    Route::get('/reserved/{reserved_id}/{user_id}/{shop_id}', [ManagerController::class, 'reservedQr'])->name('manager.qr');
 });
-
-
-//決済テスト
-Route::post('/stripe', [StripeController::class, 'stripe'])->name('stripe');
-Route::get('/paid', [StripeController::class, 'paid'])->name('paid');
-
-
-//削除予定
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

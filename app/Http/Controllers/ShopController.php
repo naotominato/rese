@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-
 
 class ShopController extends Controller
 {
@@ -43,7 +40,6 @@ class ShopController extends Controller
             $query->where('name', 'LIKE BINARY', "%{$shop_name}%");
         }
 
-
         $shops = $query->get();
         $areas = Area::all();
         $genres = Genre::all();
@@ -54,7 +50,6 @@ class ShopController extends Controller
     public function detail($id)
     {
         $shop = Shop::find($id);
-        //sessionでURLを保持
         if (!session()->has('url.intended')) {
             session(['url.intended' => url()->previous()]);
         }
@@ -63,7 +58,6 @@ class ShopController extends Controller
 
     public function back()
     {
-        //sessionしていたURLにredirect
         return redirect()->intended();
     }
 }

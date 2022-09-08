@@ -34,13 +34,6 @@
             <p class="reserved__detail">予約人数：{{ $reserved->number }}名</p>
             <p class="reserved__text">ご来店ありがとうございます！</p>
           </div>
-
-          <!-- 余裕があればやる -->
-          <!-- <p class="reserved__text">こちらのご予約内容でお間違いないでしょうか。</p>
-    <button>はい</button>
-    <button>いいえ</button>
-    <p>※お客様に押してもらう</p>
-    <p>※その後、reservesテーブルの新カラムに「予約済み（数値）」を格納し、店舗代表者ページ内の予約一覧画面で、表示できるようにする予定！</p> -->
         </div>
       </div>
       @elseif(isset($different))

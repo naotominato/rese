@@ -1,3 +1,5 @@
+/*----- 全ページ共通部分 ----- */
+
 body {
   background: #F5F5F5;
 }
@@ -11,7 +13,7 @@ a {
   margin: 0 4%;
 }
 
-/*----- header----- */
+/*----- ヘッダー ----- */
 
 .header {
   display: flex;
@@ -134,7 +136,7 @@ a {
 }
 
 .menu__position {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 .menu__item {

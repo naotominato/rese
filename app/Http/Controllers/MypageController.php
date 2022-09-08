@@ -13,12 +13,10 @@ class MypageController extends Controller
     public function mypage()
     {
         $user = Auth::user();
-
         $now = Carbon::now();
-        //予約済み　直近の日付順
+
         $reserves = Reserve::where('user_id', Auth::id())->where('start', '>=', $now)->orderBy('start', 'asc')->get();
 
-        //過去の予約　直近の日付順
         $pasts =
         Reserve::where('user_id', Auth::id())->where('start', '<', $now)->orderBy('start', 'desc')->get();
 
@@ -43,7 +41,6 @@ class MypageController extends Controller
     {
         $user = Auth::user();
         $now = Carbon::now();
-        //過去の予約　直近の日付順
         $pasts =
             Reserve::where('user_id', Auth::id())->where('start', '<', $now)->orderBy('start', 'desc')->get();
 
@@ -51,7 +48,6 @@ class MypageController extends Controller
         return view('users.past', compact('user', 'now', 'pasts'));
     }
 
-    //QRcontroller作成　検討中
     public function qrcode(Request $request)
     {
         $reserve_id = $request->input('reserve_id');
@@ -60,16 +56,4 @@ class MypageController extends Controller
 
         return view('users.qrcode', compact('reserved'));
     }
-
-    // //QRcontroller作成　検討中
-    // public function qrcode($id)
-    // {
-    //     $reserved =
-    //     Reserve::where('id', $id)->where('user_id', Auth::id())->first();
-
-    //     return view('users.qrcode', compact('reserved'));
-    // }
-
-    //QRコード　mypage.blade.php用
-    //<a href="{{ route('qrcode', ['reserved_id' => $reserve->id]) }}">QRcode</a>
 }

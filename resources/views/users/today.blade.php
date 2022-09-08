@@ -21,14 +21,12 @@
             <img src=" {{ asset('img/clock.png') }}" alt="" class="reserve__icon">
             <h4 class="reserve__name">予約</h4>
           </div>
-
           <div class="reserve__heading--right">
             <a href="{{ route('cancel', ['reserve_id' => $reserve->id]) }}" id="cancel__btn" class="cancel__btn">
               <img src=" {{ asset('img/cancel.png') }}" alt="" class="reserve__cancel">
             </a>
           </div>
         </div>
-        <!-- <button class="change__button" id="butt">予約変更する</button> -->
         <div class="reserve__info">
           <div class="reserve__tables">
             <table class="reserve__show">
@@ -59,7 +57,6 @@
               </form>
             </div>
             <div class="stripe">
-              <!-- stripe -->
               <form action="{{ route('stripe') }}" method="POST" class="form">
                 @csrf
                 <input type="hidden" name="shop_name" value="{{ $reserve->shop->name }}">
@@ -67,8 +64,6 @@
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ env('STRIPE_KEY') }}" data-amount="1000" data-name="{{ $reserve->shop->name }}" data-label="決済" data-description="こちらの店舗に支払います" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="JPY">
                 </script>
               </form>
-              </script>
-              <!-- stripe -->
             </div>
           </div>
         </div>
@@ -81,4 +76,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/today.js') }}"></script>
+
 @endsection

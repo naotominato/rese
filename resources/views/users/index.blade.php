@@ -55,7 +55,6 @@
 
 <div class="shop__list">
   @foreach($shops as $shop)
-  <!-- if文、あとで変更予定 -->
   @if($shop->area && $shop->genre && $shop->detail && $shop->image_url)
   <div class="shop__card">
     <img src="{{ $shop->image_url }}" alt="準備中" class="shop__image">
@@ -74,7 +73,7 @@
         </span>
         @else
         <span class="favorite__btn">
-          <i class="fa-solid fa-heart favorite__icon pink" id="favorite__icon" data-favorite-id="{{ $shop->id }}"></i>
+          <i class="fa-solid fa-heart favorite__icon red" id="favorite__icon" data-favorite-id="{{ $shop->id }}"></i>
         </span>
         @endif
         @endif
@@ -124,6 +123,5 @@
     }));
   });
 </script>
-
 
 @endsection

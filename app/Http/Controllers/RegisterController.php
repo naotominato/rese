@@ -29,12 +29,6 @@ class RegisterController extends Controller
         return redirect()->route('thanks');
     }
 
-    //ユーザー登録後、表示画面
-    // public function registered()
-    // {
-    //     return view('emails.registered-send-email');
-    // }
-
     public function thanks()
     {
         return view('users.created');

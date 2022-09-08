@@ -1,15 +1,3 @@
-table {
-  width: 100%;
-}
-
-th {
-  width: 10%;
-}
-
-td {
-  width: 90%;
-}
-
 /*----- ログイン画面 -----*/
 
 .login {
@@ -20,7 +8,7 @@ td {
 }
 
 .login__box {
-  width: 400px;  /* 25%と迷い中　*/
+  width: 400px;
   height: auto;
   border-radius: 8px;
   box-shadow: 2px 2px 5px #696969;
@@ -39,6 +27,18 @@ td {
   background: #fff;
   padding: 20px;
   border-radius: 0 0 8px 8px;
+}
+
+.login__table {
+  width: 100%;
+}
+
+.login__table th {
+  width: 10%;
+}
+
+.login__table td {
+  width: 90%;
 }
 
 .login__td--error {

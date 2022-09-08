@@ -39,13 +39,13 @@
     <div class="menu">
       <div class="menu__position">
         <div class="menu__item">
-          <a href="{{ route('shoppage') }}">店舗作成 / 店舗一覧</a>
+          <a href="{{ route('shop.list') }}">店舗作成 / 店舗一覧</a>
         </div>
         <div class="menu__item">
-          <a href="{{ route('adminpage') }}">店舗代表者作成 / 店舗代表者一覧</a>
+          <a href="{{ route('manager.list') }}">店舗代表者作成 / 店舗代表者一覧</a>
         </div>
         <div class="menu__item">
-          <a href="{{ route('adminlogout') }}">Logout</a>
+          <a href="{{ route('admin.logout') }}">Logout</a>
         </div>
       </div>
     </div>

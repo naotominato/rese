@@ -1,3 +1,5 @@
+/*----- nav -----*/
+
 .manager__nav {
   color: rgb(60, 179, 113);
   font-size: 18px;
@@ -24,10 +26,7 @@
   opacity: 0.6;
 }
 
-.manager__content {
-  display: flex;
-  gap: 2%;
-}
+/*----- ログイン中　店舗名/店舗代表者名 -----*/
 
 .shop__title {
   font-size: clamp(16px, 2vw, 22px);
@@ -37,10 +36,19 @@
   color: rgb(60, 179, 113);
 }
 
+/*----- 左右のコンテンツ -----*/
+
+.manager__content {
+  display: flex;
+  gap: 2%;
+}
+
 .shop__edit,
 .edit__result {
   width: 49%;
 }
+
+/*----- 店舗情報 登録/更新 -----*/
 
 .shop__register {
   margin: 10px 0;
@@ -61,6 +69,8 @@
   text-align: left;
   margin: 0 0 2px 5%;
 }
+
+/*----- 登録/更新フォーム -----*/
 
 .create__form {
   font-size: clamp(12px, 1vw, 20px);
@@ -163,7 +173,7 @@
   box-shadow: 0 0 6px #696969;
 }
 
-/*---- 登録中の店舗情報 -----*/
+/*---- 現在登録中の店舗情報 -----*/
 
 .edit__result {
   margin: 10px 0;
@@ -223,6 +233,7 @@
 
 @media screen and (max-width:768px) {
 
+  /*----- nav -----*/
   .manager__nav ul li {
     font-size: clamp(10px, 1vw, 14px);
   }
@@ -230,6 +241,8 @@
   .manager__nav ul li:not(:last-of-type) {
     margin-right: 5%;
   }
+
+  /*----- コンテンツを上下移動 -----*/
 
   .manager__content {
     display: block;
@@ -240,8 +253,9 @@
     width: 100%;
   }
 
+/*----- 登録ボタン -----*/
+
   .register-shop__btn {
     padding: 3px 0;
   }
-
 }
