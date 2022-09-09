@@ -9,7 +9,7 @@ use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\managerController;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\StripeController;
 
 //ユーザー共通画面（認証前 / 認証後）
