@@ -25,7 +25,7 @@ class ManagerSeeder extends Seeder
             [
                 'name' => '店代二 直人',
                 'shop_id' => 2,
-                'email' => 'manager2@yahoo.ne.jp',
+                'email' => 'manager2@example.com',
                 'password' => Hash::make('aaaaaaaa'),
             ],
         ];
