@@ -12,16 +12,17 @@ class ReviewController extends Controller
 {
     public function review(ReviewRequest $request)
     {
-      //user_id, shop_idをここで検証
       $reserve = Reserve::where('id', $request->reserve_id)->where('user_id', Auth::id())->where('shop_id', $request->shop_id)->first();
+      
       $evaluation = $request->evaluation;
       $comment = $request->comment;
+
       Review::create([
           'reserve_id' => $reserve->id,
           'evaluation' => $evaluation,
           'comment' => $comment,
       ]);
       
-      return back();
+      return redirect()->back()->with('message', 'レビューありがとうございます。リストは日時順になっております。');
     }
 }

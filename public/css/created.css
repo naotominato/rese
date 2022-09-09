@@ -16,6 +16,8 @@
   font-size: clamp(16px, 2vw, 22px);
 }
 
+/*---- リンク -----*/
+
 .login__link {
   background: #0000FF;
   color: #fff;
@@ -29,6 +31,8 @@
   background: rgb(0, 0, 255, 0.8);
   box-shadow: 0 0 8px #696969;
 }
+
+/*---- レスポンシブデザイン -----*/
 
 @media screen and (max-width:768px) {
 

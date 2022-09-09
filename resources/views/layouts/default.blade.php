@@ -94,7 +94,6 @@
       @yield('reserved')
       @yield('email')
       @yield('resend')
-      @yield('registered')
       @yield('mailauth')
       @yield('qrcode')
     </div>

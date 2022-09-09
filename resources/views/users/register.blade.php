@@ -18,7 +18,7 @@
         <tr>
           <th>
             <label for="name">
-              <img src="img/name.png" alt="" class="register__icon">
+              <img src="{{ asset('img/name.png') }}" alt="" class="register__icon">
             </label>
           </th>
           <td class="register__td">
@@ -34,7 +34,7 @@
         <tr>
           <th>
             <label for="email">
-              <img src="img/email.png" alt="" class="register__icon">
+              <img src="{{ asset('img/email.png') }}" alt="" class="register__icon">
             </label>
           </th>
           <td class="register__td">
@@ -50,7 +50,7 @@
         <tr>
           <th>
             <label for="password">
-              <img src="img/password.png" alt="" class="register__icon">
+              <img src="{{ asset('img/password.png') }}" alt="" class="register__icon">
             </label>
           </th>
           <td class="register__td">
@@ -68,4 +68,4 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/register.js') }}"></script>
 
-@endsection
+              @endsection

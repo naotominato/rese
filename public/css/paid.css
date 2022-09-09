@@ -3,15 +3,15 @@
 .paid {
   background: #fff;
   text-align: center;
-  width: 450px;
+  width: 50%;
   margin: 0 auto;
-  padding: 100px 0;
+  padding: 80px 0;
   border-radius: 8px;
   box-shadow: 2px 2px 5px #696969;
 }
 
 .paid__text {
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   font-size: 22px;
   font-size: clamp(16px, 2vw, 22px);
 }
@@ -34,5 +34,9 @@
 
   .paid {
     width: 98%;
+  }
+
+  .paid__text {
+    margin-bottom: 50px;
   }
 }

@@ -1,24 +1,18 @@
 @extends('layouts.default')
 
 @section('resend')
-<link rel="stylesheet" href="{{ asset('css/email/resend.css') }}">
+<link rel="stylesheet" href="{{ asset('css/resend.css') }}">
 
 <div class="resend">
   <h2 class="resend__title">確認メールが再送されました。<br>現在、仮登録中です！</h2>
   <p class="resend__text--top">ご登録いただいたメールアドレス宛に確認メールを再送信しております。<br>メールのリンクからログインされますと、本登録が完了いたします。</p>
-  <p class="resend__text--top">再び確認メールを再送する場合は、下記再送ボタンを押してください。</p>
-
-  @if (session('status') == 'verification-link-sent')
-  <div class="mb-4 font-medium text-sm text-green-600">
-    <p>新たに確認メールを送信いたしました。</p>
-  </div>
-  @endif
+  <p class="resend__text--top">もう一度、確認メールを再送する場合は、下記再送ボタンを押してください。</p>
 
   <div class="mt-4 flex items-center justify-between">
     <form method="POST" action="{{ route('verification.send') }}" id="resend__form">
       @csrf
       <div>
-        <button class="resend__btn" id="resend__btn">確認メールを再送する</button>
+        <button class="resend__btn">確認メールを再送する</button>
       </div>
     </form>
   </div>
@@ -26,5 +20,6 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="{{ asset('js/email/resend.js') }}"></script>
+<script src="{{ asset('js/resend.js') }}"></script>
+
 @endsection

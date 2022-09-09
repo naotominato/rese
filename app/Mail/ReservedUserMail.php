@@ -16,7 +16,7 @@ class ReservedUserMail extends Mailable
      *
      * @return void
      */
-    public function __construct($user_name, $email,$shop_name, $start)
+    public function __construct($user_name, $email, $shop_name, $start)
     {
         $this->user_name = $user_name;
         $this->email = $email;
@@ -33,13 +33,11 @@ class ReservedUserMail extends Mailable
     {
         return $this->to($this->email)
         ->subject('【'.$this->shop_name.'】本日ご予約をいただいております。')
-        ->view('emails.reserved-user')
+        ->view('emails.reserved_user')
         ->with([
             'user_name' => $this->user_name,
-            'email' => $this->email,
             'shop_name' => $this->shop_name,
             'start' => $this->start,
-            // 'reserves' => $this->reserves,
         ]);
     }
 }

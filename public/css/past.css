@@ -45,6 +45,19 @@
   font-size: clamp(12px, 1vw, 18px);
 }
 
+/*----- レビュー　完了メッセージ -----*/
+
+.thanks {
+  font-size: clamp(10px, 1vw, 16px);
+  background: #0000CD;
+  list-style-type: none;
+  color: #fff;
+  padding: 1em 0;
+  text-align: center;
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
+
 /*----- レビュー未入力側 -----*/
 
 .reserve__section--left {

@@ -20,6 +20,9 @@
         <li class="error">{{$error}}</li>
         @endforeach
       </ul>
+      @if(session('message'))
+      <p class="thanks">{{ session('message') }}</p>
+      @endif
       @foreach ($pasts as $past)
       @if(!$past->reviewed())
       <div class="reserve__result">

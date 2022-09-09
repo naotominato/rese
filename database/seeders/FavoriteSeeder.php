@@ -14,8 +14,6 @@ class FavoriteSeeder extends Seeder
      */
     public function run()
     {
-        //店舗代表者ページ
-        //お気に入り済みユーザーへのメール送信用
         $favorites = [
             [
                 'user_id' => 1,

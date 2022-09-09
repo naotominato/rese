@@ -15,11 +15,10 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        //後から追加できるように繰り返し文で記述しております。
         $admins = [
             [
                 'name' => '管理 直人',
-                'email' => 'na-a.a55d-h@ymail.ne.jp',
+                'email' => 'admin1@example.com',
                 'password' => Hash::make('aaaaaaaa'),
             ],
         ];

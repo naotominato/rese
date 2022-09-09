@@ -33,7 +33,7 @@ class ManagerMail extends Mailable
     {
         return $this->to($this->email)
             ->subject('【' . $this->shop_name . '】　お気に入り登録済みの方へ')
-            ->view('managers.mail-content')
+            ->view('emails.manager_mail')
             ->with([
                 'user_name' => $this->user_name,
                 'shop_name' => $this->shop_name,

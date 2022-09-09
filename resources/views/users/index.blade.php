@@ -51,8 +51,6 @@
 <p class="login-status">【ゲスト様】ログインしておりません</p>
 @endguest
 
-
-
 <div class="shop__list">
   @foreach($shops as $shop)
   @if($shop->area && $shop->genre && $shop->detail && $shop->image_url)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\AuthRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 class AuthController extends Controller
 {
@@ -20,25 +21,40 @@ class AuthController extends Controller
             return redirect()->route('index');
         } else {
             $user_none = "ログイン情報が一致しません。";
-                return view('users.login', compact('user_none'));
+            return view('users.login', compact('user_none'));
         }
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-        // 二重送信対策
 
         return redirect()->route('index');
     }
 
+    public function mailVerify()
+    {
+        return view('users.auth_send');
+    }
+
+    public function mailResend(Request $request)
+    {
+        $request->user()->sendEmailVerificationNotification();
+        return view('users.auth_resend');
+    }
+
+    public function mailLink(EmailVerificationRequest $request)
+    {
+        $request->fulfill();
+        return redirect()->route('mail.auth');
+    }
+
+
     public function mailAuth()
     {
-        return view('emails.Auth');
+        return view('users.auth');
     }
 }
 

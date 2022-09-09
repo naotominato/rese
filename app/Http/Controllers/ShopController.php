@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
+use Carbon\Carbon;
 
 class ShopController extends Controller
 {
@@ -53,7 +54,10 @@ class ShopController extends Controller
         if (!session()->has('url.intended')) {
             session(['url.intended' => url()->previous()]);
         }
-        return view('users.detail', compact('shop'));
+
+        $tomorrow = Carbon::tomorrow();
+        $reserve = $tomorrow->format('Y-m-d'); 
+        return view('users.detail', compact('shop', 'reserve'));
     }
 
     public function back()

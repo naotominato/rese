@@ -11,8 +11,6 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\managerController;
 use App\Http\Controllers\StripeController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Http\Request;
 
 //ユーザー共通画面（認証前 / 認証後）
 Route::get('/', [ShopController::class, 'index'])
@@ -29,26 +27,18 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 //仮登録中ユーザー（メール認証前）
 Route::middleware(['auth:user'])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/email/verify', function () {
-        return view('emails.email-send');
-    })->name('verification.notice');
+    Route::get('/email/verify', [AuthController::class, 'mailVerify'])->name('verification.notice');
 });
 
 //認証メール再送
-Route::post('/email/verification-notification', function (Request $request) {
-    $request->user()->sendEmailVerificationNotification();
-    return view('emails.resend');
-})->middleware('auth', 'throttle:6,1')->name('verification.send');
+Route::post('/email/verification-notification', [AuthController::class, 'mailResend'])->middleware('auth', 'throttle:6,1')->name('verification.send');
 
-//認証メール リンク先
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-    return redirect('/mailauth');
-})->middleware(['auth', 'signed'])->name('verification.verify');
+//認証メール リンクURL
+Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'mailLink'])->middleware(['auth', 'signed'])->name('verification.verify');
 
 //メール認証済みユーザー
 Route::middleware(['auth:user', 'verified'])->group(function () {
-    Route::get('/mailauth', [AuthController::class, 'mailAuth'])->name('mailauth');
+    Route::get('/email/auth', [AuthController::class, 'mailAuth'])->name('mail.auth');
     Route::get('/mypage', [MypageController::class, 'mypage'])->name('mypage');
     Route::get('/mypage/past', [MypageController::class, 'past'])->name('past');
     Route::get('/mypage/today', [MypageController::class, 'today'])->name('today');

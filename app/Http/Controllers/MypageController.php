@@ -17,12 +17,12 @@ class MypageController extends Controller
 
         $reserves = Reserve::where('user_id', Auth::id())->where('start', '>=', $now)->orderBy('start', 'asc')->get();
 
-        $pasts =
-        Reserve::where('user_id', Auth::id())->where('start', '<', $now)->orderBy('start', 'desc')->get();
+        $date = Carbon::tomorrow();
+        $tomorrow = $date->format('Y-m-d'); 
 
         $favorites = Favorite::where('user_id', Auth::id())->get();
         
-        return view('users.mypage', compact('user', 'reserves', 'now', 'pasts', 'favorites'));
+        return view('users.mypage', compact('user', 'reserves', 'tomorrow', 'favorites'));
     }
 
     public function today()

@@ -15,24 +15,23 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //後から追加できるように繰り返し文で記述しております。
         $users = [
             [
-                'name' => '阿曽 直人',
-                'email' => 'na-a.a55d-h@ymail.ne.jp',
+                'name' => '直人 直人',
+                'email' => 'user1@example.com',
                 'email_verified_at' => '2022-08-22 16:03:17',
                 'password' => Hash::make('aaaaaaaa'),
             ],
             [
-                'name' => 'あそ　なおと',
+                'name' => 'なおと なおと',
                 'email_verified_at' => '2022-08-22 16:20:32',
-                'email' => 'na-a.a55d-h@yahoo.ne.jp',
+                'email' => 'user2@example.com',
                 'password' => Hash::make('aaaaaaaa'),
             ],
             [
-                'name' => 'アソ　ナオト',
+                'name' => 'ナオト ナオト',
                 'email_verified_at' => '2022-08-23 16:20:32',
-                'email' => 'na-a.a55d-h@docomo.ne.jp',
+                'email' => 'user3@example.com',
                 'password' => Hash::make('aaaaaaaa'),
             ],
         ];

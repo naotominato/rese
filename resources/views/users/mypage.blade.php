@@ -17,6 +17,9 @@
       <li class="error">{{$error}}</li>
       @endforeach
     </ul>
+    @if(session('message'))
+    <p class="changed">{{ session('message') }}</p>
+    @endif
     @foreach ($reserves as $reserve)
     <div class="reserve__result" id="reserve__result">
       <div class="reserve__heading">
@@ -50,33 +53,33 @@
             <td class="reserved-number" id="reserved-number">{{ $reserve->number }}</td>
           </tr>
         </table>
-        <form action="{{ route('update') }}" method="POST" id="change__form" class="change__form butt red">
+        <form action="{{ route('update') }}" method="POST" class="change__form">
           @csrf
-          <input type="hidden" name="reserve_id" value="{{ $reserve->id }}" class="reserve__id" id="reserve__id" data-reserve-id="{{ $reserve->id }}">
-          <input type="hidden" name="shop_id" value="{{ $reserve->shop_id }}" class="shop__id" id="shop__id" data-shop-id="{{ $reserve->shop_id }}">
+          <input type="hidden" name="reserve_id" value="{{ $reserve->id }}">
+          <input type="hidden" name="shop_id" value="{{ $reserve->shop_id }}">
           <table class="reserve__change">
             <tr>
               <th>日付⇒</th>
               <td>
-                <input type="date" name="date" id="date__input" class="date__input date__id" value="{{ $reserve->start->format('Y-m-d') }}" data-date-id="{{ $reserve->start->format('Y-m-d') }}">
+                <input type="date" name="date" class="date__input date__id" value="{{ $reserve->start->format('Y-m-d') }}" min="{{ $tomorrow }}">
               </td>
             </tr>
             <tr>
               <th>時間⇒</th>
               <td>
-                <select name="time" id="time__select" class="reserve__select time__select">
-                  @for ($i = 10; $i <= 22; $i++) <option class="time__option" value="{{ $i }}:00" data-time-id="{{ $i }}:00" @if ($i.':00'===$reserve->start->format('H:i')) selected @endif>{{ $i }}:00</option>
-                    <option class="time__option" value="{{ $i }}:30" data-time-id="{{ $i }}:30" @if ($i.':30'===$reserve->start->format('H:i')) selected @endif>{{ $i }}:30</option>
+                <select name="time" class="reserve__select time__select">
+                  @for ($i = 10; $i <= 22; $i++) <option class="time__option" value="{{ $i }}:00" @if ($i.':00'===$reserve->start->format('H:i')) selected @endif>{{ $i }}:00</option>
+                    <option class="time__option" value="{{ $i }}:30" @if ($i.':30'===$reserve->start->format('H:i')) selected @endif>{{ $i }}:30</option>
                     @endfor
-                    <option class="time__option" value="23:00" data-time-id="23:00" @if ('23:00'===$reserve->start->format('H:i'))selected @endif>23:00</option>
+                    <option class="time__option" value="23:00" @if ('23:00'===$reserve->start->format('H:i'))selected @endif>23:00</option>
                 </select>
               </td>
             </tr>
             <tr>
               <th>人数⇒</th>
               <td>
-                <select name="number" id="number__select" class="reserve__select number__select">
-                  @for ($n = 1; $n <= 20; $n++) <option class="number__option" value="{{ $n }}" data-number-id="{{ $n }}" @if ($n===$reserve->number) selected @endif>{{ $n }}人</option>
+                <select name="number" class="reserve__select number__select">
+                  @for ($n = 1; $n <= 20; $n++) <option class="number__option" value="{{ $n }}" @if ($n===$reserve->number) selected @endif>{{ $n }}人</option>
                     @endfor
                 </select>
               </td>
@@ -118,8 +121,6 @@
     </div>
   </div>
 </div>
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

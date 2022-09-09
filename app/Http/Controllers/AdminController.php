@@ -25,7 +25,7 @@ class AdminController extends Controller
             return redirect()->route('manager.list');
         } else {
             $user_none = "ログイン情報が一致しません。";
-            return view('admin.adminlogin', compact('user_none'));
+            return view('admin.admin_login', compact('user_none'));
         }
     }
 
@@ -72,6 +72,6 @@ class AdminController extends Controller
             'email' => $email,
             'password' => Hash::make($password),
         ]);
-        return redirect()->route('manager.list')->with('message', '新しい店舗代表者が登録されました。');;
+        return redirect()->route('manager.list')->with('message', '新しい店舗代表者が登録されました。');
     }
 }

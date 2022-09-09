@@ -197,6 +197,19 @@
   border-radius: 5px;
 }
 
+/*----- 予約変更　完了メッセージ -----*/
+
+.changed {
+  font-size: clamp(10px, 1vw, 16px);
+  background: #0000CD;
+  list-style-type: none;
+  color: #fff;
+  padding: 1em 0;
+  text-align: center;
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
+
 /*------- お気に入り店舗一覧 -------*/
 
 .favorite__section {

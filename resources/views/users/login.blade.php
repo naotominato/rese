@@ -19,7 +19,7 @@
           <tr>
             <th>
               <label for="email">
-                <img src="img/email.png" alt="" class="login__icon">
+                <img src="{{ asset('img/email.png') }}" alt="" class="login__icon">
               </label>
             </th>
             <td class="login__td">
@@ -35,7 +35,7 @@
           <tr>
             <th>
               <label for="password">
-                <img src="img/password.png" alt="" class="login__icon">
+                <img src="{{ asset('img/password.png') }}" alt="" class="login__icon">
               </label>
             </th>
             <td class="login__td"><input type="password" name="password" id="password" class="login__input" placeholder="Password"></td>
@@ -44,12 +44,12 @@
         @if (isset($user_none))
         <p class="login__none">{{ $user_none }}</p>
         @endif
-        <div class="login__box--bottom">
-          <button id="login__btn" class="login__btn">ログイン</button>
-        </div>
-      </form>
+        <div class=" login__box--bottom">
+                <button id="login__btn" class="login__btn">ログイン</button>
     </div>
+    </form>
   </div>
+</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

@@ -7,6 +7,7 @@ use Stripe\Stripe;
 use Stripe\Customer;
 use Stripe\Charge;
 use Illuminate\Support\Facades\Auth;
+use Exception;
 
 class StripeController extends Controller
 {
@@ -28,45 +29,38 @@ class StripeController extends Controller
             $result = 1;
 
            // カード情報不備などで支払いを拒否
-        } catch (\Stripe\Exception\CardException $e) {
+        } catch (\Stripe\Exception\CardException) {
             $result = 2;
-            $error =  $e->getError()->message;
 
             // APIへのリクエストが早く多い
-        } catch (\Stripe\Exception\RateLimitException $e) {
+        } catch (\Stripe\Exception\RateLimitException) {
             $result = 3;
-            $error =  $e->getError()->message;
 
             // パラメータ無効
-        } catch (\Stripe\Exception\InvalidRequestException $e) {
+        } catch (\Stripe\Exception\InvalidRequestException) {
             $result = 4;
-            $error =  $e->getError()->message;
 
             // Stripe APIの認証に失敗
-        } catch (\Stripe\Exception\AuthenticationException $e) {
+        } catch (\Stripe\Exception\AuthenticationException) {
             $result = 5;
-            $error =  $e->getError()->message;
 
             // Stripe　ネットワークコミュニケーション失敗
-        } catch (\Stripe\Exception\ApiConnectionException $e) {
+        } catch (\Stripe\Exception\ApiConnectionException) {
             $result = 6;
-            $error =  $e->getError()->message;
 
             // 一般的エラー
-        } catch (\Stripe\Exception\ApiErrorException $e) {
+        } catch (\Stripe\Exception\ApiErrorException) {
             $result = 7;
-            $error =  $e->getError()->message;
 
-            // Stripeと無関係エラー
-        } catch (Exception $e) {
+            // Stripeと無関係なエラー
+        } catch (Exception) {
             $result = 8;
-            $error =  $e->getError()->message;
         }
 
         if ($result == 1) {
-            return redirect()->route('paid')->with('message', 'お支払いが完了しました。ありがとうございました。');
+            return redirect()->route('paid')->with('message', 'お支払いが完了しました。');
         } elseif ($result == 2) {
-            return redirect()->route('paid')->with('message', 'ご入力のカードでは、お支払いができませんでした。再度お試しいただくか、他のカードでお試しください。');
+            return redirect()->route('paid')->with('message', 'このカードでは、お支払いができませんでした。');
         } elseif ($result == 3) {
             return redirect()->route('paid')->with('message', 'APIエラーです。');
         } elseif ($result == 4) {
@@ -81,7 +75,6 @@ class StripeController extends Controller
             return redirect()->route('paid')->with('message', 'エラーが起こりました。');
         }
     }
-
 
     public function paid()
     {

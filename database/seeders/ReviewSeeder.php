@@ -18,7 +18,7 @@ class ReviewSeeder extends Seeder
             [
                 'reserve_id' => 1,
                 'evaluation' => 4,
-                'comment' => 'user_idが1のユーザーで、評価は4です。予約idはuniqueなので、被りません。',
+                'comment' => '美味しかったです！！',
             ],
         ];
 
