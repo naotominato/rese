@@ -25,6 +25,7 @@
 
 .menu__item {
   color: #3CB371;
+  font-size: clamp(16px, 2vw, 28px);
 }
 
 /*----- ドロワーメニュー 幅変更 -----*/

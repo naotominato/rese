@@ -48,7 +48,7 @@ class ReserveController extends Controller
     
     public function cancel($id) 
     {
-        Reserve::find($id)->delete();
+        Reserve::where('id', $id)->where('user_id', Auth::id())->delete();
         return redirect()->back()->with('message', '選択された予約が削除されました。');
     }
 }

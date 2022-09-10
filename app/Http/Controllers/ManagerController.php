@@ -23,7 +23,7 @@ class ManagerController extends Controller
         return view('managers.manager_login');
     }
 
-public function managerLogin(AuthRequest $request)
+public function login(AuthRequest $request)
     {
         $manager = $request->only(['email', 'password']);
         if (Auth::guard('manager')->attempt($manager)) {
@@ -32,6 +32,15 @@ public function managerLogin(AuthRequest $request)
             $user_none = "ログイン情報が一致しません。";
             return view('managers.manager_login', compact('user_none'));
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('manager')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('manager');
     }
 
     public function reserved()
@@ -62,15 +71,6 @@ public function managerLogin(AuthRequest $request)
         $shop = Shop::where('id', $manager->shop_id)->first();
 
         return view('managers.manager_shop', compact('manager', 'areas', 'genres', 'shop_area', 'shop_genre', 'shop'));
-    }
-
-    public function managerLogout(Request $request)
-    {
-        Auth::guard('manager')->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect()->route('manager');
     }
 
     public function shopCreate(ShopRegisterRequest $request)
@@ -126,8 +126,9 @@ public function managerLogin(AuthRequest $request)
 
     public function reservedQr($reserved_id, $user_id, $shop_id)
     {
-        $manager = Manager::where('shop_id', $shop_id)->first();
-        $reserved = Reserve::where('id', $reserved_id)->where('user_id', $user_id)->where('shop_id', $shop_id)->first();
+        $manager = Manager::where('id', Auth::id())->where('shop_id', $shop_id)->first();
+        $today = Carbon::today();
+        $reserved = Reserve::where('id', $reserved_id)->where('user_id', $user_id)->where('shop_id', $shop_id)->whereDate('start', '=', $today)->first();
 
         if ($manager && $reserved) {
             return view('managers.qr', compact('reserved'));
