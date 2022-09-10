@@ -33,7 +33,6 @@ class MypageController extends Controller
         $reserves =
             Reserve::where('user_id', Auth::id())->whereDate('start', '=', $today)->orderBy('start', 'asc')->get();
 
-
         return view('users.today', compact('user', 'reserves'));
     }
 
@@ -43,7 +42,6 @@ class MypageController extends Controller
         $now = Carbon::now();
         $pasts =
             Reserve::where('user_id', Auth::id())->where('start', '<', $now)->orderBy('start', 'desc')->get();
-
 
         return view('users.past', compact('user', 'now', 'pasts'));
     }
