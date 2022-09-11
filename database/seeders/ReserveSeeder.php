@@ -18,6 +18,18 @@ class ReserveSeeder extends Seeder
             [
                 'user_id' => 1,
                 'shop_id' => 2,
+                'start' => '2022-09-08 13:00:00',
+                'number' => 4,
+            ],
+            [
+                'user_id' => 1,
+                'shop_id' => 1,
+                'start' => '2022-09-09 13:00:00',
+                'number' => 4,
+            ],
+            [
+                'user_id' => 1,
+                'shop_id' => 2,
                 'start' => '2022-09-10 13:00:00',
                 'number' => 3,
             ],
