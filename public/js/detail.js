@@ -13,13 +13,13 @@ $("#reserve__number").on("input", function (e) {
   $(".check__number").text(number.value + '人')
 });
 
-//----- 予約ボタン連打不可（同一の予約を防ぐ） -----//
+//----- 予約ボタン連打不可（二重予約防止） -----//
 
 $(function() {
-    $('#reserve__btn').click(function() {
-      $(this).prop('disabled', true);
-      $(this).closest('#reserve__form').submit();
-    });
+  $('#reserve__btn').click(function() {
+    $(this).prop('disabled', true);
+    $(this).closest('#reserve__form').submit();
+  });
 });
 
 //----- 予約前　確認アラート -----//

@@ -11,7 +11,7 @@
   <div class="reserve__section">
     <div class="reserve__section--left">
       <div class="reserve__title">
-        <h3 class="reserve__title--left">過去の予約（最新順）</h3>
+        <h3 class="reserve__title--left">過去の予約（日時順）</h3>
         <a href="{{ route('mypage') }}" class="reserve__title--right">Mypageへ戻る</a>
         <a href="{{ route('today') }}" class="reserve__title--right">本日の予約<br>【QR / 決済】</a>
       </div>
@@ -80,7 +80,7 @@
     </div>
     <div class="reserve__section--right">
       <div class="reserve__title">
-        <h3 class="reserve__title--left">レビュー済み</h3>
+        <h3 class="reserve__title--left">レビュー済み（日時順）</h3>
       </div>
       @foreach ($pasts as $past)
       @if($past->reviewed())

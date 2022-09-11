@@ -43,7 +43,7 @@ class ReserveController extends Controller
             'start' => $datetime,
             'number' => $number,
         ]);
-        return redirect()->back()->with('message', '予約日時が変更されました。下記は日時順となっております。');
+        return redirect()->back()->with('message', '予約情報が変更されました。下記は日時順となっております。');
     }
     
     public function cancel($id) 

@@ -86,7 +86,7 @@
             </tr>
           </table>
           <div class="change__form--bottom">
-            <button type="submit" id="change__btn" class="change__btn">予約を変更する</button>
+            <button type="submit" class="change__btn">予約を変更する</button>
           </div>
         </form>
       </div>
