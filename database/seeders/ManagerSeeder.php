@@ -20,13 +20,13 @@ class ManagerSeeder extends Seeder
                 'name' => '店代 直人',
                 'shop_id' => 1,
                 'email' => 'manager1@example.com',
-                'password' => Hash::make('aaaaaaaa'),
+                'password' => Hash::make('12345678'),
             ],
             [
                 'name' => '店代二 直人',
                 'shop_id' => 2,
                 'email' => 'manager2@example.com',
-                'password' => Hash::make('aaaaaaaa'),
+                'password' => Hash::make('12345678'),
             ],
         ];
 
