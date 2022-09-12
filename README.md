@@ -64,7 +64,7 @@
 ![更新用er drawio](https://user-images.githubusercontent.com/103915849/189526179-dac44faa-2969-484b-bcb2-08473b969655.png)
 
 # 環境構築
-### 開発環境 構築コマンド　windows(コマンドプロンプト)の場合
+## 開発環境 構築コマンド　windows(コマンドプロンプト)の場合
 - cd c:\xampp\htdocs
 - git clone https://github.com/naotominato/rese.git
 - cd rese
@@ -76,15 +76,15 @@
 - php artisan db:seed
 - php artisan storage:link
 - php artisan serve
-### .env（編集ファイル）
-#### 変更点1
+## .env（編集ファイル）
+### 変更点1
 - DB_CONNECTION=mysql
 - DB_HOST=127.0.0.1
 - DB_PORT=3306
 - DB_DATABASE=laravel ←任意のDBに変更
 - DB_USERNAME=root　←使用者の設定に合わせる
 - DB_PASSWORD=　←使用者の設定に合わせる
-#### 変更点2 (Mailtrap使用の場合、下記の内容に変更）
+### 変更点2 (Mailtrap使用の場合、下記の内容に変更）
 - MAIL_MAILER=smtp
 - MAIL_HOST=smtp.mailtrap.io
 - MAIL_PORT=2525
@@ -93,11 +93,11 @@
 - MAIL_ENCRYPTION=tls
 - MAIL_FROM_ADDRESS=test@example.com
 - MAIL_FROM_NAME="${APP_NAME}"
-#### 　追加点（Stripe決済用　テストAPIキー　追記）
+### 　追加点（Stripe決済用　テストAPIキー　追記）
 - STRIPE_KEY= ←Stripeの公開可能キー
 - STRIPE_SECRET= ←Stripeのシークレットキー
 
-### 開発環境　タスクスケジューラー　【予約当日】ユーザー向けメール自動送信（毎朝09:00）
+## 開発環境　タスクスケジューラー　【予約当日】ユーザー向けメール自動送信（毎朝09:00）
 - php artisan schedule:work　【メール自動送信開始コマンド（毎朝09:00設定中）】
 - php artisan email:reserveduser　【手動確認コマンド（コマンド実施日の該当ユーザーへ即時送信）】
 
