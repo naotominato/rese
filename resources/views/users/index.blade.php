@@ -30,7 +30,7 @@
 </div>
 @endsection
 
-@section('index')
+@section('content')
 
 @if(auth()->check() && auth()->user()->hasVerifiedEmail())
 <p class="login-status">【ログイン中】<span class="user">{{ auth()->user()->name }}</span>様　(メール認証済み）</p>

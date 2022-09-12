@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('login')
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
 <div class="login">
@@ -45,11 +45,11 @@
         <p class="login__none">{{ $user_none }}</p>
         @endif
         <div class=" login__box--bottom">
-                <button id="login__btn" class="login__btn">ログイン</button>
+          <button id="login__btn" class="login__btn">ログイン</button>
+        </div>
+      </form>
     </div>
-    </form>
   </div>
-</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

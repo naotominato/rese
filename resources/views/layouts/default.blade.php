@@ -81,21 +81,7 @@
 
   <main>
     <div class="container">
-      @yield('index')
-      @yield('detail')
-      @yield('register')
-      @yield('created')
-      @yield('login')
-      @yield('mypage')
-      @yield('today')
-      @yield('past')
-      @yield('paid')
-      @yield('payment-failure')
-      @yield('reserved')
-      @yield('email')
-      @yield('resend')
-      @yield('mailauth')
-      @yield('qrcode')
+      @yield('content')
     </div>
   </main>
 

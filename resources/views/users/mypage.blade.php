@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('mypage')
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
 
 <h2 class="user__name">{{ $user->name }}さん</h2>
@@ -14,7 +14,7 @@
     </div>
     <ul class="error__ul">
       @foreach ($errors->all() as $error)
-      <li class="error">{{$error}}</li>
+      <li class="error">{{ $error }}</li>
       @endforeach
     </ul>
     @if(session('message'))
@@ -27,7 +27,6 @@
           <img src=" {{ asset('img/clock.png') }}" alt="" class="reserve__icon">
           <h4 class="reserve__name">予約</h4>
         </div>
-
         <div class="reserve__heading--right">
           <a href="{{ route('cancel', ['reserve_id' => $reserve->id]) }}" id="cancel__btn" class="cancel__btn">
             <img src=" {{ asset('img/cancel.png') }}" alt="" class="reserve__cancel">
@@ -122,7 +121,6 @@
   </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/mypage.js') }}"></script>
 

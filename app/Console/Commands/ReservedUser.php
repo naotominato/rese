@@ -47,7 +47,7 @@ class ReservedUser extends Command
         $today = Carbon::today();
         $reserves = Reserve::whereDate('start', '=', $today)->orderBy('start', 'asc')->get();
 
-        if (!empty($reserves))
+        if (!$reserves->isEmpty())
         foreach ($reserves as $reserve) {
             $user_name = $reserve->user->name;
             $email = $reserve->user->email;

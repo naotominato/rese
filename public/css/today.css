@@ -9,6 +9,19 @@
   text-align: center;
 }
 
+/*----- 予約キャンセル不可（当日予約時間を過ぎた場合） -----*/
+
+.reserve__no-cancel {
+  width: 26px;
+  opacity: 0.6;
+}
+
+.reserve__no-cancel:hover {
+  opacity: 0.4;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
 /*----- QRコード表示 -----*/
 
 .qr {

@@ -17,13 +17,13 @@ class ManagerSeeder extends Seeder
     {
         $managers = [
             [
-                'name' => '店代 直人',
+                'name' => 'テスト代表1',
                 'shop_id' => 1,
                 'email' => 'manager1@example.com',
                 'password' => Hash::make('12345678'),
             ],
             [
-                'name' => '店代二 直人',
+                'name' => 'テスト代表2',
                 'shop_id' => 2,
                 'email' => 'manager2@example.com',
                 'password' => Hash::make('12345678'),

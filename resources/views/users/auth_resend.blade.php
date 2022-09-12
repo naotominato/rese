@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('resend')
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/resend.css') }}">
 
 <div class="resend">

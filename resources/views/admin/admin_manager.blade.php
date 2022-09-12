@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 <link rel="stylesheet" href="{{ asset('css/admin/managerlist.css') }}">
 
-@section('adminnav')
+@section('nav')
 <nav class="admin__nav">
   <ul>
     <li><a href="{{ route('shop.list') }}">店舗作成/一覧</a></li>
@@ -10,7 +10,7 @@
 </nav>
 @endsection
 
-@section('page')
+@section('content')
 <h2 class="admin__title">店舗代表者作成</h2>
 
 <div class="register-manager">

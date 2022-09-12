@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('mailauth')
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/created.css') }}">
 
 <div class="created">

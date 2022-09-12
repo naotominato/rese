@@ -17,7 +17,7 @@ class StripeController extends Controller
             Stripe::setApiKey(env('STRIPE_SECRET'));
 
             $customer = Customer::create(array(
-                'name' => "[".$request->shop_name."(".$request->shop_id.")]".Auth::user()->name."(id:".Auth::id().")",
+                'name' => "[".$request->shop_name."(".$request->shop_id.")]".Auth::user()->name."(".Auth::id().")",
                 'email' => $request->stripeEmail,
                 'source' => $request->stripeToken
             ));

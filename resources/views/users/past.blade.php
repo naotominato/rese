@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('past')
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
 <link rel="stylesheet" href="{{ asset('css/past.css') }}">
 
@@ -90,13 +90,6 @@
             <img src=" {{ asset('img/clock.png') }}" alt="" class="reserve__icon">
             <h4 class="reserve__name">過去の予約</h4>
           </div>
-          <div class="reserve__heading--right">
-            <ul class="error__ul">
-              @foreach ($errors->all() as $error)
-              <li class="error__li">{{$error}}</li>
-              @endforeach
-            </ul>
-          </div>
         </div>
         <div class="reserved__content">
           <div class="reserved__tables">
@@ -140,8 +133,7 @@
   </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="{{ asset('js/mypage.js') }}"></script>
+<script src="{{ asset('js/past.js') }}"></script>
 
 @endsection

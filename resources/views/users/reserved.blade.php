@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('reserved')
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/reserved.css') }}">
 
 <div class="reserved">

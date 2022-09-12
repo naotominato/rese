@@ -1,7 +1,7 @@
 @extends('layouts.manager')
 <link rel="stylesheet" href="{{ asset('css/manager/shop.css') }}">
 
-@section('managershopnav')
+@section('nav')
 <nav class="manager__nav">
   <ul>
     <li><a href="{{ route('manager.reserved') }}">予約状況確認</a></li>
@@ -11,7 +11,7 @@
 </nav>
 @endsection
 
-@section('managershop')
+@section('content')
 
 <h2 class="shop__title">店舗名：<span class="shop-manager">{{ $manager->shop->name }}</span>　店舗代表者：<span class="shop-manager">{{ $manager->name }}さん</span></h2>
 

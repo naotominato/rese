@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('today')
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
 <link rel="stylesheet" href="{{ asset('css/today.css') }}">
 
@@ -14,6 +14,9 @@
         <a href="{{ route('mypage') }}" class="reserve__title--right">Mypageへ戻る</a>
         <a href="{{ route('past') }}" class="reserve__title--right">過去の予約<br>【レビュー】</a>
       </div>
+      @if(session('message'))
+      <p class="changed">{{ session('message') }}</p>
+      @endif
       @foreach ($reserves as $reserve)
       <div class="reserve__result">
         <div class="reserve__heading">
@@ -22,9 +25,12 @@
             <h4 class="reserve__name">予約</h4>
           </div>
           <div class="reserve__heading--right">
+            @if($reserve->start > $now)
             <a href="{{ route('cancel', ['reserve_id' => $reserve->id]) }}" id="cancel__btn" class="cancel__btn">
               <img src=" {{ asset('img/cancel.png') }}" alt="" class="reserve__cancel">
             </a>
+            @elseif($reserve->start <= $now) <img src=" {{ asset('img/cancel.png') }}" alt="" class="reserve__no-cancel">
+              @endif
           </div>
         </div>
         <div class="reserve__info">
@@ -53,7 +59,7 @@
               <form action="{{ route('qrcode') }}" method="POST">
                 @csrf
                 <input type="hidden" name="reserve_id" value="{{ $reserve->id }}">
-                <button class="qr__button" id="qr__button">来店時QRコード</button>
+                <button class="qr__button">来店時QRコード</button>
               </form>
             </div>
             <div class="stripe">
@@ -73,7 +79,6 @@
   </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/today.js') }}"></script>
 

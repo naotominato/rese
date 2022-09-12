@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('paid')
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/paid.css') }}">
 
 <div class="paid">

@@ -108,15 +108,21 @@ public function login(AuthRequest $request)
     {
         $manager = Manager::where('id', Auth::id())->first();
         $favorites = Favorite::where('shop_id', $manager->shop_id)->get();
-        
-        foreach ($favorites as $favorite) {
-            $user_name = $favorite->user->name;
-            $email = $favorite->user->email;
-            $shop_name = $favorite->shop->name;
-            $text = $request->input('text');
-            Mail::send(new ManagerMail($user_name, $email, $shop_name, $text));
-        }
-        return redirect()->route('completion');
+        $text = $request->input('text');
+
+        if (empty($text)) {
+            return redirect()->back()->with('message', '↓ 本文が未入力のため、送信できませんでした。 ↓');
+        } elseif ($favorites->isEmpty()) {
+            return redirect()->back()->with('message', '現在、お気に入り登録者がおりません。');
+        } elseif (!$favorites->isEmpty()) {
+            foreach ($favorites as $favorite) {
+                $user_name = $favorite->user->name;
+                $email = $favorite->user->email;
+                $shop_name = $favorite->shop->name;
+                Mail::send(new ManagerMail($user_name, $email, $shop_name, $text));
+            }
+            return redirect()->route('completion');
+        };
     }
 
     public function completion()

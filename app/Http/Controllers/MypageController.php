@@ -13,8 +13,8 @@ class MypageController extends Controller
     public function mypage()
     {
         $user = Auth::user();
+        
         $now = Carbon::now();
-
         $reserves = Reserve::where('user_id', Auth::id())->where('start', '>=', $now)->orderBy('start', 'asc')->get();
 
         $date = Carbon::tomorrow();
@@ -28,12 +28,14 @@ class MypageController extends Controller
     public function today()
     {
         $user = Auth::user();
+        $now = Carbon::now();
+
         $today = Carbon::today();
         $reser =  Reserve::where('user_id', Auth::id())->get();
         $reserves =
             Reserve::where('user_id', Auth::id())->whereDate('start', '=', $today)->orderBy('start', 'asc')->get();
 
-        return view('users.today', compact('user', 'reserves'));
+        return view('users.today', compact('user', 'now', 'reserves'));
     }
 
     public function past()
@@ -43,7 +45,7 @@ class MypageController extends Controller
         $pasts =
             Reserve::where('user_id', Auth::id())->where('start', '<', $now)->orderBy('start', 'desc')->get();
 
-        return view('users.past', compact('user', 'now', 'pasts'));
+        return view('users.past', compact('user', 'pasts'));
     }
 
     public function qrcode(Request $request)

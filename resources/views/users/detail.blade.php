@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('detail')
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
 
 <div class="detail-page__content">

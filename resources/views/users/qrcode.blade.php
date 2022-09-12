@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('qrcode')
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/qrcode.css') }}">
 
 <div class="reserved__content">

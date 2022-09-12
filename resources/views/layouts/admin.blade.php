@@ -17,7 +17,7 @@
     <div class="container">
       <div class="header">
         <div class="header-left">
-          @auth
+          @auth('admin')
           <div class="hamburger">
             <input id="checkbox" type="checkbox" class="hamburger__checkbox">
             <label class="hamburger-trigger" for="checkbox">
@@ -30,12 +30,11 @@
           <h1 class="header__title">Rese</h1>
         </div>
         <div class="header-right">
-          @yield('adminnav')
-          @yield('createnav')
+          @yield('nav')
         </div>
       </div>
     </div>
-    @auth
+    @auth('admin')
     <div class="menu">
       <div class="menu__position">
         <div class="menu__item">
@@ -53,9 +52,7 @@
   </header>
   <main>
     <div class="container">
-      @yield('login')
-      @yield('page')
-      @yield('create')
+      @yield('content')
     </div>
   </main>
 

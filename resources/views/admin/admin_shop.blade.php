@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 <link rel="stylesheet" href="{{ asset('css/admin/shoplist.css') }}">
 
-@section('createnav')
+@section('nav')
 <nav class="admin__nav">
   <ul>
     <li><a href="{{ route('manager.list') }}">店舗代表者作成 / 店舗代表者一覧</a></li>
@@ -10,7 +10,7 @@
 </nav>
 @endsection
 
-@section('create')
+@section('content')
 
 <h2 class="admin__title">新規店舗名　作成</h2>
 

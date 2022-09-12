@@ -17,19 +17,19 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'name' => '直人 直人',
+                'name' => 'テストユーザー1',
                 'email' => 'user1@example.com',
                 'email_verified_at' => '2022-08-22 16:03:17',
                 'password' => Hash::make('12345678'),
             ],
             [
-                'name' => 'なおと なおと',
+                'name' => 'テストユーザー2',
                 'email_verified_at' => '2022-08-22 16:20:32',
                 'email' => 'user2@example.com',
                 'password' => Hash::make('12345678'),
             ],
             [
-                'name' => 'ナオト ナオト',
+                'name' => 'テストユーザー3',
                 'email_verified_at' => '2022-08-23 16:20:32',
                 'email' => 'user3@example.com',
                 'password' => Hash::make('12345678'),

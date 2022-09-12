@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('created')
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/created.css') }}">
 
 <div class="created">
