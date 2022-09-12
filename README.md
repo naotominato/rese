@@ -65,17 +65,37 @@
 ![更新用er drawio](https://user-images.githubusercontent.com/103915849/189526179-dac44faa-2969-484b-bcb2-08473b969655.png)
 
 # 環境構築
-### 開発環境構築コマンド　windows(コマンドプロンプト)の場合
+### 開発環境 構築コマンド　windows(コマンドプロンプト)の場合
 - cd c:\xampp\htdocs
 - git clone https://github.com/naotominato/rese.git
 - cd rese
 - composer install
-- cp .env.example .env 　(.env内では、DB_DATABASE=""に任意のDBを配置）
+- cp .env.example .env
 - php artisan key:generate
 - php artisan config:clear
 - php artisan migrate
 - php artisan db:seed
 - php artisan serve
+#### .env（編集ファイル）
+##### 変更点1
+- DB_CONNECTION=mysql
+- DB_HOST=127.0.0.1
+- DB_PORT=3306
+- DB_DATABASE=laravel ←任意のDBに変更
+- DB_USERNAME=root　←使用者の設定に合わせる
+- DB_PASSWORD=　←使用者の設定に合わせる
+##### 変更点2 (Mailtrap使用の場合、下記の内容に変更する）
+- MAIL_MAILER=smtp
+- MAIL_HOST=smtp.mailtrap.io
+- MAIL_PORT=2525
+- MAIL_USERNAME= ←Mailtrapのユーザー名
+- MAIL_PASSWORD= ←Mailtrapのパスワード
+- MAIL_ENCRYPTION=tls
+- MAIL_FROM_ADDRESS=test@example.com
+- MAIL_FROM_NAME="${APP_NAME}"
+##### 変更点3（Stripe決済用　テストAPIキー　追記する）
+- STRIPE_KEY= ←Stripeの公開可能キー
+- STRIPE_SECRET= ←Stripeのシークレットキー
 
 ### 開発環境　タスクスケジューラー　【予約当日】ユーザー向けメール自動送信（毎朝09:00）
 - php artisan schedule:work　【メール自動送信開始コマンド（毎朝09:00設定中）】
@@ -87,21 +107,21 @@
 ##### 管理者（１つのアカウントのみ）
 - email:    admin@example.com
 - password: 12345678
-##### 店舗管理者（店舗：仙人）　←【店舗代表者側テスト向け】
+##### 店舗代表者（店舗：仙人）　←【店舗代表者側　動作確認テスト向き】
 - email:    manager1@example.com
 - password: 12345678
-##### 店舗管理者（店舗：牛助）
+##### 店舗代表者（店舗：牛助）
 - email:    manager2@example.com
 - password: 12345678
-##### 店舗管理者（店舗：戦慄）
+##### 店舗代表者（店舗：戦慄）
 - email:    manager3@example.com
 - password: 12345678
-##### ユーザー（阿曽 直人） ←【ユーザー側　テスト向け】
+##### テストユーザー1 　←【ユーザー側　動作確認テスト向き】
 - email:    user1@example.com
 - password : 12345678
-##### ユーザー（あそ なおと）
+##### テストユーザー2
 - email:    user2@example.com
 - password: 12345678
-##### ユーザー（アソ ナオト）
+##### テストユーザー3
 - email:    user3@example.com
 - password: 12345678
