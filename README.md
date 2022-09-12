@@ -77,8 +77,9 @@
 - php artisan db:seed
 - php artisan serve
 
-### 開発環境　タスクスケジューラー　定期メール自動送信用コマンド（毎朝09:00）
-- php artisan schedule:work
+### 開発環境　タスクスケジューラー　【予約当日】ユーザー向けメール自動送信（毎朝09:00）
+- php artisan schedule:work　【メール自動送信開始コマンド（毎朝09:00設定中）】
+- php artisan email:reserveduser　【手動確認コマンド（コマンド実施日の該当ユーザーへ即時送信）】
 
 ## その他
 ### ○アカウントの種類：　管理者 / 店舗代表者 / ユーザー
