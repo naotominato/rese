@@ -28,8 +28,7 @@ class ShopRegisterRequest extends FormRequest
             'area_id' => 'required|integer',
             'genre_id' => 'required|integer',
             'detail' => 'required|string|max:1000',
-            'shop_image' => 'max:10240|mimes:jpg,jpeg,png,gif',//制限を指定
-            //image_urlはあとアップロード仕様に変更予定
+            'shop_image' => 'max:10240|mimes:jpg,jpeg,png,gif',
         ];
     }
 

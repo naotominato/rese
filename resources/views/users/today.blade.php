@@ -63,7 +63,7 @@
               </form>
             </div>
             <div class="stripe">
-              <form action="{{ route('stripe') }}" method="POST" class="form">
+              <form action="{{ route('stripe') }}" method="POST">
                 @csrf
                 <input type="hidden" name="shop_name" value="{{ $reserve->shop->name }}">
                 <input type="hidden" name="shop_id" value="{{ $reserve->shop->id }}">

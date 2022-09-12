@@ -177,6 +177,7 @@
   cursor: pointer;
   margin: 3% 0 7%;
   font-size: clamp(10px, 1vw, 16px);
+  color: #000;
 }
 
 .change__btn:hover {

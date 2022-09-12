@@ -113,7 +113,7 @@ public function login(AuthRequest $request)
         if (empty($text)) {
             return redirect()->back()->with('message', '↓ 本文が未入力のため、送信できませんでした。 ↓');
         } elseif ($favorites->isEmpty()) {
-            return redirect()->back()->with('message', '現在、お気に入り登録者がおりません。');
+            return redirect()->back()->with('message', '現在、お気に入り登録者が存在しません。');
         } elseif (!$favorites->isEmpty()) {
             foreach ($favorites as $favorite) {
                 $user_name = $favorite->user->name;
