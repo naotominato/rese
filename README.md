@@ -110,13 +110,13 @@
 ##### ○管理者（１つのアカウントのみ）
 - email:    admin@example.com
 - password: 12345678
-##### ○店舗代表者（店舗：仙人）　←【店舗代表者側　動作確認テスト向き】
+##### ○店舗代表者（店舗：仙人）　←【動作確認テスト向き】
 - email:    manager1@example.com
 - password: 12345678
 ##### ○店舗代表者（店舗：牛助）
 - email:    manager2@example.com
 - password: 12345678
-##### ○テストユーザー1 　←【ユーザー側　動作確認テスト向き】
+##### ○テストユーザー1 　←【動作確認テスト向き】
 - email:    user1@example.com
 - password : 12345678
 ##### ○テストユーザー2
