@@ -74,6 +74,7 @@
 - php artisan config:clear
 - php artisan migrate
 - php artisan db:seed
+- php artisan storage:link
 - php artisan serve
 ### .env（編集ファイル）
 #### 変更点1
