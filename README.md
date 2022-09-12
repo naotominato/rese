@@ -76,15 +76,15 @@
 - php artisan migrate
 - php artisan db:seed
 - php artisan serve
-#### .env（編集ファイル）
-##### 変更点1
+### .env（編集ファイル）
+#### 変更点1
 - DB_CONNECTION=mysql
 - DB_HOST=127.0.0.1
 - DB_PORT=3306
 - DB_DATABASE=laravel ←任意のDBに変更
 - DB_USERNAME=root　←使用者の設定に合わせる
 - DB_PASSWORD=　←使用者の設定に合わせる
-##### 変更点2 (Mailtrap使用の場合、下記の内容に変更する）
+#### 変更点2 (Mailtrap使用の場合、下記の内容に変更）
 - MAIL_MAILER=smtp
 - MAIL_HOST=smtp.mailtrap.io
 - MAIL_PORT=2525
@@ -93,7 +93,7 @@
 - MAIL_ENCRYPTION=tls
 - MAIL_FROM_ADDRESS=test@example.com
 - MAIL_FROM_NAME="${APP_NAME}"
-##### 変更点3（Stripe決済用　テストAPIキー　追記する）
+#### 変更点3（Stripe決済用　テストAPIキー　追記）
 - STRIPE_KEY= ←Stripeの公開可能キー
 - STRIPE_SECRET= ←Stripeのシークレットキー
 
@@ -112,9 +112,6 @@
 - password: 12345678
 ##### 店舗代表者（店舗：牛助）
 - email:    manager2@example.com
-- password: 12345678
-##### 店舗代表者（店舗：戦慄）
-- email:    manager3@example.com
 - password: 12345678
 ##### テストユーザー1 　←【ユーザー側　動作確認テスト向き】
 - email:    user1@example.com
