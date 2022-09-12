@@ -93,7 +93,7 @@
 - MAIL_ENCRYPTION=tls
 - MAIL_FROM_ADDRESS=test@example.com
 - MAIL_FROM_NAME="${APP_NAME}"
-#### 変更点3（Stripe決済用　テストAPIキー　追記）
+#### 　追加点（Stripe決済用　テストAPIキー　追記）
 - STRIPE_KEY= ←Stripeの公開可能キー
 - STRIPE_SECRET= ←Stripeのシークレットキー
 
