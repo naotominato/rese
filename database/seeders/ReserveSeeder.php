@@ -41,7 +41,7 @@ class ReserveSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
-                'shop_id' => 1,
+                'shop_id' => 2,
                 'start' => '2022-09-13 23:00:00',
                 'number' => 3,
             ],
@@ -65,7 +65,7 @@ class ReserveSeeder extends Seeder
             ],
             [
                 'user_id' => 2,
-                'shop_id' => 3,
+                'shop_id' => 1,
                 'start' => '2022-09-14 16:00:00',
                 'number' => 10,
             ],
@@ -83,7 +83,7 @@ class ReserveSeeder extends Seeder
             ],
             [
                 'user_id' => 3,
-                'shop_id' => 3,
+                'shop_id' => 1,
                 'start' => '2022-09-14 12:00:00',
                 'number' => 5,
             ],
