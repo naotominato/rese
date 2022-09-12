@@ -47,7 +47,6 @@
 ## 使用技術（実行環境）
 - Laravel Framework 8.83.23
 - jQuery 3.6.0 (CDN 経由)
-- MySQL
 
 ## テーブル設計
 ![スクリーンショット (89)](https://user-images.githubusercontent.com/103915849/189526054-42abbc8c-e4bb-4b3c-899d-dc34cf305349.png)
